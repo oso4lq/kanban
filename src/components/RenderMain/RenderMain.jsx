@@ -1,9 +1,30 @@
+import ColumnNoStatus from './components/Columns/ColumnNoStatus';
+import ColumnToDo from './components/Columns/ColumnToDo';
+import ColumnInProcess from './components/Columns/ColumnInProcess';
+import ColumnTesting from './components/Columns/ColumnTesting';
+import ColumnReady from './components/Columns/ColumnReady';
+
 function RenderMain({ }) {
-    return <main className="main">
-        <div className="container">
+    return (
+        <main className="main">
+          <div className="container">
             <div className="main__block">
-                <div className="main__content">
-                    <div className="main__column column">
+              <div className="main__content">
+                <ColumnNoStatus />
+                <ColumnToDo />
+                <ColumnInProcess />
+                <ColumnTesting />
+                <ColumnReady />
+              </div>
+            </div>
+          </div>
+        </main >
+    )
+}
+export default RenderMain;
+
+/*
+<div className="main__column column">
                         <div className="column__title">
                             <p>Без статуса</p>
                         </div>
@@ -270,6 +291,8 @@ function RenderMain({ }) {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="main__column">
                         <div className="column__title">
                             <p>Нужно сделать</p>
@@ -329,6 +352,8 @@ function RenderMain({ }) {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="main__column">
                         <div className="column__title">
                             <p>В работе</p>
@@ -492,6 +517,8 @@ function RenderMain({ }) {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="main__column">
                         <div className="column__title">
                             <p>Тестирование</p>
@@ -551,6 +578,8 @@ function RenderMain({ }) {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="main__column">
                         <div className="column__title">
                             <p>Готово</p>
@@ -610,9 +639,4 @@ function RenderMain({ }) {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </main>
-}
-export default RenderMain;
+                    */
