@@ -1,7 +1,3 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-
 import PopExit from './components/PopExit/PopExit';
 import PopNewCard from './components/PopNewCard/PopNewCard';
 import PopBrowse from './components/PopBrowse/PopBrowse';
