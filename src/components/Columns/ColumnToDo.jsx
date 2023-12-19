@@ -1,4 +1,4 @@
-function ColumnToDo({ }) {
+function ColumnToDo() {
     return <div className="main__column">
         <div className="column__title">
             <p>Нужно сделать</p>

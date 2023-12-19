@@ -1,4 +1,4 @@
-function popBrowse({ }) {
+function popBrowse() {
     return <div className="pop-browse" id="popBrowse">
         <div className="pop-browse__container">
             <div className="pop-browse__block">

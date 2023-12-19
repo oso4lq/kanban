@@ -1,4 +1,4 @@
-function RenderHeader({ }) {
+function RenderHeader() {
     return <header className="header">
         <div className="container">
             <div className="header__block">

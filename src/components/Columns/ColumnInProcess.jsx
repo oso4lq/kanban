@@ -1,4 +1,4 @@
-function ColumnInProcess({ }) {
+function ColumnInProcess() {
     return <div className="main__column">
         <div className="column__title">
             <p>В работе</p>
