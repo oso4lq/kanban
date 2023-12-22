@@ -4,28 +4,28 @@ function popBrowse() {
             <div className="pop-browse__block">
                 <div className="pop-browse__content">
                     <div className="pop-browse__top-block">
-                        <h3 className="pop-browse__ttl">Название задачи</h3>
+                        <h3 className="pop-browse__ttl">Task name</h3>
                         <div className="categories__theme theme-top _orange _active-category">
                             <p className="_orange">Web Design</p>
                         </div>
                     </div>
                     <div className="pop-browse__status status">
-                        <p className="status__p subttl">Статус</p>
+                        <p className="status__p subttl">Status</p>
                         <div className="status__themes">
                             <div className="status__theme _hide">
-                                <p>Без статуса</p>
+                                <p>No status</p>
                             </div>
                             <div className="status__theme _gray">
-                                <p className="_gray">Нужно сделать</p>
+                                <p className="_gray">To do</p>
                             </div>
                             <div className="status__theme _hide">
-                                <p>В работе</p>
+                                <p>In process</p>
                             </div>
                             <div className="status__theme _hide">
-                                <p>Тестирование</p>
+                                <p>Testing</p>
                             </div>
                             <div className="status__theme _hide">
-                                <p>Готово</p>
+                                <p>Ready</p>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ function popBrowse() {
                         >
                             <div className="form-browse__block">
                                 <label htmlFor="textArea01" className="subttl">
-                                    Описание задачи
+                                    Task description
                                 </label>
                                 <textarea
                                     className="form-browse__area"
@@ -50,10 +50,10 @@ function popBrowse() {
                             </div>
                         </form>
                         <div className="pop-new-card__calendar calendar">
-                            <p className="calendar__ttl subttl">Даты</p>
+                            <p className="calendar__ttl subttl">Dates</p>
                             <div className="calendar__block">
                                 <div className="calendar__nav">
-                                    <div className="calendar__month">Сентябрь 2023</div>
+                                    <div className="calendar__month">September 2023</div>
                                     <div className="nav__actions">
                                         <div className="nav__action" data-action="prev">
                                             <svg
@@ -79,13 +79,13 @@ function popBrowse() {
                                 </div>
                                 <div className="calendar__content">
                                     <div className="calendar__days-names">
-                                        <div className="calendar__day-name">пн</div>
-                                        <div className="calendar__day-name">вт</div>
-                                        <div className="calendar__day-name">ср</div>
-                                        <div className="calendar__day-name">чт</div>
-                                        <div className="calendar__day-name">пт</div>
-                                        <div className="calendar__day-name -weekend-">сб</div>
-                                        <div className="calendar__day-name -weekend-">вс</div>
+                                        <div className="calendar__day-name">MO</div>
+                                        <div className="calendar__day-name">TU</div>
+                                        <div className="calendar__day-name">WE</div>
+                                        <div className="calendar__day-name">TH</div>
+                                        <div className="calendar__day-name">FR</div>
+                                        <div className="calendar__day-name -weekend-">SA</div>
+                                        <div className="calendar__day-name -weekend-">SU</div>
                                     </div>
                                     <div className="calendar__cells">
                                         <div className="calendar__cell _other-month">28</div>
@@ -136,7 +136,7 @@ function popBrowse() {
                                 />
                                 <div className="calendar__period">
                                     <p className="calendar__p date-end">
-                                        Срок исполнения:{" "}
+                                        Do until:{" "}
                                         <span className="date-control">09.09.23</span>
                                     </p>
                                 </div>
@@ -144,7 +144,7 @@ function popBrowse() {
                         </div>
                     </div>
                     <div className="theme-down__categories theme-down">
-                        <p className="categories__p subttl">Категория</p>
+                        <p className="categories__p subttl">Category</p>
                         <div className="categories__theme _orange _active-category">
                             <p className="_orange">Web Design</p>
                         </div>
@@ -152,33 +152,33 @@ function popBrowse() {
                     <div className="pop-browse__btn-browse ">
                         <div className="btn-group">
                             <button className="btn-browse__edit _btn-bor _hover03">
-                                <a href="#">Редактировать задачу</a>
+                                <a href="#">Edit task</a>
                             </button>
                             <button className="btn-browse__delete _btn-bor _hover03">
-                                <a href="#">Удалить задачу</a>
+                                <a href="#">Delete task</a>
                             </button>
                         </div>
                         <button className="btn-browse__close _btn-bg _hover01">
-                            <a href="#">Закрыть</a>
+                            <a href="#">Close</a>
                         </button>
                     </div>
                     <div className="pop-browse__btn-edit _hide">
                         <div className="btn-group">
                             <button className="btn-edit__edit _btn-bg _hover01">
-                                <a href="#">Сохранить</a>
+                                <a href="#">Save</a>
                             </button>
                             <button className="btn-edit__edit _btn-bor _hover03">
-                                <a href="#">Отменить</a>
+                                <a href="#">Cancel</a>
                             </button>
                             <button
                                 className="btn-edit__delete _btn-bor _hover03"
                                 id="btnDelete"
                             >
-                                <a href="#">Удалить задачу</a>
+                                <a href="#">Delete task</a>
                             </button>
                         </div>
                         <button className="btn-edit__close _btn-bg _hover01">
-                            <a href="#">Закрыть</a>
+                            <a href="#">Close</a>
                         </button>
                     </div>
                 </div>
