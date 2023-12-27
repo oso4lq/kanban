@@ -3,7 +3,7 @@ function popNewCard() {
         <div className="pop-new-card__container">
             <div className="pop-new-card__block">
                 <div className="pop-new-card__content">
-                    <h3 className="pop-new-card__ttl">Создание задачи</h3>
+                    <h3 className="pop-new-card__ttl">Creating a new task</h3>
                     <a href="#" className="pop-new-card__close">
                         ✖
                     </a>
@@ -15,35 +15,35 @@ function popNewCard() {
                         >
                             <div className="form-new__block">
                                 <label htmlFor="formTitle" className="subttl">
-                                    Название задачи
+                                    Task name
                                 </label>
                                 <input
                                     className="form-new__input"
                                     type="text"
                                     name="name"
                                     id="formTitle"
-                                    placeholder="Введите название задачи..."
-                                    autofocus=""
+                                    placeholder="Enter task name..."
+                                    autoFocus=""
                                 />
                             </div>
                             <div className="form-new__block">
                                 <label htmlFor="textArea" className="subttl">
-                                    Описание задачи
+                                    Task description
                                 </label>
                                 <textarea
                                     className="form-new__area"
                                     name="text"
                                     id="textArea"
-                                    placeholder="Введите описание задачи..."
+                                    placeholder="Enter task description..."
                                     defaultValue={""}
                                 />
                             </div>
                         </form>
                         <div className="pop-new-card__calendar calendar">
-                            <p className="calendar__ttl subttl">Даты</p>
+                            <p className="calendar__ttl subttl">Dates</p>
                             <div className="calendar__block">
                                 <div className="calendar__nav">
-                                    <div className="calendar__month">Сентябрь 2023</div>
+                                    <div className="calendar__month">September 2023</div>
                                     <div className="nav__actions">
                                         <div className="nav__action" data-action="prev">
                                             <svg
@@ -69,13 +69,13 @@ function popNewCard() {
                                 </div>
                                 <div className="calendar__content">
                                     <div className="calendar__days-names">
-                                        <div className="calendar__day-name">пн</div>
-                                        <div className="calendar__day-name">вт</div>
-                                        <div className="calendar__day-name">ср</div>
-                                        <div className="calendar__day-name">чт</div>
-                                        <div className="calendar__day-name">пт</div>
-                                        <div className="calendar__day-name -weekend-">сб</div>
-                                        <div className="calendar__day-name -weekend-">вс</div>
+                                        <div className="calendar__day-name">MO</div>
+                                        <div className="calendar__day-name">TU</div>
+                                        <div className="calendar__day-name">WE</div>
+                                        <div className="calendar__day-name">TH</div>
+                                        <div className="calendar__day-name">FR</div>
+                                        <div className="calendar__day-name -weekend-">SA</div>
+                                        <div className="calendar__day-name -weekend-">SU</div>
                                     </div>
                                     <div className="calendar__cells">
                                         <div className="calendar__cell _other-month">28</div>
@@ -124,14 +124,14 @@ function popNewCard() {
                                 />
                                 <div className="calendar__period">
                                     <p className="calendar__p date-end">
-                                        Выберите срок исполнения <span className="date-control" />.
+                                        Choose deadline <span className="date-control" />
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="pop-new-card__categories categories">
-                        <p className="categories__p subttl">Категория</p>
+                        <p className="categories__p subttl">Category</p>
                         <div className="categories__themes">
                             <div className="categories__theme _orange _active-category">
                                 <p className="_orange">Web Design</p>
@@ -145,7 +145,7 @@ function popNewCard() {
                         </div>
                     </div>
                     <button className="form-new__create _hover01" id="btnCreate">
-                        Создать задачу
+                        Create task
                     </button>
                 </div>
             </div>

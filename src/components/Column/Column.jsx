@@ -1,19 +1,23 @@
 import Card from "../Card/Card"
 
-function Column({ title }) {
+function Column({ title, cardList }) {
     return <div className="main__column">
         <div className="column__title">
             <p>{title}</p>
         </div>
         <div className="cards">
-            
-            <Card theme={""} name={""} date={""}/>
-            <Card theme={""} name={""} date={""}/>
-            <Card theme={""} name={""} date={""}/>
+
+            {cardList.map((card) => (
+                <Card
+                    key={card.id}
+                    theme={card.theme}
+                    title={card.title}
+                    date={card.date}
+                    status={card.status} />
+            ))}
 
         </div>
     </div>
-
 }
 
 export default Column;

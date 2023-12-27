@@ -1,4 +1,10 @@
-function Header() {
+import { useState } from "react";
+
+function Header({addCard}) {
+    const [isOpened, setIsOpened] = useState(false);
+    function togglePopUp() {
+        setIsOpened((prev) => !prev)
+    }
     return <header className="header">
         <div className="container">
             <div className="header__block">
@@ -13,15 +19,15 @@ function Header() {
                     </a>
                 </div>
                 <nav className="header__nav">
-                    <button className="header__btn-main-new _hover01" id="btnMainNew">
-                        <a href="#popNewCard">Create new task</a>
+                    <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
+                        Create new task
                     </button>
-                    <a href="#user-set-target" className="header__user _hover02">
+                    <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
                         Authorised Osetr
                     </a>
-                    <div
+                    {isOpened && <div
                         className="header__pop-user-set pop-user-set"
-                        id="user-set-target"
+                    //id="user-set-target"
                     >
                         {/* <a href="">x</a> */}
                         <p className="pop-user-set__name">Authorised Osetr</p>
@@ -31,9 +37,10 @@ function Header() {
                             <input type="checkbox" className="checkbox" name="checkbox" />
                         </div>
                         <button type="button" className="_hover03">
-                            <a href="#popExit">Exit</a>
+                            <a href="#popExit">Log out</a>
                         </button>
-                    </div>
+                    </div>}
+
                 </nav>
             </div>
         </div>

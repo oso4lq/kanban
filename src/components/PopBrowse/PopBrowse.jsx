@@ -44,7 +44,7 @@ function popBrowse() {
                                     name="text"
                                     id="textArea01"
                                     readOnly=""
-                                    placeholder="Введите описание задачи..."
+                                    placeholder="Enter task description..."
                                     defaultValue={""}
                                 />
                             </div>

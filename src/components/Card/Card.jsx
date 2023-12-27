@@ -1,4 +1,4 @@
-function Card({ name, theme, date }) {
+function Card({ title, theme, date }) {
     return <div className="cards__item">
     <div className="cards__card card">
         <div className="card__group">
@@ -15,7 +15,7 @@ function Card({ name, theme, date }) {
         </div>
         <div className="card__content">
             <a href="#" target="_blank">
-                <h3 className="card__title">{name}</h3>
+                <h3 className="card__title">{title}</h3>
             </a>
             <div className="card__date">
                 <svg
