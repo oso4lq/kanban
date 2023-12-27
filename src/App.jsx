@@ -1,32 +1,26 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-
 import PopExit from './components/PopExit/PopExit';
 import PopNewCard from './components/PopNewCard/PopNewCard';
 import PopBrowse from './components/PopBrowse/PopBrowse';
-import RenderHeader from './components/RenderHeader/RenderHeader';
-import RenderMain from './components/RenderMain/RenderMain';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 import './App.css'
 
 function App() {
 
   return (
-    <>
 
-      <div className="wrapper">
+    <div className="wrapper">
 
-        <PopExit />
-        <PopNewCard />
-        <PopBrowse />
-        <RenderHeader />
-        <RenderMain />
+      <PopExit />
+      <PopNewCard />
+      <PopBrowse />
+      <Header />
 
-      </div>
+      <Main />
 
+    </div >
 
-    </>
   )
 }
 
