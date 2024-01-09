@@ -709,7 +709,9 @@ body {
 ._hide {
   display: none;
 }
-
+._light {
+  display: block;
+}
 ._dark {
   display: none;
 }

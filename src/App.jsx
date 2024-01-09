@@ -12,7 +12,7 @@ import { cardList } from './data';
 
 // Styles
 import './App.css'
-import { StyledButton } from './components/Button/StyledButton.styled.js';
+//import { StyledButton } from './components/Button/StyledButton.styled.js';
 import { lightTheme, darkTheme, GlobalStyle, ThemeProvider } from './components/Themes/Themes.styled.js';
 
 function App() {
@@ -40,26 +40,26 @@ function App() {
     ])
   };
 
-  // Toggle theme
+  // Toggle theme function
   const [theme, setTheme] = useState('light');
   const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark');
-      console.log('dark');
+      //console.log('dark theme');
     } else {
       setTheme('light');
-      console.log('light');
+      //console.log('light theme');
     }
   };
 
   // Rendering
+  //<StyledButton onClick={toggleTheme}>Toggle theme</StyledButton>
+
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
 
       <Wrapper>
-
-        <StyledButton onClick={toggleTheme}>Toggle theme</StyledButton>
 
         <PopExit />
         <PopNewCard />
