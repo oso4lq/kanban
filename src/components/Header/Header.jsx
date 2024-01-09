@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Header({addCard}) {
+function Header({addCard, toggleTheme}) {
     const [isOpened, setIsOpened] = useState(false);
     function togglePopUp() {
         setIsOpened((prev) => !prev)
@@ -34,7 +34,7 @@ function Header({addCard}) {
                         <p className="pop-user-set__mail">authorised.osetr@gmail.com</p>
                         <div className="pop-user-set__theme">
                             <p>Dark theme</p>
-                            <input type="checkbox" className="checkbox" name="checkbox" />
+                            <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme}/>
                         </div>
                         <button type="button" className="_hover03">
                             <a href="#popExit">Log out</a>
