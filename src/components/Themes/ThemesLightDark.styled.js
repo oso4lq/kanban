@@ -1,13 +1,16 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+const mainColorLight = '#FFFFFF';
+const mainColorDark = '#20202C';
+
 const lightTheme = {
   body: '#EAEEF6',
   text: '#000000',
   main: '#EAEEF6',
-  div: '#FFFFFF',
-  card: '#FFFFFF',
+  div: mainColorLight,
+  card: mainColorLight,
 
-  header: '#FFFFFF',
+  header: mainColorLight,
   headerLogoDisplayLight: 'block',
   headerLogoDisplayDark: 'none',
   headerUserText: '#565EEF',
@@ -23,10 +26,10 @@ const darkTheme = {
   body: '#151419',
   text: '#FFFFFF',
   main: '#151419',
-  div: '#20202C',
-  card: '#20202C',
+  div: mainColorDark,
+  card: mainColorDark,
 
-  header: '#20202C',
+  header: mainColorDark,
   headerLogoDisplayLight: 'none',
   headerLogoDisplayDark: 'block',
   headerUserText: '#FFFFFF',

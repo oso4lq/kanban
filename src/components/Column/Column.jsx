@@ -11,6 +11,7 @@ function Column({ title, cardList }) {
                 <Card
                     key={card.id}
                     theme={card.theme}
+                    themeColor={card.themeColor}
                     title={card.title}
                     date={card.date}
                     status={card.status} />

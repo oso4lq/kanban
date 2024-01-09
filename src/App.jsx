@@ -26,6 +26,8 @@ function App() {
     }, 2000)
   }, []);
 
+  //new Date()
+
   // Add card function
   const [cards, setCards] = useState(cardList);
   const addCard = () => {
@@ -33,8 +35,8 @@ function App() {
       ...cards,
       {
         id: cards.length + 1,
-        theme: 'Web Design',
-        title: 'Task name 1',
+        theme: 'No theme',
+        title: 'No name',
         date: '26.12.23',
         status: 'No status',
       }
@@ -54,22 +56,18 @@ function App() {
   };
 
   // Rendering
-  //<StyledButton onClick={toggleTheme}>Toggle theme</StyledButton>
-
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+
       <GlobalStyle />
       <GlobalStyleLightDark />
 
       <Wrapper>
-
         <PopExit />
         <PopNewCard />
         <PopBrowse />
-        <Header addCard={addCard} toggleTheme={toggleTheme}/>
-
+        <Header addCard={addCard} toggleTheme={toggleTheme} />
         <Main isLoaded={isLoaded} cardList={cards} />
-
       </Wrapper>
 
     </ThemeProvider>

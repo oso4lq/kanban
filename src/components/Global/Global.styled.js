@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+//import { breakpoints } from "../Breakpoints/Breakpoints.styled.js";
+
 export const GlobalStyle = createGlobalStyle`
 * {
   margin: 0;
@@ -914,6 +916,22 @@ body {
   color: #94A6BE;
   letter-spacing: 0.2px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//breakpoints[xl]
+
 
 @media screen and (max-width: 1200px) {
   .main__block {
