@@ -1,9 +1,10 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const lightTheme = {
-  //body: '#EAEEF6',
+  body: '#EAEEF6',
   text: '#000000',
   main: '#EAEEF6',
+  div: '#FFFFFF',
   card: '#FFFFFF',
 
   header: '#FFFFFF',
@@ -19,9 +20,10 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  //body: '#151419',
+  body: '#151419',
   text: '#FFFFFF',
   main: '#151419',
+  div: '#20202C',
   card: '#20202C',
 
   header: '#20202C',
@@ -36,15 +38,14 @@ const darkTheme = {
   headerPopUserSetCheckboxBefore: '#565EEF',  
 };
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyleLightDark = createGlobalStyle`
 //  GENERAL
   html, body {
-    //background-color: ${props => props.theme.body};
-    //color: ${props => props.theme.text};
-    //transition: all 0.25s linear;
+    background-color: ${props => props.theme.body};
+    color: ${props => props.theme.text};
+    transition: all 0.25s linear;
 
     width: 100%;
-    height: 100%;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
   }
   ul li {
@@ -71,12 +72,12 @@ const GlobalStyle = createGlobalStyle`
     display: ${props => props.theme.headerLogoDisplayDark};
     transition: all 0.25s linear;
   }
-
-  //  HEADER POP USER
   .header__user {
     color: ${props => props.theme.headerUserText};
     transition: all 0.25s linear;
   }
+
+  //  HEADER POP USER
   .header__pop-user-set {
     background-color: ${props => props.theme.headerPopUserSet};
     border: ${props => props.theme.headerPopUserSetBorder};
@@ -109,9 +110,30 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.25s linear;
   }
 
+  //  POP EXIT
+  .pop-exit__block {
+    background-color: ${props => props.theme.div};
+  }
+  /*
+  .pop-exit__exit-yes {
+  }
+  .pop-exit__exit-yes a {
+  }
+  */
+  .pop-exit__exit-no {
+    color: ${props => props.theme.headerPopUserSetButton};
+    border: 1px solid ${props => props.theme.headerPopUserSetButton};
+    //transition: all 0.25s linear;
+  }
+  .pop-exit__exit-no a {
+    color: ${props => props.theme.headerPopUserSetButton};
+    //transition: all 0.25s linear;
+  }
+
   //  MAIN
   .main {
     width: 100%;
+    //height: 700px;
     background-color: ${props => props.theme.main};
     transition: all 0.25s linear;
   }
@@ -127,4 +149,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export { lightTheme, darkTheme, GlobalStyle, ThemeProvider }
+export { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider }

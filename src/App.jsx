@@ -11,9 +11,10 @@ import { useEffect, useState } from 'react';
 import { cardList } from './data';
 
 // Styles
-import './App.css'
+//import './App.css'
+import { GlobalStyle } from './components/Global/Global.styled.js';
 //import { StyledButton } from './components/Button/StyledButton.styled.js';
-import { lightTheme, darkTheme, GlobalStyle, ThemeProvider } from './components/Themes/Themes.styled.js';
+import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
+      <GlobalStyleLightDark />
 
       <Wrapper>
 
