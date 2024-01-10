@@ -1,25 +1,26 @@
-import { ThemeP, CardTheme } from "../Themes/ThemesCardColor.styled";
+import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent, CardDate, CardDateP } from "./Card.styled";
 
-/*
-sourse code changed on lines ~21-23:
-<div className="card__theme _green">
-    <p className="_green"></p>
-</div>
-*/
-
-/*
-sourse code changed on lines ~33-34:
-<div className="card__content">
-    <a href="#" target="_blank">
-*/
-
-function Card({ title, theme, themeColor, date }) {
-    return <div className="cards__item">
-        <div className="cards__card card">
-            <div className="card__group">
-
-                <CardTheme $themeColor = {themeColor}>
-                    <ThemeP>{theme}</ThemeP>
+function Card({ title, theme, date }) {
+    let themeColor;
+    switch (theme) {
+        case 'Web Design':
+            themeColor = '_orange';
+            break;
+        case 'Research':
+            themeColor = '_green';
+            break;
+        case 'Copywriting':
+            themeColor = '_purple';
+            break;
+        default:
+            themeColor = '_gray';
+            break;
+    }
+    return <CardItem>
+        <CardContainer>
+            <CardGroup>
+                <CardTheme $themeColor={themeColor}>
+                    <CardThemeP>{theme}</CardThemeP>
                 </CardTheme>
 
                 <a href="#popBrowse" target="_self">
@@ -29,12 +30,15 @@ function Card({ title, theme, themeColor, date }) {
                         <div />
                     </div>
                 </a>
-            </div>
-            <div className="card__content">
+
+            </CardGroup>
+            <CardContent>
+
                 <a href="#popBrowse" target="_self">
                     <h3 className="card__title">{title}</h3>
                 </a>
-                <div className="card__date">
+
+                <CardDate>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={13}
@@ -63,11 +67,11 @@ function Card({ title, theme, themeColor, date }) {
                             </clipPath>
                         </defs>
                     </svg>
-                    <p>{date}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <CardDateP>{date}</CardDateP>
+                </CardDate>
+            </CardContent>
+        </CardContainer>
+    </CardItem>
 }
 
 export default Card;

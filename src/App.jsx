@@ -12,7 +12,8 @@ import { cardList } from './data';
 
 // Styles
 //import './App.css'
-import { GlobalStyle } from './components/Global/Global.styled.js';
+import { GlobalStyle } from './Global/Global.styled.js';
+import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
 import { Button } from './components/Button/Button.styled.js';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
 
@@ -58,8 +59,8 @@ function App() {
   // Rendering
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-
       <GlobalStyle />
+      <GlobalStyleALL />
       <GlobalStyleLightDark />
 
       <Button>press me</Button>

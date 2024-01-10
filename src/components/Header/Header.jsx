@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../Button/Button.styled";
+import { Container } from "../Common/Common.styled";
 
 /*
 <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
@@ -11,13 +12,13 @@ import Button from "../Button/Button.styled";
 </button>
 */
 
-function Header({addCard, toggleTheme}) {
+function Header({ addCard, toggleTheme }) {
     const [isOpened, setIsOpened] = useState(false);
     function togglePopUp() {
         setIsOpened((prev) => !prev)
     }
     return <header className="header">
-        <div className="container">
+        <Container>
             <div className="header__block">
                 <div className="header__logo _show _light">
                     <a href="" target="_self">
@@ -34,7 +35,7 @@ function Header({addCard, toggleTheme}) {
                     <Button id="btnMainNew" onClick={addCard}>
                         Create new task
                     </Button>
-                    
+
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
                         Authorised Osetr
                     </a>
@@ -47,18 +48,18 @@ function Header({addCard, toggleTheme}) {
                         <p className="pop-user-set__mail">authorised.osetr@gmail.com</p>
                         <div className="pop-user-set__theme">
                             <p>Dark theme</p>
-                            <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme}/>
+                            <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} />
                         </div>
-                        
+
                         <Button $transparent>
                             <a href="#popExit">Log out</a>
                         </Button>
-                        
+
                     </div>}
 
                 </nav>
             </div>
-        </div>
+        </Container>
     </header>
 }
 export default Header;

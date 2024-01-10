@@ -2,8 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 //import { breakpoints } from "../Breakpoints/Breakpoints.styled.js";
 
-export const GlobalStyle = createGlobalStyle`
-* {
+export const GlobalStyleALL = createGlobalStyle`
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -28,7 +28,7 @@ button,
 
 ul li {
   list-style: none;
-}
+} */
 
 @keyframes card-animation {
   0% {
@@ -837,13 +837,13 @@ body {
   position: relative;
 }
 .cards__item {
-  padding: 5px;
+  /* padding: 5px;
   animation-name: card-animation;
   animation-duration: 500ms;
-  animation-timing-function: linear;
+  animation-timing-function: linear; */
 }
 .cards__card {
-  width: 220px;
+  /* width: 220px;
   height: 130px;
   background-color: #FFFFFF;
   border-radius: 10px;
@@ -851,16 +851,16 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
-  padding: 15px 13px 19px;
+  padding: 15px 13px 19px; */
 }
 
 .card__group {
-  width: 100%;
+  /* width: 100%;
   height: 20px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 .card__theme {
   width: auto;
@@ -895,26 +895,26 @@ body {
   margin-bottom: 10px;
 }
 .card__content {
-  height: 64px;
+  /* height: 64px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 .card__date {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; */
 }
 .card__date svg {
   width: 13px;
 }
 .card__date p {
-  margin-left: 6px;
+  /* margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
   color: #94A6BE;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.2px; */
 }
 
 
@@ -1022,9 +1022,9 @@ body {
   }
 }
 @media screen and (max-width: 495px) {
-  .container {
+  /* .container {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 16px; */
   }
   .header__btn-main-new {
     z-index: 3;
