@@ -814,27 +814,27 @@ body {
   display: flex;
 }
 .main__column {
-  width: 20%;
+  /* width: 20%;
   margin: 0 auto;
-  display: block;
+  display: block; */
 }
 
 .column__title {
-  padding: 0 10px;
-  margin: 15px 0;
+   /* padding: 0 10px;
+  margin: 15px 0;  */
 }
 .column__title p {
-  color: #94A6BE;
+   /* color: #94A6BE;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-  text-transform: uppercase;
+  text-transform: uppercase;  */
 }
 
 .cards {
-  width: 100%;
+   /* width: 100%;
   display: block;
-  position: relative;
+  position: relative;  */
 }
 .cards__item {
   /* padding: 5px;
@@ -943,17 +943,17 @@ body {
     display: block;
   }
   .main__column {
-    width: 100%;
+    /* width: 100%;
     margin: 0 auto;
-    display: block;
+    display: block; */
   }
   .cards {
-    width: 100%;
+    /* width: 100%;
     display: flex;
-    overflow-y: auto;
+    overflow-y: auto; */
   }
   .cards__card {
-    width: 220px;
+    /* width: 220px;
     height: 130px;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -961,7 +961,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: stretch;
-    padding: 15px 13px 19px;
+    padding: 15px 13px 19px; */
   }
 }
 @media screen and (max-width: 660px) {
@@ -1022,8 +1022,8 @@ body {
   }
 }
 @media screen and (max-width: 495px) {
-  /* .container {
-    width: 100%;
+  .container {
+    /* width: 100%;
     padding: 0 16px; */
   }
   .header__btn-main-new {
