@@ -721,6 +721,11 @@ body {
   display: none;
 }
 
+
+
+
+
+
 .header {
   /* width: 100%;
   margin: 0 auto;
@@ -799,6 +804,15 @@ body {
   text-align: center;
   z-index: 2;
 }
+
+
+
+
+
+
+
+
+
 
 .main {
   /* width: 100%;
@@ -930,12 +944,11 @@ body {
 
 
 
-//breakpoints[xl]
 
 
 @media screen and (max-width: 1200px) {
-  /* .main__block {
-    width: 100%;
+  .main__block {
+    /*width: 100%;
     margin: 0 auto;
     padding: 40px 0 64px; */
   }
