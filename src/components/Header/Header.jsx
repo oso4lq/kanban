@@ -1,25 +1,16 @@
 import { useState } from "react";
-import Button from "../Button/Button.styled";
-import { Container } from "../Common/Common.styled";
-
-/*
-<button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
-    Create new task
-</button>
-
-<button type="button" className="_hover03">
-    <a href="#popExit">Log out</a>
-</button>
-*/
+//import Button from "../Button/Button.styled";
+import { Container, Button } from "../Common/Common.styled";
+import { HeaderBox, HeaderBlock, HeaderNav } from "./Header.styled";
 
 function Header({ addCard, toggleTheme }) {
     const [isOpened, setIsOpened] = useState(false);
     function togglePopUp() {
         setIsOpened((prev) => !prev)
     }
-    return <header className="header">
+    return <HeaderBox>
         <Container>
-            <div className="header__block">
+            <HeaderBlock>
                 <div className="header__logo _show _light">
                     <a href="" target="_self">
                         <img src="public/logo.png" alt="logo" />
@@ -30,7 +21,7 @@ function Header({ addCard, toggleTheme }) {
                         <img src="public/logo_dark.png" alt="logo" />
                     </a>
                 </div>
-                <nav className="header__nav">
+                <HeaderNav>
 
                     <Button id="btnMainNew" onClick={addCard}>
                         Create new task
@@ -39,6 +30,7 @@ function Header({ addCard, toggleTheme }) {
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
                         Authorised Osetr
                     </a>
+
                     {isOpened && <div
                         className="header__pop-user-set pop-user-set"
                     //id="user-set-target"
@@ -57,9 +49,9 @@ function Header({ addCard, toggleTheme }) {
 
                     </div>}
 
-                </nav>
-            </div>
+                </HeaderNav>
+            </HeaderBlock>
         </Container>
-    </header>
+    </HeaderBox>
 }
 export default Header;

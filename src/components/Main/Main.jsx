@@ -1,5 +1,6 @@
 import Column from '../Column/Column';
 import { Container } from '../Common/Common.styled';
+import { MainBox, MainBlock, MainContent } from './Main.styled';
 
 export const statusList = [
     'No status',
@@ -10,10 +11,10 @@ export const statusList = [
 ];
 
 function Main({ cardList, isLoaded }) {
-    return <main className="main">
+    return <MainBox>
         <Container>
-            <div className="main__block">
-                <div className="main__content">
+            <MainBlock>
+                <MainContent>
 
                     {
                         isLoaded ? 'Loading' :
@@ -26,9 +27,9 @@ function Main({ cardList, isLoaded }) {
                             ))
                     }
 
-                </div>
-            </div>
+                </MainContent>
+            </MainBlock>
         </Container>
-    </main >
+    </MainBox >
 }
 export default Main;
