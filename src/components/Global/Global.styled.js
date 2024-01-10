@@ -25,10 +25,10 @@ button,
   cursor: pointer;
   outline: none;
 }
-/*
+
 ul li {
   list-style: none;
-}*/
+}
 
 @keyframes card-animation {
   0% {
@@ -40,13 +40,13 @@ ul li {
     opacity: 1;
   }
 }
-/*
+
 html,
 body {
   width: 100%;
   height: 100%;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-  color: #000000;
+  //color: #000000;
 }
 
 .wrapper {
@@ -54,9 +54,9 @@ body {
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #F1F1F1;
+  //background-color: #F1F1F1;
 }
-*/
+
 .container {
   max-width: 1260px;
   width: 100%;

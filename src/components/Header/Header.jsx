@@ -1,4 +1,15 @@
 import { useState } from "react";
+import Button from "../Button/Button.styled";
+
+/*
+<button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
+    Create new task
+</button>
+
+<button type="button" className="_hover03">
+    <a href="#popExit">Log out</a>
+</button>
+*/
 
 function Header({addCard, toggleTheme}) {
     const [isOpened, setIsOpened] = useState(false);
@@ -19,9 +30,11 @@ function Header({addCard, toggleTheme}) {
                     </a>
                 </div>
                 <nav className="header__nav">
-                    <button className="header__btn-main-new _hover01" id="btnMainNew" onClick={addCard}>
+
+                    <Button id="btnMainNew" onClick={addCard}>
                         Create new task
-                    </button>
+                    </Button>
+                    
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
                         Authorised Osetr
                     </a>
@@ -36,9 +49,11 @@ function Header({addCard, toggleTheme}) {
                             <p>Dark theme</p>
                             <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme}/>
                         </div>
-                        <button type="button" className="_hover03">
+                        
+                        <Button $transparent>
                             <a href="#popExit">Log out</a>
-                        </button>
+                        </Button>
+                        
                     </div>}
 
                 </nav>

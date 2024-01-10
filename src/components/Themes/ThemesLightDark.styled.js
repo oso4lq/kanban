@@ -38,28 +38,15 @@ const darkTheme = {
   headerPopUserSetBoxShadow: '0px 10px 39px 0px rgba(148, 166, 190, 0.40)',
   headerPopUserSetButton: '#FFFFFF',
   headerPopUserSetCheckbox: '#FFFFFF',
-  headerPopUserSetCheckboxBefore: '#565EEF',  
+  headerPopUserSetCheckboxBefore: '#565EEF',
 };
 
 const GlobalStyleLightDark = createGlobalStyle`
-//  GENERAL
+  //  GENERAL
   html, body {
     background-color: ${props => props.theme.body};
     color: ${props => props.theme.text};
     transition: all 0.25s linear;
-
-    width: 100%;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-  }
-  ul li {
-    list-style: none;
-  }
-  .wrapper {
-    max-width: 100%;
-    width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
-    //background-color: #F1F1F1;
   }
 
   //  HEADER

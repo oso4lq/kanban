@@ -13,7 +13,7 @@ import { cardList } from './data';
 // Styles
 //import './App.css'
 import { GlobalStyle } from './components/Global/Global.styled.js';
-//import { StyledButton } from './components/Button/StyledButton.styled.js';
+import { Button } from './components/Button/Button.styled.js';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
 
 function App() {
@@ -61,6 +61,9 @@ function App() {
 
       <GlobalStyle />
       <GlobalStyleLightDark />
+
+      <Button>press me</Button>
+      <Button $transparent>press me</Button>
 
       <Wrapper>
         <PopExit />
