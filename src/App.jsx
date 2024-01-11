@@ -14,7 +14,7 @@ import { cardList } from './data';
 //import './App.css'
 import { GlobalStyle } from './Global/Global.styled.js';
 import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
-import { Button } from './components/Button/Button.styled.js';
+//import { Button } from './components/Button/Button.styled.js';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
 
 function App() {
@@ -57,20 +57,20 @@ function App() {
   };
 
   // Rendering
+  // <Button>press me</Button>
+  // <Button $transparent>press me</Button>
+
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
       <GlobalStyleALL />
       <GlobalStyleLightDark />
 
-      <Button>press me</Button>
-      <Button $transparent>press me</Button>
-
       <Wrapper>
         <PopExit />
         <PopNewCard />
         <PopBrowse />
-        <Header addCard={addCard} toggleTheme={toggleTheme} />
+        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
         <Main isLoaded={isLoaded} cardList={cards} />
       </Wrapper>
 

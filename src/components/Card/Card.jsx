@@ -17,7 +17,7 @@ function Card({ title, theme, date }) {
             break;
     }
     return <CardItem>
-        <CardContainer>
+        <CardContainer className="cards__card">
             <CardGroup>
                 <CardTheme $themeColor={themeColor}>
                     <CardThemeP>{theme}</CardThemeP>

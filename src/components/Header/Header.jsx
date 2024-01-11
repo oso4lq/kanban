@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import Button from "../Button/Button.styled";
 import { Container, Button } from "../Common/Common.styled";
 import { HeaderBox, HeaderBlock, HeaderNav } from "./Header.styled";
 
@@ -8,7 +7,7 @@ function Header({ addCard, toggleTheme }) {
     function togglePopUp() {
         setIsOpened((prev) => !prev)
     }
-    return <HeaderBox>
+    return <HeaderBox className="header">
         <Container>
             <HeaderBlock>
                 <div className="header__logo _show _light">
