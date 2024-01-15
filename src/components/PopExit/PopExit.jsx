@@ -1,3 +1,14 @@
+import Button from "../Button/Button.styled";
+
+/*
+<button className="pop-exit__exit-yes _hover01" id="exitYes">
+    <a href="modal/signin.html">Yes</a>{" "}
+</button>
+<button className="pop-exit__exit-no _hover03" id="exitNo">
+    <a href="main.html">No, stay</a>{" "}
+</button>
+*/
+
 function popExit() {
     return <div className="pop-exit" id="popExit">
         <div className="pop-exit__container">
@@ -7,12 +18,15 @@ function popExit() {
                 </div>
                 <form className="pop-exit__form" id="formExit" action="#">
                     <div className="pop-exit__form-group">
-                        <button className="pop-exit__exit-yes _hover01" id="exitYes">
+
+                        <Button className="pop-exit__exit-yes" id="exitYes">
                             <a href="modal/signin.html">Yes</a>{" "}
-                        </button>
-                        <button className="pop-exit__exit-no _hover03" id="exitNo">
+                        </Button>
+
+                        <Button $transparent className="pop-exit__exit-no" id="exitNo">
                             <a href="main.html">No, stay</a>{" "}
-                        </button>
+                        </Button>
+
                     </div>
                 </form>
             </div>
