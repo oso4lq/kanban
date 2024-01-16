@@ -1,6 +1,6 @@
-import Button from "../Button/Button.styled";
+import Button from "../components/Button/Button.styled";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../lib/appRoutes";
+import { AppRoutes } from "../lib/appRoutes";
 //import { PopExitBox, PopExitContainer, PopExitBlock } from "./PopExit.styled";
 
 /*
@@ -12,7 +12,7 @@ import { AppRoutes } from "../../lib/appRoutes";
 </button>
 */
 
-function popExit() {
+function ExitPage() {
     return <div className="pop-exit" id="popExit">
         <div className="pop-exit__container">
             <div className="pop-exit__block">
@@ -23,13 +23,13 @@ function popExit() {
                     <div className="pop-exit__form-group">
 
                         <Button className="pop-exit__exit-yes" id="exitYes">
-                            <Link to={AppRoutes.LOGIN}>YES</Link>
-                            <a href="modal/signin.html">Yes</a>{" "}
+                            <Link to={AppRoutes.LOGIN}>YeS</Link>
+                            {/* <a href="modal/signin.html">Yes</a>{" "} */}
                         </Button>
 
                         <Button $transparent className="pop-exit__exit-no" id="exitNo">
-                            <Link to={AppRoutes.HOME}>NO</Link>
-                            <a href="main.html">No, stay</a>{" "}
+                            <Link to={AppRoutes.HOME}>No, staY</Link>
+                            {/* <a href="main.html">No, stay</a>{" "} */}
                         </Button>
 
                     </div>
@@ -39,4 +39,4 @@ function popExit() {
     </div>
 
 }
-export default popExit;
+export default ExitPage;

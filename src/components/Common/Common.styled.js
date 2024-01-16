@@ -36,3 +36,22 @@ export const Button = styled.button`
     }`
 
 export default Button;
+
+export const LogInRegisterDIV = styled.div`
+    display: flex;
+    width: 1440px;
+    padding: 285px 0px 286px 0px;
+    justify-content: center;
+    align-items: center;
+    background: #EAEEF6;
+`
+export const LogInRegisterBox = styled.div`
+    display: flex;
+    padding: 50px 60px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 10px;
+    border: 0.7px solid #D4DBE5;
+    background: #FFF;
+    box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+`
