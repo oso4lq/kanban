@@ -23,12 +23,12 @@ function ExitPage() {
                     <div className="pop-exit__form-group">
 
                         <Button className="pop-exit__exit-yes" id="exitYes">
-                            <Link to={AppRoutes.LOGIN}>YeS</Link>
+                            <Link to={AppRoutes.LOGIN}>Yes</Link>
                             {/* <a href="modal/signin.html">Yes</a>{" "} */}
                         </Button>
 
                         <Button $transparent className="pop-exit__exit-no" id="exitNo">
-                            <Link to={AppRoutes.HOME}>No, staY</Link>
+                            <Link to={AppRoutes.HOME}>No, stay</Link>
                             {/* <a href="main.html">No, stay</a>{" "} */}
                         </Button>
 

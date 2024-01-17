@@ -1,7 +1,7 @@
 export const AppRoutes = {
     HOME: "/",
     EXIT: "/exit",
-    CARD: "/card/:id",
+    CARD: "/card",
     LOGIN: "/login",
     REGISTER: "/register",
     NOT_FOUND: "*",

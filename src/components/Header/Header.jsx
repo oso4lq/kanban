@@ -42,7 +42,7 @@ function Header({ addCard, toggleTheme }) {
                         </div>
 
                         <Button $transparent>
-                            <Link to={AppRoutes.EXIT}>Log ouT</Link>
+                            <Link to={AppRoutes.EXIT}>Log out</Link>
                             {/* <a href="#popExit">Log out</a> */}
                         </Button>
 

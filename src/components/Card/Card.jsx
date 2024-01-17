@@ -26,7 +26,7 @@ function Card({ title, theme, date, id }) {
                 </CardTheme>
 
 
-                <Link to={AppRoutes.CARD} id={id}>
+                <Link to={AppRoutes.CARD + `/${id}`}>
                     <div className="card__btn">
                         <div />
                         <div />
@@ -44,7 +44,7 @@ function Card({ title, theme, date, id }) {
             </CardGroup>
             <CardContent>
 
-                <Link>
+                <Link to={AppRoutes.CARD + `/${id}`}>
                     <h3 className="card__title">{title}</h3>
                 </Link>
                 {/* <a href="#popBrowse" target="_self">

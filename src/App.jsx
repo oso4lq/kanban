@@ -20,7 +20,7 @@ function App() {
 
       <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}> <Layout />  </PrivateRoute>}>
         <Route index element={<MainPage />} />
-        <Route path={AppRoutes.CARD} element={<CardBrowsePage />} />
+        <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
         <Route path={AppRoutes.EXIT} element={<ExitPage />} />
         <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
       </Route>
