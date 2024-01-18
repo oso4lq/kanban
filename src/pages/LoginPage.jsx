@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { AppRoutes } from '../lib/appRoutes';
 import Button from "../components/Common/Common.styled"
-import { LogInRegisterDIV, LogInRegisterBox } from "../components/Common/Common.styled"
+import { LogInRegisterDIV, LogInRegisterBox, Modal, ModalBlock, ModalForm, ModalFormGroup, ModalInput } from "../components/Common/Common.styled"
 import { useState } from "react";
 
 function LoginPage() {
@@ -15,13 +15,23 @@ function LoginPage() {
     return (
         <LogInRegisterDIV>
             <LogInRegisterBox>
-                <p>Log In</p>
-                <input type="email" name="" id="" placeholder="e-mail" />
-                <input type="password" value="" placeholder="password" />
-                <Button onClick={toggleIsAuth}>Enter</Button>
-                
-                <p>No account?</p>
-                <Link to={AppRoutes.REGISTER}>Register</Link>
+                <Modal>
+                    <ModalBlock>
+                        <div className="modal__ttl">
+                            <h2>Sign In</h2>
+                        </div>
+                        <ModalForm id="formLogIn" action="#">
+                            <ModalInput className="modal__input" type="email" name="login" id="formlogin" placeholder="Your e-mail" />
+                            <ModalInput className="modal__input" type="password" name="password" id="formpassword" placeholder="Password" />
+                            <Button to={AppRoutes.HOME} id="btnEnter" onClick={toggleIsAuth}>Enter</Button>
+                            {/* <button className="modal__btn-enter _hover01" id="btnEnter"><a href="../main.html">Enter</a></button> */}
+                            <ModalFormGroup>
+                                <p>No account?</p>
+                                <Link to={AppRoutes.REGISTER}>Sign up here</Link>
+                            </ModalFormGroup>
+                        </ModalForm>
+                    </ModalBlock>
+                </Modal>
             </LogInRegisterBox>
         </LogInRegisterDIV>
     )

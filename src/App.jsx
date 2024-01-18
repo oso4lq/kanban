@@ -1,5 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { useState } from 'react';
 
 // Pages
 import { AppRoutes } from './lib/appRoutes';
@@ -9,26 +10,50 @@ import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from './pages/NotFoundPage';
 import ExitPage from './pages/ExitPage';
 import CardBrowsePage from './pages/CardPage';
-import Layout from './components/Layout/Layout';
+
+// Styles
+//import './App.css'
+import { GlobalStyle } from './Global/Global.styled.js';
+import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
+import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
 
 function App() {
 
   const isAuth = true;
 
+  // Toggle theme function
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+      //console.log('dark theme');
+    } else {
+      setTheme('light');
+      //console.log('light theme');
+    }
+  };
+
   return (
-    <Routes>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <GlobalStyleALL />
+      <GlobalStyleLightDark />
 
-      <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}> <Layout />  </PrivateRoute>}>
-        <Route index element={<MainPage />} />
-        <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
-        <Route path={AppRoutes.EXIT} element={<ExitPage />} />
-        <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
-      </Route>
+      <Routes>
 
-      <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
-      <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+        <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}> <Outlet />  </PrivateRoute>}>
+          <Route index element={<MainPage />} />
+          <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
+          <Route path={AppRoutes.EXIT} element={<ExitPage />} />
+          <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
+        </Route>
 
-    </Routes>
+        <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+
+      </Routes>
+
+    </ThemeProvider>
   )
 }
 

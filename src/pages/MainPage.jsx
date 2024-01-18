@@ -56,13 +56,10 @@ function App() {
   };
 
   // Rendering
-  // <Button>press me</Button>
-  // <Button $transparent>press me</Button>
-
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyle />
-      <GlobalStyleALL />
+      {/* //   <GlobalStyle />
+    //   <GlobalStyleALL />*/}
       <GlobalStyleLightDark />
 
       <Wrapper>
