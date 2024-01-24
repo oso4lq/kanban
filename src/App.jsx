@@ -1,48 +1,25 @@
-// Components
-import Wrapper from './components/Wrapper/Wrapper.jsx';
-import PopExit from './components/PopExit/PopExit';
-import PopNewCard from './components/PopNewCard/PopNewCard';
-import PopBrowse from './components/PopBrowse/PopBrowse';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { useState } from 'react';
 
-// Data
-import { useEffect, useState } from 'react';
-import { cardList } from './data';
+// Pages
+import { AppRoutes } from './lib/appRoutes';
+import MainPage from "./pages/MainPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import NotFoundPage from './pages/NotFoundPage';
+import ExitPage from './pages/ExitPage';
+import CardBrowsePage from './pages/CardPage';
 
 // Styles
 //import './App.css'
 import { GlobalStyle } from './Global/Global.styled.js';
 import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
-//import { Button } from './components/Button/Button.styled.js';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
 
 function App() {
 
-  // Loader
-  const [isLoaded, setIsLoaded] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(false);
-    }, 2000)
-  }, []);
-
-  //new Date()
-
-  // Add card function
-  const [cards, setCards] = useState(cardList);
-  const addCard = () => {
-    setCards([
-      ...cards,
-      {
-        id: cards.length + 1,
-        theme: 'No theme',
-        title: 'No name',
-        date: '26.12.23',
-        status: 'No status',
-      }
-    ])
-  };
+  const isAuth = true;
 
   // Toggle theme function
   const [theme, setTheme] = useState('light');
@@ -56,26 +33,27 @@ function App() {
     }
   };
 
-  // Rendering
-  // <Button>press me</Button>
-  // <Button $transparent>press me</Button>
-
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
       <GlobalStyleALL />
       <GlobalStyleLightDark />
 
-      <Wrapper>
-        <PopExit />
-        <PopNewCard />
-        <PopBrowse />
-        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
-        <Main isLoaded={isLoaded} cardList={cards} />
-      </Wrapper>
+      <Routes>
+
+        <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}> <Outlet />  </PrivateRoute>}>
+          <Route index element={<MainPage />} />
+          <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
+          <Route path={AppRoutes.EXIT} element={<ExitPage />} />
+          <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
+        </Route>
+
+        <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+
+      </Routes>
 
     </ThemeProvider>
-
   )
 }
 

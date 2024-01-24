@@ -122,7 +122,7 @@ body {
 }
 
 .pop-exit {
-  display: none;
+  //display: none;
   width: 100%;
   height: 100%;
   min-width: 320px;
@@ -546,7 +546,7 @@ body {
 }
 
 .pop-browse {
-  display: none;
+  //display: none;
   width: 100%;
   height: 100%;
   min-width: 375px;

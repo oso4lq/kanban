@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Container, Button } from "../Common/Common.styled";
 import { HeaderBox, HeaderBlock, HeaderNav } from "./Header.styled";
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../lib/appRoutes";
 
 function Header({ addCard, toggleTheme }) {
     const [isOpened, setIsOpened] = useState(false);
@@ -30,10 +32,7 @@ function Header({ addCard, toggleTheme }) {
                         Authorised Osetr
                     </a>
 
-                    {isOpened && <div
-                        className="header__pop-user-set pop-user-set"
-                    //id="user-set-target"
-                    >
+                    {isOpened && <div className="header__pop-user-set pop-user-set" /*id="user-set-target"*/>
                         {/* <a href="">x</a> */}
                         <p className="pop-user-set__name">Authorised Osetr</p>
                         <p className="pop-user-set__mail">authorised.osetr@gmail.com</p>
@@ -43,7 +42,8 @@ function Header({ addCard, toggleTheme }) {
                         </div>
 
                         <Button $transparent>
-                            <a href="#popExit">Log out</a>
+                            <Link to={AppRoutes.EXIT}>Log out</Link>
+                            {/* <a href="#popExit">Log out</a> */}
                         </Button>
 
                     </div>}

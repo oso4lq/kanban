@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent, CardDate, CardDateP } from "./Card.styled";
+import { AppRoutes } from "../../lib/appRoutes";
 
-function Card({ title, theme, date }) {
+function Card({ title, theme, date, id }) {
     let themeColor;
     switch (theme) {
         case 'Web Design':
@@ -23,20 +25,31 @@ function Card({ title, theme, date }) {
                     <CardThemeP>{theme}</CardThemeP>
                 </CardTheme>
 
-                <a href="#popBrowse" target="_self">
+
+                <Link to={AppRoutes.CARD + `/${id}`}>
                     <div className="card__btn">
                         <div />
                         <div />
                         <div />
                     </div>
-                </a>
+                </Link>
+                {/* <a href="#popBrowse" target="_self">
+                    <div className="card__btn">
+                        <div />
+                        <div />
+                        <div />
+                    </div>
+                </a> */}
 
             </CardGroup>
             <CardContent>
 
-                <a href="#popBrowse" target="_self">
+                <Link to={AppRoutes.CARD + `/${id}`}>
                     <h3 className="card__title">{title}</h3>
-                </a>
+                </Link>
+                {/* <a href="#popBrowse" target="_self">
+                    <h3 className="card__title">{title}</h3>
+                </a> */}
 
                 <CardDate>
                     <svg
