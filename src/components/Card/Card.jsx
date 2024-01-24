@@ -3,6 +3,9 @@ import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent,
 import { AppRoutes } from "../../lib/appRoutes";
 
 function Card({ title, theme, date, id }) {
+
+    console.log(id);
+    
     let themeColor;
     switch (theme) {
         case 'Web Design':

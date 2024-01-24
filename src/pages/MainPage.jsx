@@ -12,24 +12,50 @@ import { cardList } from '../data';
 
 // Styles
 //import './App.css'
-import { GlobalStyle } from '../Global/Global.styled.js';
-import { GlobalStyleALL } from '../components/GlobalALL/GlobalALL.styled.js';
+// import { GlobalStyle } from '../Global/Global.styled.js';
+// import { GlobalStyleALL } from '../components/GlobalALL/GlobalALL.styled.js';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../components/Themes/ThemesLightDark.styled.js';
+import { getTasks } from '../api.js';
 
-function App() {
+// // API 
+// //DELETE
+// getCards().then((cards) => console.log(cards));
+// // Card list
+// export function CardPage() {
+//   const [cards, setCards] = useState([
+//     { id: 1, text: 'alo' }
+//   ]);
+
+//   // API
+//   getCards().then((cards) => {
+//     console.log(cards)
+//     setCards(cards.cards)
+//   });
+
+//   useEffect(() => {
+//     console.log('useEffect');
+//   })
+// }
+
+
+function MainPage({ userData }) {
+
+  const [cards, setCards] = useState(null);
 
   // Loader
   const [isLoaded, setIsLoaded] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(false);
-    }, 2000)
+    getTasks({ token: userData.token })
+      .then((data) => {
+        console.log(data.tasks);
+        setCards(data.tasks);
+      })
+      .then(() => {
+        setIsLoaded(false);
+      })
   }, []);
 
-  //new Date()
-
   // Add card function
-  const [cards, setCards] = useState(cardList);
   const addCard = () => {
     setCards([
       ...cards,
@@ -55,17 +81,14 @@ function App() {
     }
   };
 
+
+
   // Rendering
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      {/* //   <GlobalStyle />
-    //   <GlobalStyleALL />*/}
       <GlobalStyleLightDark />
 
       <Wrapper>
-
-        {/* <PopExit />
-        <PopBrowse /> */}
 
         <PopNewCard />
         <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
@@ -76,4 +99,4 @@ function App() {
   )
 }
 
-export default App
+export default MainPage
