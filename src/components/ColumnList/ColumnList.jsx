@@ -37,7 +37,7 @@ export const statusListRU = [
 export function ColumnList({ cardList }) {
     console.log(cardList);
     return (
-        translateStatus(statusListRU).map((status) => (
+        statusListENG.map((status) => (
             <Column
                 key={status}
                 title={status}

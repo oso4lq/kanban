@@ -1,5 +1,6 @@
 import Card from "../Card/Card"
 import { MainColumn, ColumnTitle, ColumnTitleP, ColumnCard } from "./Column.styled";
+import { translateStatus } from "../ColumnList/ColumnList";
 
 function Column({ title, cardList }) {
     return <MainColumn>
@@ -16,7 +17,7 @@ function Column({ title, cardList }) {
                     themeColor={card.themeColor}
                     title={card.title}
                     date={card.date}
-                    status={card.status} />
+                    status={translateStatus(card.status)} />
             ))}
 
         </ColumnCard>
