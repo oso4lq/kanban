@@ -14,6 +14,19 @@ export async function login({ login, password }) {
     return data;
 }
 
+export async function register({ login, name, password }) {
+    const response = await fetch(API_URL_USER + '/login', {
+        method: 'POST',
+        body: JSON.stringify({
+            login,
+            name,
+            password,
+        })
+    })
+    const data = await response.json();
+    return data;
+}
+
 export async function getTasks({ token }) {
     const response = await fetch(API_URL, {
         method: 'GET',

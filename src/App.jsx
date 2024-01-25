@@ -49,7 +49,7 @@ function App() {
         </Route>
 
         <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} />} />
-        <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
 
       </Routes>
 

@@ -33,7 +33,6 @@ export const statusListRU = [
     'Готово',
 ];
 
-
 export function ColumnList({ cardList }) {
     console.log(cardList);
     return (

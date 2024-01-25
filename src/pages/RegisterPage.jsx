@@ -1,9 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from '../lib/appRoutes';
 import Button from "../components/Common/Common.styled";
 import { LogInRegisterDIV, LogInRegisterBox, Modal, ModalBlock, ModalForm, ModalFormGroup, ModalInput } from "../components/Common/Common.styled";
+import { register } from "../api";
+import { useState } from "react";
 
-function RegisterPage() {
+function RegisterPage({ setUserData }) {
+
+    let navigate = useNavigate();
+
+    const registerForm = {
+        login: '',
+        name: '',
+        password: '',
+    };
+    const [registerData, setRegisterData] = useState(registerForm);
+
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        await register(registerData).then((data) => {
+            console.log(data);
+            console.log(data.user);
+            setUserData(data.user);
+        }).then(() => {
+            navigate(AppRoutes.HOME)
+        })
+            .catch((error) => {
+                console.warn(error)
+            })
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        setRegisterData({
+            ...registerData,
+            [name]: value,
+        });
+    };
+
     return (
         <LogInRegisterDIV>
             <LogInRegisterBox>
@@ -13,11 +48,28 @@ function RegisterPage() {
                             <h2>Sign Up</h2>
                         </div>
                         <ModalForm id="formLogIn" action="#">
-                            <ModalInput className="modal__input" type="text" name="username" id="formusername" placeholder="Username" />
-                            <ModalInput className="modal__input" type="email" name="login" id="formlogin" placeholder="Your e-mail" />
-                            <ModalInput className="modal__input" type="password" name="password" id="formpassword" placeholder="Password" />
-                            <Button to={AppRoutes.HOME} id="btnEnter">Enter</Button>
-                            {/* <button className="modal__btn-enter _hover01" id="btnEnter"><a href="../main.html">Enter</a></button> */}
+
+                            <ModalInput className="modal__input" type="text" id="formusername" placeholder="Username"
+                                value={registerData.login}
+                                onChange={handleInputChange}
+                                name="username"
+                                label="Username"
+                            />
+                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="Your e-mail"
+                                value={registerData.login}
+                                onChange={handleInputChange}
+                                name="login"
+                                label="Login"
+                            />
+                            <ModalInput className="modal__input" type="password" id="formpassword" placeholder="Password"
+                                value={registerData.password}
+                                onChange={handleInputChange}
+                                name="password"
+                                label="Password"
+                            />
+
+                            <Button id="btnEnter" onClick={handleRegister}>Enter</Button>
+
                             <ModalFormGroup>
                                 <p>Already have an account?</p>
                                 <Link to={AppRoutes.LOGIN}>Sign in here</Link>
