@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent, CardDate, CardDateP } from "./Card.styled";
 import { AppRoutes } from "../../lib/appRoutes";
 
-function Card({ title, theme, date, id }) {
+function Card({ title, topic, date, id }) {
 
     console.log(id);
+    console.log(title);
     
     let themeColor;
-    switch (theme) {
+    switch (topic) {
         case 'Web Design':
             themeColor = '_orange';
             break;
@@ -25,7 +26,7 @@ function Card({ title, theme, date, id }) {
         <CardContainer className="cards__card">
             <CardGroup>
                 <CardTheme $themeColor={themeColor}>
-                    <CardThemeP>{theme}</CardThemeP>
+                    <CardThemeP>{topic}</CardThemeP>
                 </CardTheme>
 
 

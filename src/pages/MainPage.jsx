@@ -17,26 +17,6 @@ import { cardList } from '../data';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../components/Themes/ThemesLightDark.styled.js';
 import { getTasks } from '../api.js';
 
-// // API 
-// //DELETE
-// getCards().then((cards) => console.log(cards));
-// // Card list
-// export function CardPage() {
-//   const [cards, setCards] = useState([
-//     { id: 1, text: 'alo' }
-//   ]);
-
-//   // API
-//   getCards().then((cards) => {
-//     console.log(cards)
-//     setCards(cards.cards)
-//   });
-
-//   useEffect(() => {
-//     console.log('useEffect');
-//   })
-// }
-
 
 function MainPage({ userData }) {
 
@@ -82,14 +62,13 @@ function MainPage({ userData }) {
   };
 
 
-
   // Rendering
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyleLightDark />
 
       <Wrapper>
-
+      {/* userName={userName} userEMail={userEMail} */}
         <PopNewCard />
         <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
         <Main isLoaded={isLoaded} cardList={cards} />

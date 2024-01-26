@@ -13,11 +13,12 @@ function Column({ title, cardList }) {
                 <Card
                     key={card._id}
                     id={card._id}
-                    theme={card.theme}
+                    status={translateStatus(card.status)}
+                    theme={card.topic}
                     themeColor={card.themeColor}
                     title={card.title}
                     date={card.date}
-                    status={translateStatus(card.status)} />
+                />
             ))}
 
         </ColumnCard>

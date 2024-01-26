@@ -25,6 +25,7 @@ function LoginPage({ setUserData }) {
             navigate(AppRoutes.HOME)
         })
             .catch((error) => {
+                alert(error);
                 console.warn(error)
             })
     };
@@ -49,7 +50,7 @@ function LoginPage({ setUserData }) {
                         </div>
                         <ModalForm id="formLogIn" action="#">
 
-                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="Your e-mail"
+                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="e-mail"
                                 value={loginData.login}
                                 onChange={handleInputChange}
                                 name="login"

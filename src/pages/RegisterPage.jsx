@@ -26,7 +26,8 @@ function RegisterPage({ setUserData }) {
             navigate(AppRoutes.HOME)
         })
             .catch((error) => {
-                console.warn(error)
+                alert(error);
+                console.warn(error);
             })
     };
 
@@ -50,12 +51,12 @@ function RegisterPage({ setUserData }) {
                         <ModalForm id="formLogIn" action="#">
 
                             <ModalInput className="modal__input" type="text" id="formusername" placeholder="Username"
-                                value={registerData.login}
+                                value={registerData.name}
                                 onChange={handleInputChange}
                                 name="username"
                                 label="Username"
                             />
-                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="Your e-mail"
+                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="e-mail"
                                 value={registerData.login}
                                 onChange={handleInputChange}
                                 name="login"
