@@ -41,12 +41,25 @@ function MainPage({ userData }) {
       ...cards,
       {
         id: cards.length + 1,
-        theme: 'No theme',
-        title: 'No name',
-        date: '26.12.23',
-        status: 'No status',
+        title: "New task",
+        topic: "",
+        status: "Без статуса",
+        description: "No description",
+        date: "2024-01-07T16:26:18.179Z",
+
+        // theme: 'No theme',
+        // title: 'No name',
+        // date: '26.12.23',
+        // status: 'Без статуса',
       }
     ])
+    console.log({
+      title: "New task",
+      topic: "",
+      status: "Без статуса",
+      description: "No description",
+      date: "2024-01-07T16:26:18.179Z",
+    });
     addTask({ token: userData.token });
   };
 
@@ -69,9 +82,9 @@ function MainPage({ userData }) {
       <GlobalStyleLightDark />
 
       <Wrapper>
-      {/* userName={userName} userEMail={userEMail} */}
+        {/* userName={userName} userEMail={userEMail} */}
         <PopNewCard />
-        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} />
+        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} userName={userData.name} userEMail={userData.login} />
         <Main isLoaded={isLoaded} cardList={cards} />
       </Wrapper>
 

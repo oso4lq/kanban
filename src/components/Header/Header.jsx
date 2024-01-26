@@ -29,13 +29,20 @@ function Header({ addCard, toggleTheme, userName, userEMail }) {
                     </Button>
 
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
-                        Authorised Osetr {userName}
+                        {/* Authorised Osetr  */}
+                        {userName}
                     </a>
 
                     {isOpened && <div className="header__pop-user-set pop-user-set" /*id="user-set-target"*/>
                         {/* <a href="">x</a> */}
-                        <p className="pop-user-set__name">Authorised Osetr {userName}</p>
-                        <p className="pop-user-set__mail">authorised.osetr@gmail.com {userEMail}</p>
+                        <p className="pop-user-set__name">
+                            {/* Authorised Osetr */}
+                            {userName}
+                        </p>
+                        <p className="pop-user-set__mail">
+                            {/* authorised.osetr@gmail.com */}
+                            {userEMail}
+                        </p>
                         <div className="pop-user-set__theme">
                             <p>Dark theme</p>
                             <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} />

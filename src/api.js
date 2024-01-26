@@ -102,7 +102,7 @@ export async function addTask({ token }) {
             date: "2024-01-07T16:26:18.179Z",
         }),
         headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
         },
     }).then((response) => {
         if (response.status === 400) {
@@ -111,4 +111,4 @@ export async function addTask({ token }) {
             return response.json()
         }
     })
-};
+}
