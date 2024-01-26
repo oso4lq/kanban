@@ -10,8 +10,8 @@ function RegisterPage({ setUserData }) {
     let navigate = useNavigate();
 
     const registerForm = {
-        login: '',
         name: '',
+        login: '',
         password: '',
     };
     const [registerData, setRegisterData] = useState(registerForm);
@@ -53,10 +53,10 @@ function RegisterPage({ setUserData }) {
                             <ModalInput className="modal__input" type="text" id="formusername" placeholder="Username"
                                 value={registerData.name}
                                 onChange={handleInputChange}
-                                name="username"
+                                name="name"
                                 label="Username"
                             />
-                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="e-mail"
+                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="Login"
                                 value={registerData.login}
                                 onChange={handleInputChange}
                                 name="login"

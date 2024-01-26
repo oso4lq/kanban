@@ -2,13 +2,10 @@ import { Link } from "react-router-dom";
 import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent, CardDate, CardDateP } from "./Card.styled";
 import { AppRoutes } from "../../lib/appRoutes";
 
-function Card({ title, topic, date, id }) {
+function Card({ title, theme, date, id }) {
 
-    console.log(id);
-    console.log(title);
-    
     let themeColor;
-    switch (topic) {
+    switch (theme) {
         case 'Web Design':
             themeColor = '_orange';
             break;
@@ -26,7 +23,7 @@ function Card({ title, topic, date, id }) {
         <CardContainer className="cards__card">
             <CardGroup>
                 <CardTheme $themeColor={themeColor}>
-                    <CardThemeP>{topic}</CardThemeP>
+                    <CardThemeP>{theme}</CardThemeP>
                 </CardTheme>
 
 
@@ -37,13 +34,6 @@ function Card({ title, topic, date, id }) {
                         <div />
                     </div>
                 </Link>
-                {/* <a href="#popBrowse" target="_self">
-                    <div className="card__btn">
-                        <div />
-                        <div />
-                        <div />
-                    </div>
-                </a> */}
 
             </CardGroup>
             <CardContent>
@@ -51,9 +41,6 @@ function Card({ title, topic, date, id }) {
                 <Link to={AppRoutes.CARD + `/${id}`}>
                     <h3 className="card__title">{title}</h3>
                 </Link>
-                {/* <a href="#popBrowse" target="_self">
-                    <h3 className="card__title">{title}</h3>
-                </a> */}
 
                 <CardDate>
                     <svg

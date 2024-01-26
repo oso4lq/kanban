@@ -84,5 +84,31 @@ export async function getTasks({ token }) {
         })
         .then((data) => {
             return data;
+        })
+        .catch((error) => {
+            alert('No internet connection. Try again later.')
+            console.warn(error)
         });
 }
+
+export async function addTask({ token }) {
+    return fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+            title: "New task",
+            topic: "",
+            status: "Без статуса",
+            description: "No description",
+            date: "2024-01-07T16:26:18.179Z",
+        }),
+        headers: {
+            Authorization: token,
+        },
+    }).then((response) => {
+        if (response.status === 400) {
+            alert('Something went wrong')
+        } else {
+            return response.json()
+        }
+    })
+};

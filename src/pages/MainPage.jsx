@@ -8,14 +8,14 @@ import Main from '../components/Main/Main';
 
 // Data
 import { useEffect, useState } from 'react';
-import { cardList } from '../data';
+//import { cardList } from '../data';
 
 // Styles
 //import './App.css'
 // import { GlobalStyle } from '../Global/Global.styled.js';
 // import { GlobalStyleALL } from '../components/GlobalALL/GlobalALL.styled.js';
 import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../components/Themes/ThemesLightDark.styled.js';
-import { getTasks } from '../api.js';
+import { addTask, getTasks } from '../api.js';
 
 
 function MainPage({ userData }) {
@@ -47,6 +47,7 @@ function MainPage({ userData }) {
         status: 'No status',
       }
     ])
+    addTask({ token: userData.token });
   };
 
   // Toggle theme function

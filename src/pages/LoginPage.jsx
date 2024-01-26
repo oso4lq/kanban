@@ -50,7 +50,7 @@ function LoginPage({ setUserData }) {
                         </div>
                         <ModalForm id="formLogIn" action="#">
 
-                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="e-mail"
+                            <ModalInput className="modal__input" type="text" id="formlogin" placeholder="Login"
                                 value={loginData.login}
                                 onChange={handleInputChange}
                                 name="login"
