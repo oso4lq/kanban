@@ -66,6 +66,7 @@ function LoginPage({ setUserData }) {
                             <Button id="btnEnter" onClick={handleLogin}>Enter</Button>
 
                             <ModalFormGroup>
+                                <p>abirvalg</p>
                                 <p>No account?</p>
                                 <Link to={AppRoutes.REGISTER}>Sign up here</Link>
                             </ModalFormGroup>

@@ -11,7 +11,8 @@ function Column({ title, cardList }) {
 
             {cardList.map((card) => (
                 <Card
-                    key={card._id}
+                    key={card.date}
+                    // key={card._id}
                     id={card._id}
                     status={translateStatus(card.status)}
                     theme={card.topic}

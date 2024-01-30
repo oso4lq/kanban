@@ -36,31 +36,30 @@ function MainPage({ userData }) {
   }, []);
 
   // Add card function
-  const addCard = () => {
+  const addCard = async () => {
+
+    let newCard = {
+      title: "New task",
+      topic: "Research",
+      status: "Без статуса",
+      description: "No description",
+      date: "2024-01-07T16:26:18.179Z",
+    }
+
     setCards([
       ...cards,
       {
         id: cards.length + 1,
         title: "New task",
-        topic: "",
+        topic: "Research",
         status: "Без статуса",
         description: "No description",
         date: "2024-01-07T16:26:18.179Z",
-
-        // theme: 'No theme',
-        // title: 'No name',
-        // date: '26.12.23',
-        // status: 'Без статуса',
       }
     ])
-    console.log({
-      title: "New task",
-      topic: "",
-      status: "Без статуса",
-      description: "No description",
-      date: "2024-01-07T16:26:18.179Z",
-    });
-    addTask({ token: userData.token });
+
+    await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date });
+
   };
 
   // Toggle theme function

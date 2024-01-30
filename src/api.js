@@ -91,15 +91,15 @@ export async function getTasks({ token }) {
         });
 }
 
-export async function addTask({ token }) {
+export async function addTask({ token, title, topic, status, description, date }) {
     return fetch(API_URL, {
         method: 'POST',
         body: JSON.stringify({
-            title: "New task",
-            topic: "",
-            status: "Без статуса",
-            description: "No description",
-            date: "2024-01-07T16:26:18.179Z",
+            title,
+            topic,
+            status,
+            description,
+            date,
         }),
         headers: {
             Authorization: `Bearer ${token}`,
