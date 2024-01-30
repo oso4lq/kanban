@@ -3,6 +3,7 @@ import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent,
 import { AppRoutes } from "../../lib/appRoutes";
 
 function Card({ title, theme, date, id }) {
+
     let themeColor;
     switch (theme) {
         case 'Web Design':
@@ -33,13 +34,6 @@ function Card({ title, theme, date, id }) {
                         <div />
                     </div>
                 </Link>
-                {/* <a href="#popBrowse" target="_self">
-                    <div className="card__btn">
-                        <div />
-                        <div />
-                        <div />
-                    </div>
-                </a> */}
 
             </CardGroup>
             <CardContent>
@@ -47,9 +41,6 @@ function Card({ title, theme, date, id }) {
                 <Link to={AppRoutes.CARD + `/${id}`}>
                     <h3 className="card__title">{title}</h3>
                 </Link>
-                {/* <a href="#popBrowse" target="_self">
-                    <h3 className="card__title">{title}</h3>
-                </a> */}
 
                 <CardDate>
                     <svg

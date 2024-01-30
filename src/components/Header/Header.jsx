@@ -4,7 +4,7 @@ import { HeaderBox, HeaderBlock, HeaderNav } from "./Header.styled";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 
-function Header({ addCard, toggleTheme }) {
+function Header({ addCard, toggleTheme, userName, userEMail }) {
     const [isOpened, setIsOpened] = useState(false);
     function togglePopUp() {
         setIsOpened((prev) => !prev)
@@ -29,13 +29,20 @@ function Header({ addCard, toggleTheme }) {
                     </Button>
 
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
-                        Authorised Osetr
+                        {/* Authorised Osetr  */}
+                        {userName}
                     </a>
 
                     {isOpened && <div className="header__pop-user-set pop-user-set" /*id="user-set-target"*/>
                         {/* <a href="">x</a> */}
-                        <p className="pop-user-set__name">Authorised Osetr</p>
-                        <p className="pop-user-set__mail">authorised.osetr@gmail.com</p>
+                        <p className="pop-user-set__name">
+                            {/* Authorised Osetr */}
+                            {userName}
+                        </p>
+                        <p className="pop-user-set__mail">
+                            {/* authorised.osetr@gmail.com */}
+                            {userEMail}
+                        </p>
                         <div className="pop-user-set__theme">
                             <p>Dark theme</p>
                             <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} />

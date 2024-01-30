@@ -19,7 +19,7 @@ import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './co
 
 function App() {
 
-  const isAuth = true;
+  const [userData, setUserData] = useState(null);
 
   // Toggle theme function
   const [theme, setTheme] = useState('light');
@@ -41,15 +41,15 @@ function App() {
 
       <Routes>
 
-        <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={isAuth}> <Outlet />  </PrivateRoute>}>
-          <Route index element={<MainPage />} />
+        <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={userData}> <Outlet />  </PrivateRoute>}>
+          <Route index element={<MainPage userData={userData} />} />
           <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
           <Route path={AppRoutes.EXIT} element={<ExitPage />} />
           <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
         </Route>
 
-        <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
-        <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+        <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
 
       </Routes>
 
