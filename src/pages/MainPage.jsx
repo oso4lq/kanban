@@ -38,6 +38,10 @@ function MainPage({ userData }) {
   // Add card function
   const addCard = async () => {
 
+    let currentDate = new Date();
+    console.log(currentDate);
+//  Current date sends date to API successfully but there's a problem during the render 
+
     let newCard = {
       title: "New task",
       topic: "Research",
