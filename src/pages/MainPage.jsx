@@ -47,7 +47,7 @@ function MainPage({ userData }) {
       topic: "Research",
       status: "Без статуса",
       description: "No description",
-      date: "2024-01-07T16:26:18.179Z",
+      date: currentDate,
     }
 
     setCards([
@@ -58,7 +58,7 @@ function MainPage({ userData }) {
         topic: "Research",
         status: "Без статуса",
         description: "No description",
-        date: "2024-01-07T16:26:18.179Z",
+        date: "Just recently",
       }
     ])
 

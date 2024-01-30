@@ -1,6 +1,6 @@
 import Column from "../Column/Column";
 
-export const translateStatus = (russianStatus) => {
+const translateStatus = (russianStatus) => {
     switch (russianStatus) {
         case 'Без статуса':
             return 'No status';
@@ -17,15 +17,14 @@ export const translateStatus = (russianStatus) => {
     }
 };
 
-export const statusListENG = [
-    'No status',
-    'To Do',
-    'In process',
-    'Testing',
-    'Ready',
-];
-
-export const statusListRU = [
+// const statusListENG = [
+//     'No status',
+//     'To Do',
+//     'In process',
+//     'Testing',
+//     'Ready',
+// ];
+const statusListRU = [
     'Без статуса',
     'Нужно сделать',
     'В работе',
@@ -39,7 +38,7 @@ export function ColumnList({ cardList }) {
         statusListRU.map((status) => (
             <Column
                 key={status}
-                title={status}
+                title={translateStatus(status)}
                 cardList={cardList.filter((card) => card.status === status)}
             />
         )))
