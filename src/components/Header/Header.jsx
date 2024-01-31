@@ -28,6 +28,10 @@ function Header({ addCard, toggleTheme, userName, userEMail }) {
                         Create new task
                     </Button>
 
+                    <Button id="btnMainNew">
+                        <Link to={AppRoutes.ADD_CARD}>Add card page</Link>
+                    </Button>
+
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
                         {/* Authorised Osetr  */}
                         {userName}

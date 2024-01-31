@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from './pages/NotFoundPage';
 import ExitPage from './pages/ExitPage';
 import CardBrowsePage from './pages/CardPage';
+import AddCardPage from './pages/AddCardPage.jsx';
 
 // Styles
 //import './App.css'
@@ -46,6 +47,7 @@ function App() {
           <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
           <Route path={AppRoutes.EXIT} element={<ExitPage />} />
           <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
+          <Route path={AppRoutes.ADD_CARD} element={<AddCardPage />} />
         </Route>
 
         <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} />} />

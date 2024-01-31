@@ -5,55 +5,83 @@ function AddCardPage() {
     let { id } = useParams();
 
     return <div className="pop-browse" id="popBrowse">
-        <div className="pop-browse__container">
-            <div className="pop-browse__block">
-                <div className="pop-browse__content">
+        {/* pop-new-card */}
+        <div className="pop-new-card__container">
+            <div className="pop-new-card__block">
+                <div className="pop-new-card__content">
                     <div className="pop-browse__top-block">
-                        <h3 className="pop-browse__ttl">Create task</h3>
-                        <div className="categories__theme theme-top _orange _active-category">
-                            <p className="_orange">Web Design</p>
-                        </div>
+                        <h3 className="pop-new-card__ttl">Create task</h3>
+
                     </div>
-                    <div className="pop-browse__status status">
-                        <p className="status__p subttl">Status</p>
-                        <div className="status__themes">
-                            <div className="status__theme _hide">
-                                <p>No status</p>
-                            </div>
-                            <div className="status__theme _gray">
-                                <p className="_gray">To do</p>
-                            </div>
-                            <div className="status__theme _hide">
-                                <p>In process</p>
-                            </div>
-                            <div className="status__theme _hide">
-                                <p>Testing</p>
-                            </div>
-                            <div className="status__theme _hide">
-                                <p>Ready</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="pop-browse__wrap">
+
+                    <div className="pop-new-card__wrap">
+
                         <form
-                            className="pop-browse__form form-browse"
+                            className="pop-new-card__form form-browse"
                             id="formBrowseCard"
                             action="#"
                         >
-                            <div className="form-browse__block">
+                            <div className="form-new__block">
+
+                                <label htmlFor="textArea01" className="subttl">
+                                    Task name
+                                </label>
+                                <textarea
+                                    className="form-new__input"
+                                    name="text"
+                                    id="textArea01"
+                                    readOnly=""
+                                    placeholder="Enter task name..."
+                                    defaultValue={""}
+                                />
+
                                 <label htmlFor="textArea01" className="subttl">
                                     Task description
                                 </label>
                                 <textarea
-                                    className="form-browse__area"
+                                    className="form-new__area"
                                     name="text"
                                     id="textArea01"
                                     readOnly=""
                                     placeholder="Enter task description..."
                                     defaultValue={""}
                                 />
+
                             </div>
+
+                            {/*
+                            <div className="categories__theme theme-top _orange _active-category">
+                                <p className="_orange">Web Design</p>
+                            </div>
+
+                             ??? 
+                            <div className="theme-down__categories theme-down">
+                                <p className="categories__p subttl">Category</p>
+                                <div className="categories__theme _orange _active-category">
+                                    <p className="_orange">Web Design</p>
+                                </div>
+                            </div>
+                            */}
+
+                            <div className="pop-browse__status status">
+                                <p className="status__p subttl">Category</p>
+                                <div className="status__themes">
+
+                                    <div className="status__theme _orange">
+                                        <p>Web design</p>
+                                    </div>
+                                    <div className="status__theme _green">
+                                        <p>Research</p>
+                                    </div>
+                                    <div className="status__theme _purple">
+                                        <p>Copywriting</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </form>
+
                         <div className="pop-new-card__calendar calendar">
                             <p className="calendar__ttl subttl">Dates</p>
                             <div className="calendar__block">
@@ -148,30 +176,23 @@ function AddCardPage() {
                             </div>
                         </div>
                     </div>
-                    <div className="theme-down__categories theme-down">
-                        <p className="categories__p subttl">Category</p>
-                        <div className="categories__theme _orange _active-category">
-                            <p className="_orange">Web Design</p>
-                        </div>
-                    </div>
+
                     <div className="pop-browse__btn-browse ">
-                        <div className="btn-group">
-                            <button className="btn-browse__edit _btn-bor _hover03">
-                                <a href="#">Edit task</a>
-                            </button>
-                            <button className="btn-browse__delete _btn-bor _hover03">
-                                <a href="#">Delete task</a>
-                            </button>
-                        </div>
+
                         <Link to={AppRoutes.HOME}>
                             <button className="btn-browse__close _btn-bg _hover01">
-                                Close
+                                Cancel
                             </button>
                         </Link>
-                        {/* <button className="btn-browse__close _btn-bg _hover01">
-                            <a href="#">Close</a>
-                        </button> */}
+
+                        <Link to={AppRoutes.HOME}>
+                            <button className="btn-browse__close _btn-bg _hover01">
+                                Create task
+                            </button>
+                        </Link>
+
                     </div>
+
                     <div className="pop-browse__btn-edit _hide">
                         <div className="btn-group">
                             <button className="btn-edit__edit _btn-bg _hover01">
@@ -192,10 +213,8 @@ function AddCardPage() {
                                 Close
                             </button>
                         </Link>
-                        {/* <button className="btn-edit__close _btn-bg _hover01">
-                            <a href="#">Close</a>
-                        </button> */}
                     </div>
+
                 </div>
             </div>
         </div>

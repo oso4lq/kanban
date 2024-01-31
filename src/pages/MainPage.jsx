@@ -49,19 +49,8 @@ function MainPage({ userData }) {
       date: currentDate,
     }
 
-    // setCards([
-    //   ...cards,
-    //   {
-    //     id: cards.length + 1,
-    //     title: "New task",
-    //     topic: "Research",
-    //     status: "Без статуса",
-    //     description: "No description",
-    //     date: "Just recently",
-    //   }
-    // ])
-
     await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date })
+    
     getTasks({ token: userData.token })
       .then((data) => {
         setCards(data.tasks);
