@@ -27,7 +27,7 @@ function MainPage({ userData }) {
   useEffect(() => {
     getTasks({ token: userData.token })
       .then((data) => {
-        console.log(data.tasks);
+        // console.log(data.tasks);
         setCards(data.tasks);
       })
       .then(() => {
@@ -40,7 +40,6 @@ function MainPage({ userData }) {
 
     let currentDate = new Date();
     console.log(currentDate);
-//  Current date sends date to API successfully but there's a problem during the render 
 
     let newCard = {
       title: "New task",
@@ -50,19 +49,23 @@ function MainPage({ userData }) {
       date: currentDate,
     }
 
-    setCards([
-      ...cards,
-      {
-        id: cards.length + 1,
-        title: "New task",
-        topic: "Research",
-        status: "Без статуса",
-        description: "No description",
-        date: "Just recently",
-      }
-    ])
+    // setCards([
+    //   ...cards,
+    //   {
+    //     id: cards.length + 1,
+    //     title: "New task",
+    //     topic: "Research",
+    //     status: "Без статуса",
+    //     description: "No description",
+    //     date: "Just recently",
+    //   }
+    // ])
 
-    await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date });
+    await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date })
+    getTasks({ token: userData.token })
+      .then((data) => {
+        setCards(data.tasks);
+      })
 
   };
 
