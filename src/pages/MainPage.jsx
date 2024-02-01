@@ -8,6 +8,8 @@ import Main from '../components/Main/Main';
 
 // Data
 import { useEffect, useState } from 'react';
+import { useUser } from '../hooks/useUser.jsx';
+import { useTasks } from '../hooks/useTasks.jsx';
 //import { cardList } from '../data';
 
 // Styles
@@ -18,7 +20,9 @@ import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../c
 import { addTask, getTasks } from '../api.js';
 
 
-function MainPage({ userData }) {
+function MainPage() {
+
+  const {userData} = useUser();
 
   const [cards, setCards] = useState(null);
 
@@ -79,7 +83,7 @@ function MainPage({ userData }) {
       <Wrapper>
         {/* userName={userName} userEMail={userEMail} */}
         <PopNewCard />
-        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} userName={userData.name} userEMail={userData.login} />
+        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} userData={userData} />
         <Main isLoaded={isLoaded} cardList={cards} />
       </Wrapper>
 

@@ -1,8 +1,15 @@
 import { Link, useParams } from "react-router-dom";
 import { AppRoutes } from "../lib/appRoutes";
+import { deleteTask } from "../api";
 
-function CardBrowsePage() {
+function CardBrowsePage({ userData }) {
+
+    console.log(userData);
+    console.log("user token: " + userData.token);
+    console.log("user id: " + userData._id);
+
     let { id } = useParams();
+    console.log("card id: " + id);
 
     return <div className="pop-browse" id="popBrowse">
         <div className="pop-browse__container">
@@ -155,24 +162,32 @@ function CardBrowsePage() {
                         </div>
                     </div>
                     <div className="pop-browse__btn-browse ">
+
                         <div className="btn-group">
+
                             <button className="btn-browse__edit _btn-bor _hover03">
                                 <a href="#">Edit task</a>
                             </button>
+
+                            <button onClick={deleteTask} className="btn-browse__delete _btn-bor _hover03">
+                                Delete task LINK
+                            </button>
+
                             <button className="btn-browse__delete _btn-bor _hover03">
                                 <a href="#">Delete task</a>
                             </button>
+
                         </div>
+
                         <Link to={AppRoutes.HOME}>
                             <button className="btn-browse__close _btn-bg _hover01">
                                 Close
                             </button>
                         </Link>
-                        {/* <button className="btn-browse__close _btn-bg _hover01">
-                            <a href="#">Close</a>
-                        </button> */}
+
                     </div>
                     <div className="pop-browse__btn-edit _hide">
+
                         <div className="btn-group">
                             <button className="btn-edit__edit _btn-bg _hover01">
                                 <a href="#">Save</a>
@@ -187,11 +202,13 @@ function CardBrowsePage() {
                                 <a href="#">Delete task</a>
                             </button>
                         </div>
+
                         <Link to={AppRoutes.HOME}>
                             <button className="btn-edit__close _btn-bg _hover01">
                                 Close
                             </button>
                         </Link>
+
                         {/* <button className="btn-edit__close _btn-bg _hover01">
                             <a href="#">Close</a>
                         </button> */}

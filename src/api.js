@@ -73,24 +73,95 @@ export async function addTask({ token, title, topic, status, description, date }
         },
     }).then((response) => {
         if (response.status === 400) {
-            alert('Something went wrong')
+            alert('Something went wrong');
+            throw new Error("Something went wrong");
         } else {
             return response.json()
         }
     })
 }
 
-export async function deleteTask({ token, _id }) {
-    return fetch(API_URL + `${_id}`, {
+export async function deleteTask({ id, token }) {
+
+    console.log('deleteTask id: ' + id);
+    console.log('deleteTask token: ' + token);
+
+    return fetch(API_URL + `/${id}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${token}`,
         },
     }).then((response) => {
-        if (response.status === 400) {
-            alert('Something went wrong')
+        if (response.status !== 201) {
+            alert('Something went wrong');
+            throw new Error("Something went wrong");
         } else {
             return response.json()
         }
     })
 }
+
+/*
+export async function getTasks() {
+    let user = localStorage.getItem("user");
+    if (user) {
+        user = JSON.parse(user);
+    }
+    const response = await fetch(API_URL, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${user?.token}`,
+        },
+    });
+    if (!response.ok) {
+        throw new Error("Не удалось загрузить данные, попробуйте позже");
+    }
+    const responseObj = await response.json();
+    return responseObj;
+}
+
+export async function postNewTask({ title, topic, status, description, date }) {
+    let user = localStorage.getItem("user");
+    if (user) {
+        user = JSON.parse(user);
+    }
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${user?.token}`,
+        },
+        body: JSON.stringify({
+            title: title,
+            topic: topic,
+            status: status,
+            description: description,
+            date: date,
+        }),
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error);
+    }
+    const responseObj = await response.json();
+    return responseObj;
+}
+
+export async function taskDelete({ id }) {
+    let user = localStorage.getItem("user");
+    if (user) {
+        user = JSON.parse(user);
+    }
+    let response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${user?.token}`,
+        },
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error);
+    }
+    const responseObj = await response.json();
+    return responseObj;
+}
+*/
