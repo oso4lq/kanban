@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 
 function Header({ addCard, toggleTheme, userData }) {
-    
+
     const [isOpened, setIsOpened] = useState(false);
     function togglePopUp() {
         setIsOpened((prev) => !prev)
@@ -26,27 +26,23 @@ function Header({ addCard, toggleTheme, userData }) {
                 </div>
                 <HeaderNav>
 
-                    <Button id="btnMainNew" onClick={addCard}>
+                    {/* <Button id="btnMainNew" onClick={addCard}>
                         Create new task
-                    </Button>
+                    </Button> */}
 
-                    <Button id="btnMainNew">
-                        <Link to={AppRoutes.ADD_CARD}>Add card page</Link>
-                    </Button>
+                    <Link to={AppRoutes.ADD_CARD}>
+                        <Button id="btnMainNew">Create new task</Button>
+                    </Link>
 
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
-                        {/* Authorised Osetr  */}
-                        {userData.login}
+                        {userData.name}
                     </a>
 
-                    {isOpened && <div className="header__pop-user-set pop-user-set" /*id="user-set-target"*/>
-                        {/* <a href="">x</a> */}
+                    {isOpened && <div className="header__pop-user-set pop-user-set">
                         <p className="pop-user-set__name">
-                            {/* Authorised Osetr */}
                             {userData.name}
                         </p>
                         <p className="pop-user-set__mail">
-                            {/* authorised.osetr@gmail.com */}
                             {userData.login}
                         </p>
                         <div className="pop-user-set__theme">
@@ -54,10 +50,9 @@ function Header({ addCard, toggleTheme, userData }) {
                             <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} />
                         </div>
 
-                        <Button $transparent>
-                            <Link to={AppRoutes.EXIT}>Log out</Link>
-                            {/* <a href="#popExit">Log out</a> */}
-                        </Button>
+                        <Link to={AppRoutes.EXIT}>
+                            <Button $transparent>Log out</Button>
+                        </Link>
 
                     </div>}
 

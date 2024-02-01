@@ -163,7 +163,7 @@ body {
   margin-bottom: 20px;
 }
 .pop-exit__exit-yes {
-  width: 153px;
+  width: 84px;
   height: 30px;
   background-color: #565EEF;
   border-radius: 4px;
@@ -188,7 +188,7 @@ body {
   justify-content: center;
 }
 .pop-exit__exit-no {
-  width: 153px;
+  width: 84px;
   height: 30px;
   background-color: transparent;
   border-radius: 4px;

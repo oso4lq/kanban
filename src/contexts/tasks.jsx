@@ -11,7 +11,7 @@ export const TasksProvider = ({ children }) => {
     let navigate = useNavigate();
 
     const returnUser = () => {
-        console.log('task added successfully');
+        console.log('task managed successfully');
         navigate(AppRoutes.HOME)
     }
 

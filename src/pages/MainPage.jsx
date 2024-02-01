@@ -22,7 +22,7 @@ import { addTask, getTasks } from '../api.js';
 
 function MainPage() {
 
-  const {userData} = useUser();
+  const { userData } = useUser();
 
   const [cards, setCards] = useState(null);
 
@@ -39,29 +39,6 @@ function MainPage() {
       })
   }, []);
 
-  // Add card function
-  const addCard = async () => {
-
-    let currentDate = new Date();
-    console.log(currentDate);
-
-    let newCard = {
-      title: "New task",
-      topic: "Research",
-      status: "Без статуса",
-      description: "No description",
-      date: currentDate,
-    }
-
-    await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date })
-    
-    getTasks({ token: userData.token })
-      .then((data) => {
-        setCards(data.tasks);
-      })
-
-  };
-
   // Toggle theme function
   const [theme, setTheme] = useState('light');
   const toggleTheme = () => {
@@ -74,7 +51,6 @@ function MainPage() {
     }
   };
 
-
   // Rendering
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -83,7 +59,7 @@ function MainPage() {
       <Wrapper>
         {/* userName={userName} userEMail={userEMail} */}
         <PopNewCard />
-        <Header addCard={addCard} toggleTheme={toggleTheme} theme={theme} userData={userData} />
+        <Header toggleTheme={toggleTheme} theme={theme} userData={userData} />
         <Main isLoaded={isLoaded} cardList={cards} />
       </Wrapper>
 

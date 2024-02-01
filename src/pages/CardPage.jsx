@@ -1,8 +1,18 @@
 import { Link, useParams } from "react-router-dom";
 import { AppRoutes } from "../lib/appRoutes";
-import { deleteTask } from "../api";
 
-function CardBrowsePage({ userData }) {
+import { deleteTask, getTasks } from "../api";
+import { useUser } from "../hooks/useUser";
+import { useContext } from "react";
+import { TasksContext } from "../contexts/tasks.jsx";
+import { useTasks } from "../hooks/useTasks.jsx";
+
+
+function CardBrowsePage() {
+
+    const { userData } = useUser();
+    const { returnUser } = useTasks();
+    const { userTasks, setUserTasks } = useContext(TasksContext);
 
     console.log(userData);
     console.log("user token: " + userData.token);
@@ -10,6 +20,24 @@ function CardBrowsePage({ userData }) {
 
     let { id } = useParams();
     console.log("card id: " + id);
+
+    const deleteCard = async () => {
+
+        console.log('deleting card');
+
+        await deleteTask({ token: userData.token, id })
+
+        getTasks({ token: userData.token })
+            .then((data) => {
+                setUserTasks(data.tasks);
+            })
+            .then(() => {
+                returnUser();
+            })
+            .catch(() => {
+                throw new Error('Something went wrong');
+            });
+    };
 
     return <div className="pop-browse" id="popBrowse">
         <div className="pop-browse__container">
@@ -61,8 +89,11 @@ function CardBrowsePage({ userData }) {
                                 />
                             </div>
                         </form>
+
+
                         <div className="pop-new-card__calendar calendar">
                             <p className="calendar__ttl subttl">Dates</p>
+
                             <div className="calendar__block">
                                 <div className="calendar__nav">
                                     <div className="calendar__month">September 2023</div>
@@ -154,6 +185,8 @@ function CardBrowsePage({ userData }) {
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                     <div className="theme-down__categories theme-down">
                         <p className="categories__p subttl">Category</p>
@@ -169,12 +202,8 @@ function CardBrowsePage({ userData }) {
                                 <a href="#">Edit task</a>
                             </button>
 
-                            <button onClick={deleteTask} className="btn-browse__delete _btn-bor _hover03">
-                                Delete task LINK
-                            </button>
-
-                            <button className="btn-browse__delete _btn-bor _hover03">
-                                <a href="#">Delete task</a>
+                            <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                Delete task
                             </button>
 
                         </div>

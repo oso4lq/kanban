@@ -1,12 +1,17 @@
-import { Link, useParams } from "react-router-dom";
-import { AppRoutes } from "../lib/appRoutes";
-import { addTask, getTasks } from "../api";
+import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
-import { Calendar } from "../components/Calendar/Calendar";
 
-import { useUser } from '../hooks/useUser.jsx';
+//  Pages
+import { AppRoutes } from "../lib/appRoutes";
+
+//  API, Logics
+import { addTask, getTasks } from "../api";
 import { TasksContext } from "../contexts/tasks.jsx";
+import { useUser } from '../hooks/useUser.jsx';
 import { useTasks } from "../hooks/useTasks.jsx";
+
+//  Components
+import { Calendar } from "../components/Calendar/Calendar";
 
 function AddCardPage() {
 
@@ -39,11 +44,6 @@ function AddCardPage() {
 
         await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date })
 
-        //  1. контекст для карточки. копировать как в user. не из localstorage
-        //  2. адаптировать под получение данных из контекста.
-        //  3. функция добавления карточки. 
-        //  4. setcards -> данные из context
-
         getTasks({ token: userData.token })
             .then((data) => {
                 setUserTasks(data.tasks);
@@ -63,7 +63,6 @@ function AddCardPage() {
                 <div className="pop-new-card__content">
                     <div className="pop-browse__top-block">
                         <h3 className="pop-new-card__ttl">Create task</h3>
-
                     </div>
 
                     <div className="pop-new-card__wrap">
@@ -121,38 +120,36 @@ function AddCardPage() {
                                 <p className="status__p subttl">Category</p>
                                 <div className="status__themes">
 
-                                    {/* 
                                     <div className="status__theme _orange">
-                                        <p>Web design</p>
+                                        <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
+                                        <label htmlFor="radio1">Web Design</label>
                                     </div>
+
                                     <div className="status__theme _green">
-                                        <p>Research</p>
+                                        <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
+                                        <label htmlFor="radio2">Research</label>
                                     </div>
+
                                     <div className="status__theme _purple">
-                                        <p>Copywriting</p>
-                                    </div> */}
-                                    {/* array for topics */}
-                                    <div className="prod_checbox">
-                                        <div className="radio-toolbar">
-                                            <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
-                                            <label htmlFor="radio1">Web Design</label>
-
-                                            <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
-                                            <label htmlFor="radio2">Research</label>
-
-                                            <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
-                                            <label htmlFor="radio3">Copywriting</label>
-                                        </div>
+                                        <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
+                                        <label htmlFor="radio3">Copywriting</label>
                                     </div>
 
                                 </div>
                             </div>
 
+                            {/* make an array.map() for topics? */}
+
                         </form>
 
-                        <div className="pop-new-card__calendar calendar">
-                            <Calendar selected={selected} setSelected={setSelected} />
+                        <div className="calendar__block">
+
+                            <div className="pop-new-card__calendar calendar">
+                                <Calendar selected={selected} setSelected={setSelected} />
+                            </div>
+
                         </div>
+
                     </div>
 
                     <div className="pop-browse__btn-browse ">
