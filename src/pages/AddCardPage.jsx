@@ -22,7 +22,6 @@ function AddCardPage() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
         setNewTask({
             ...newTask,
             [name]: value,
@@ -35,15 +34,16 @@ function AddCardPage() {
         description: "",
     });
 
+    //  add task function
     const addCard = async () => {
-
         let newCard = {
             ...newTask, data: selected
         }
         console.log(newCard);
-
-        await addTask({ token: userData.token, title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date })
-
+        await addTask({
+            token: userData.token,
+            title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date
+        })
         getTasks({ token: userData.token })
             .then((data) => {
                 setUserTasks(data.tasks);

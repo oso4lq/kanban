@@ -24,12 +24,10 @@ function CardBrowsePage() {
     let { id } = useParams();
     console.log("card id: " + id);
 
+    //  delete task function
     const deleteCard = async () => {
-
         console.log('deleting card');
-
         await deleteTask({ token: userData.token, id })
-
         getTasks({ token: userData.token })
             .then((data) => {
                 setUserTasks(data.tasks);
@@ -42,6 +40,7 @@ function CardBrowsePage() {
             });
     };
 
+    //  edit (cancel editing) card buttons
     const [isEditing, setIsEditing] = useState(false);
     const startEditing = () => {
         setIsEditing(true);
@@ -50,12 +49,28 @@ function CardBrowsePage() {
         setIsEditing(false);
     };
 
+    //  edit card inputs
+    const [selected, setSelected] = useState();
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setNewTask({
+            ...newTask,
+            [name]: value,
+        });
+    };
+    const [newTask, setNewTask] = useState({
+        title: "",
+        topic: "",
+        description: "",
+    });
+
+    //  edit card function
     const editCard = async () => {
-
         console.log('sending edits to card');
-
-        await editTask({ token: userData.token, id })
-
+        await editTask({
+            token: userData.token, id,
+            title: '', topic: '', status: '', description: '', date: ''
+        })
         getTasks({ token: userData.token })
             .then((data) => {
                 setUserTasks(data.tasks);
@@ -82,21 +97,34 @@ function CardBrowsePage() {
 
                     <div className="pop-browse__status status">
                         <p className="status__p subttl">Status</p>
-                        <div className="status__themes">
-                            <div className="status__theme _hide">
-                                <p>No status</p>
-                            </div>
+                        {/* <div className="status__themes"> */}
+                        <div className={`status__themes ${isEditing ? '_hide' : ''}`}>
                             <div className="status__theme _gray">
                                 <p className="_gray">To do</p>
                             </div>
-                            <div className="status__theme _hide">
-                                <p>In process</p>
+                        </div>
+                        {/* <div className="status__themes"> */}
+                        <div className={`status__themes ${isEditing ? '' : '_hide'}`}>
+                            <div className="status__theme ">
+                                <input type="radio" id="radio1" name="status" onChange={handleInputChange} value="No status" />
+                                <label htmlFor="status1">No status</label>
                             </div>
-                            <div className="status__theme _hide">
-                                <p>Testing</p>
+                            <div className="status__theme ">
+                                <input type="radio" id="radio2" name="status" onChange={handleInputChange} value="To do" />
+                                <label htmlFor="status2">To do</label>
+                                {/* <p className="_gray">To do</p> */}
                             </div>
-                            <div className="status__theme _hide">
-                                <p>Ready</p>
+                            <div className="status__theme ">
+                                <input type="radio" id="radio3" name="status" onChange={handleInputChange} value="In process" />
+                                <label htmlFor="status3">In process</label>
+                            </div>
+                            <div className="status__theme ">
+                                <input type="radio" id="radio4" name="status" onChange={handleInputChange} value="Testing" />
+                                <label htmlFor="status4">Testing</label>
+                            </div>
+                            <div className="status__theme ">
+                                <input type="radio" id="radio5" name="status" onChange={handleInputChange} value="Ready" />
+                                <label htmlFor="status5">Ready</label>
                             </div>
                         </div>
                     </div>
@@ -112,6 +140,7 @@ function CardBrowsePage() {
                                     Task description
                                 </label>
                                 <textarea
+                                    onChange={handleInputChange}
                                     className="form-browse__area"
                                     name="text"
                                     id="textArea01"
