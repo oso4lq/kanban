@@ -16,7 +16,6 @@ import { Calendar } from "../components/Calendar/Calendar";
 function AddCardPage() {
 
     const { userData } = useUser();
-    const [selected, setSelected] = useState();
     const { returnUser } = useTasks();
     const { userTasks, setUserTasks } = useContext(TasksContext);
 
@@ -27,7 +26,8 @@ function AddCardPage() {
             [name]: value,
         });
     };
-
+    
+    const [selected, setSelected] = useState();
     const [newTask, setNewTask] = useState({
         title: "",
         topic: "",
@@ -37,7 +37,7 @@ function AddCardPage() {
     //  add task function
     const addCard = async () => {
         let newCard = {
-            ...newTask, data: selected
+            ...newTask, date: selected
         }
         console.log(newCard);
         await addTask({

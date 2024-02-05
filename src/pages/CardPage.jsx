@@ -49,43 +49,20 @@ function CardBrowsePage() {
         setIsEditing(false);
     };
 
-    //  edit card inputs
-    const [selected, setSelected] = useState();
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setEditedTask({
-            ...editedTask,
-            [name]: value,
-        });
-    };
-
-    //  useState array  
-    const [editedTask, setEditedTask] = useState({
-        title: "",
-        topic: "",
-        status: "",
-        description: "",
-        date: "",
-    });
 
     //  find task function
     //  default array  
     let currentArray = {
-        title: "def title",
+        title: "",
         topic: "",
         status: "",
-        description: "def decr",
+        description: "",
         date: "",
     };
     // function uses card id from useParams to find an array with needed data and fills the default array with it
     let searchKey = id;
     console.log(searchKey);
     const findTaskData = async () => {
-
-        //  ?
-        let editedCard = {
-            ...editedTask, data: selected
-        }
 
         await getTasks({ token: userData.token })
             .then((data) => {
@@ -102,18 +79,34 @@ function CardBrowsePage() {
 
     //  fill useState array with current task data ?
 
-
-
+    //  edit card inputs
+    const [selected, setSelected] = useState();
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setEditedTask({
+            ...editedTask,
+            [name]: value,
+        });
+    };
+    //  useState array  
+    const [editedTask, setEditedTask] = useState({
+        // title: "",
+        // topic: "",
+        status: "",
+        description: "",
+        date: "",
+    });
 
     //  edit card function
     const editCard = async () => {
         let editedCard = {
-            ...editedTask, data: selected
+            ...editedTask, date: selected
         }
         console.log('sending edits to card');
         await editTask({
             token: userData.token, id,
-            title: editedCard.title, topic: '', status: '', description: '', date: ''
+            title: currentArray.title, topic: currentArray.topic,
+            status: editedCard.status, description: editedCard.description, date: editedCard.date,
         })
         getTasks({ token: userData.token })
             .then((data) => {
@@ -128,8 +121,9 @@ function CardBrowsePage() {
     };
 
     setTimeout(() => {
-        console.log('object');
+        console.log('1111111');
     }, "2000");
+
     return (
         <div className="pop-browse" id="popBrowse">
             <div className="pop-browse__container">
@@ -157,24 +151,24 @@ function CardBrowsePage() {
                             </div>
                             <div className={`status__themes ${isEditing ? '' : '_hide'}`}>
                                 <div className="status__theme ">
-                                    <input type="radio" id="radio1" name="status" onChange={handleInputChange} value="No status" />
+                                    <input type="radio" id="radio1" name="status" onChange={handleInputChange} value="Без статуса" />
                                     <label htmlFor="status1">No status</label>
                                 </div>
                                 <div className="status__theme ">
-                                    <input type="radio" id="radio2" name="status" onChange={handleInputChange} value="To do" />
+                                    <input type="radio" id="radio2" name="status" onChange={handleInputChange} value="Нужно сделать" />
                                     <label htmlFor="status2">To do</label>
                                     {/* <p className="_gray">To do</p> */}
                                 </div>
                                 <div className="status__theme ">
-                                    <input type="radio" id="radio3" name="status" onChange={handleInputChange} value="In process" />
+                                    <input type="radio" id="radio3" name="status" onChange={handleInputChange} value="В работе" />
                                     <label htmlFor="status3">In process</label>
                                 </div>
                                 <div className="status__theme ">
-                                    <input type="radio" id="radio4" name="status" onChange={handleInputChange} value="Testing" />
+                                    <input type="radio" id="radio4" name="status" onChange={handleInputChange} value="Тестирование" />
                                     <label htmlFor="status4">Testing</label>
                                 </div>
                                 <div className="status__theme ">
-                                    <input type="radio" id="radio5" name="status" onChange={handleInputChange} value="Ready" />
+                                    <input type="radio" id="radio5" name="status" onChange={handleInputChange} value="Готово" />
                                     <label htmlFor="status5">Ready</label>
                                 </div>
                             </div>
@@ -191,14 +185,14 @@ function CardBrowsePage() {
                                     <label htmlFor="textArea01" className="subttl">
                                         Task description
                                     </label>
-                                    <textarea
+                                    <textarea value={editedTask.description}
                                         onChange={handleInputChange}
                                         className="form-browse__area"
-                                        name="text"
+                                        name="description"
                                         id="textArea01"
                                         readOnly=""
                                         placeholder="Enter task description..."
-                                        defaultValue={currentArray.description}
+                                    // defaultValue={currentArray.description}
                                     />
                                 </div>
                                 {/* switch between editing and observing maybe the whole block */}
@@ -209,11 +203,11 @@ function CardBrowsePage() {
                                     <textarea
                                         onChange={handleInputChange}
                                         className="form-browse__area"
-                                        name="text"
+                                        name="description"
                                         id="textArea01"
                                         readOnly=""
                                         placeholder="Enter task description..."
-                                        defaultValue={currentArray.description}
+                                    // defaultValue={currentArray.description}
                                     />
                                 </div>
                             </form>
@@ -221,7 +215,7 @@ function CardBrowsePage() {
                             <div className="calendar__block calendar__nav">
                                 {/* <p className="calendar__ttl subttl">Dates</p> */}
                                 <div className="pop-new-card__calendar calendar">
-                                    <Calendar />
+                                    <Calendar selected={selected} setSelected={setSelected} />
                                 </div>
                             </div>
 
