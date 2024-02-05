@@ -3,7 +3,7 @@ import { AppRoutes } from "../lib/appRoutes";
 
 import { deleteTask, editTask, getTasks } from "../api";
 import { useUser } from "../hooks/useUser";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../contexts/tasks.jsx";
 import { useTasks } from "../hooks/useTasks.jsx";
 import { Calendar } from "../components/Calendar/Calendar.jsx";
@@ -50,7 +50,7 @@ function CardBrowsePage() {
     };
 
 
-    //  find task function
+    //  find task function \/
     //  default array  
     let currentArray = {
         title: "",
@@ -59,7 +59,37 @@ function CardBrowsePage() {
         description: "",
         date: "",
     };
-    // function uses card id from useParams to find an array with needed data and fills the default array with it
+
+
+    //  ?useEffect loader?
+    //  problem with currentArray: NO TITLE, NO TOPIC
+
+    // const [isTaskDataLoaded, setIsTaskDataLoaded] = useState(true);
+    // let searchKey = id;
+    // console.log(searchKey);
+    // useEffect(() => {
+    //     getTasks({ token: userData.token })
+    //         .then((data) => {
+    //             console.log(data.tasks);
+    //             currentArray.title = data.tasks.find(item => item._id === searchKey).title;
+    //             currentArray.topic = data.tasks.find(item => item._id === searchKey).topic;
+    //             currentArray.status = data.tasks.find(item => item._id === searchKey).status;
+    //             currentArray.description = data.tasks.find(item => item._id === searchKey).description;
+    //             currentArray.date = data.tasks.find(item => item._id === searchKey).date;
+    //         })
+    //         .then(() => {
+    //             setIsTaskDataLoaded(false);
+    //         })
+    //         .then(() => {
+    //             console.log(currentArray);
+    //         })
+    //     console.log(currentArray);
+    // }, []);
+
+
+    //  function uses card id from useParams to find an array with needed data and fills the default array with it
+    //  more useful function than one with useEffect but has no option to load task's data to inputs
+
     let searchKey = id;
     console.log(searchKey);
     const findTaskData = async () => {
@@ -77,8 +107,8 @@ function CardBrowsePage() {
     }
     findTaskData()
 
-    //  fill useState array with current task data ?
 
+    //  fill useState array with current task data ?
     //  edit card inputs
     const [selected, setSelected] = useState();
     const handleInputChange = (e) => {
@@ -120,11 +150,12 @@ function CardBrowsePage() {
             });
     };
 
-    setTimeout(() => {
-        console.log('1111111');
-    }, "2000");
 
     return (
+        // <>
+        //     {
+        //         isTaskDataLoaded ? 'Loading' :
+
         <div className="pop-browse" id="popBrowse">
             <div className="pop-browse__container">
                 <div className="pop-browse__block">
@@ -192,7 +223,7 @@ function CardBrowsePage() {
                                         id="textArea01"
                                         readOnly=""
                                         placeholder="Enter task description..."
-                                    // defaultValue={currentArray.description}
+                                        defaultValue={currentArray.description}
                                     />
                                 </div>
                                 {/* switch between editing and observing maybe the whole block */}
@@ -267,6 +298,8 @@ function CardBrowsePage() {
                 </div>
             </div>
         </div>
+        //     }
+        // </>
     )
 }
 export default CardBrowsePage;
