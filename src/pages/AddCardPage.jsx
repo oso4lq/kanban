@@ -142,12 +142,11 @@ function AddCardPage() {
 
                         </form>
 
-                        <div className="calendar__block">
-
+                        <div className="calendar__block calendar__nav">
+                            <p className="calendar__ttl subttl">Dates</p>
                             <div className="pop-new-card__calendar calendar">
                                 <Calendar selected={selected} setSelected={setSelected} />
                             </div>
-
                         </div>
 
                     </div>
@@ -160,15 +159,13 @@ function AddCardPage() {
                             </button>
                         </Link>
 
-                        {/* <Link to={AppRoutes.HOME} onClick={addCard}> */}
                         <button onClick={addCard} className="btn-browse__close _btn-bg _hover01">
                             Create task
                         </button>
-                        {/* </Link> */}
 
                     </div>
 
-                    <div className="pop-browse__btn-edit _hide">
+                    {/* <div className="pop-browse__btn-edit _hide">
                         <div className="btn-group">
                             <button className="btn-edit__edit _btn-bg _hover01">
                                 <a href="#">Save</a>
@@ -190,7 +187,7 @@ function AddCardPage() {
                             </button>
                         </Link>
 
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

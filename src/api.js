@@ -101,6 +101,33 @@ export async function deleteTask({ id, token }) {
     })
 }
 
+export async function editTask({ id, token, title, topic, status, description, date }) {
+
+    console.log('editTask id: ' + id);
+    console.log('editTask token: ' + token);
+
+    return fetch(API_URL + `/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            title,
+            topic,
+            status,
+            description,
+            date,
+        }),
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((response) => {
+        if (response.status !== 201) {
+            alert('Something went wrong');
+            throw new Error("Something went wrong");
+        } else {
+            return response.json()
+        }
+    })
+}
+
 /*
 export async function getTasks() {
     let user = localStorage.getItem("user");
