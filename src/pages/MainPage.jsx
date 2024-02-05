@@ -31,7 +31,7 @@ function MainPage() {
   useEffect(() => {
     getTasks({ token: userData.token })
       .then((data) => {
-        // console.log(data.tasks);
+        console.log(data.tasks);
         setCards(data.tasks);
       })
       .then(() => {
@@ -57,7 +57,6 @@ function MainPage() {
       <GlobalStyleLightDark />
 
       <Wrapper>
-        {/* userName={userName} userEMail={userEMail} */}
         <PopNewCard />
         <Header toggleTheme={toggleTheme} theme={theme} userData={userData} />
         <Main isLoaded={isLoaded} cardList={cards} />
