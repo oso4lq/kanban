@@ -1,13 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AppRoutes } from '../lib/appRoutes';
 import Button from "../components/Common/Common.styled";
 import { LogInRegisterDIV, LogInRegisterBox, Modal, ModalBlock, ModalForm, ModalFormGroup, ModalInput } from "../components/Common/Common.styled";
 import { register } from "../api";
 import { useState } from "react";
+import { useUser } from "../hooks/useUser";
 
-function RegisterPage({ setUserData }) {
+function RegisterPage() {
 
-    let navigate = useNavigate();
+    const { loginUser } = useUser();
 
     const registerForm = {
         name: '',
@@ -21,9 +22,7 @@ function RegisterPage({ setUserData }) {
         await register(registerData).then((data) => {
             console.log(data);
             console.log(data.user);
-            setUserData(data.user);
-        }).then(() => {
-            navigate(AppRoutes.HOME)
+            loginUser(data.user)
         })
             .catch((error) => {
                 alert(error);

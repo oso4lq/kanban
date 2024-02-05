@@ -2,17 +2,6 @@
 const API_URL_USER = 'https://wedev-api.sky.pro/api/user';
 const API_URL = 'https://wedev-api.sky.pro/api/kanban';
 
-// export async function login({ login, password }) {
-//     const response = await fetch(API_URL_USER + '/login', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             login,
-//             password,
-//         }),
-//     })
-//     const data = await response.json();
-//     return data;
-// }
 export async function login({ login, password }) {
     return fetch(API_URL_USER + '/login', {
         method: "POST",
@@ -29,18 +18,6 @@ export async function login({ login, password }) {
     });
 }
 
-// export async function register({ login, name, password }) {
-//     const response = await fetch(API_URL_USER + '/login', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             login,
-//             name,
-//             password,
-//         })
-//     })
-//     const data = await response.json();
-//     return data;
-// }
 export async function register({ login, name, password }) {
     return fetch(API_URL_USER + '/login', {
         method: "POST",
@@ -58,16 +35,6 @@ export async function register({ login, name, password }) {
     });
 }
 
-// export async function getTasks({ token }) {
-//     const response = await fetch(API_URL, {
-//         method: 'GET',
-//         headers: {
-//             Authorization: `Bearer ${token}`,
-//         }
-//     });
-//     const data = await response.json();
-//     return data;
-// }
 export async function getTasks({ token }) {
     return fetch(API_URL, {
         method: "GET",
@@ -106,9 +73,95 @@ export async function addTask({ token, title, topic, status, description, date }
         },
     }).then((response) => {
         if (response.status === 400) {
-            alert('Something went wrong')
+            alert('Something went wrong');
+            throw new Error("Something went wrong");
         } else {
             return response.json()
         }
     })
 }
+
+export async function deleteTask({ id, token }) {
+
+    console.log('deleteTask id: ' + id);
+    console.log('deleteTask token: ' + token);
+
+    return fetch(API_URL + `/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }).then((response) => {
+        if (response.status !== 201) {
+            alert('Something went wrong');
+            throw new Error("Something went wrong");
+        } else {
+            return response.json()
+        }
+    })
+}
+
+/*
+export async function getTasks() {
+    let user = localStorage.getItem("user");
+    if (user) {
+        user = JSON.parse(user);
+    }
+    const response = await fetch(API_URL, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${user?.token}`,
+        },
+    });
+    if (!response.ok) {
+        throw new Error("Не удалось загрузить данные, попробуйте позже");
+    }
+    const responseObj = await response.json();
+    return responseObj;
+}
+
+export async function postNewTask({ title, topic, status, description, date }) {
+    let user = localStorage.getItem("user");
+    if (user) {
+        user = JSON.parse(user);
+    }
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${user?.token}`,
+        },
+        body: JSON.stringify({
+            title: title,
+            topic: topic,
+            status: status,
+            description: description,
+            date: date,
+        }),
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error);
+    }
+    const responseObj = await response.json();
+    return responseObj;
+}
+
+export async function taskDelete({ id }) {
+    let user = localStorage.getItem("user");
+    if (user) {
+        user = JSON.parse(user);
+    }
+    let response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${user?.token}`,
+        },
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error);
+    }
+    const responseObj = await response.json();
+    return responseObj;
+}
+*/

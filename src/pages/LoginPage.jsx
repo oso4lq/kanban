@@ -1,13 +1,14 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { AppRoutes } from '../lib/appRoutes';
 import Button from "../components/Common/Common.styled"
 import { LogInRegisterDIV, LogInRegisterBox, Modal, ModalBlock, ModalForm, ModalFormGroup, ModalInput } from "../components/Common/Common.styled"
 import { useState } from "react";
 import { login } from "../api";
+import { useUser } from "../hooks/useUser";
 
-function LoginPage({ setUserData }) {
+function LoginPage() {
 
-    let navigate = useNavigate();
+    const {loginUser} = useUser();
 
     const loginForm = {
         login: '',
@@ -18,11 +19,9 @@ function LoginPage({ setUserData }) {
     const handleLogin = async (e) => {
         e.preventDefault()
         await login(loginData).then((data) => {
-            console.log(data);
+            //console.log(data);
             console.log(data.user);
-            setUserData(data.user);
-        }).then(() => {
-            navigate(AppRoutes.HOME)
+            loginUser(data.user)
         })
             .catch((error) => {
                 alert(error);

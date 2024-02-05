@@ -4,11 +4,13 @@ import { HeaderBox, HeaderBlock, HeaderNav } from "./Header.styled";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
 
-function Header({ addCard, toggleTheme, userName, userEMail }) {
+function Header({ addCard, toggleTheme, userData }) {
+
     const [isOpened, setIsOpened] = useState(false);
     function togglePopUp() {
         setIsOpened((prev) => !prev)
     }
+
     return <HeaderBox className="header">
         <Container>
             <HeaderBlock>
@@ -24,34 +26,33 @@ function Header({ addCard, toggleTheme, userName, userEMail }) {
                 </div>
                 <HeaderNav>
 
-                    <Button id="btnMainNew" onClick={addCard}>
+                    {/* <Button id="btnMainNew" onClick={addCard}>
                         Create new task
-                    </Button>
+                    </Button> */}
+
+                    <Link to={AppRoutes.ADD_CARD}>
+                        <Button id="btnMainNew">Create new task</Button>
+                    </Link>
 
                     <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
-                        {/* Authorised Osetr  */}
-                        {userName}
+                        {userData.name}
                     </a>
 
-                    {isOpened && <div className="header__pop-user-set pop-user-set" /*id="user-set-target"*/>
-                        {/* <a href="">x</a> */}
+                    {isOpened && <div className="header__pop-user-set pop-user-set">
                         <p className="pop-user-set__name">
-                            {/* Authorised Osetr */}
-                            {userName}
+                            {userData.name}
                         </p>
                         <p className="pop-user-set__mail">
-                            {/* authorised.osetr@gmail.com */}
-                            {userEMail}
+                            {userData.login}
                         </p>
                         <div className="pop-user-set__theme">
                             <p>Dark theme</p>
                             <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} />
                         </div>
 
-                        <Button $transparent>
-                            <Link to={AppRoutes.EXIT}>Log out</Link>
-                            {/* <a href="#popExit">Log out</a> */}
-                        </Button>
+                        <Link to={AppRoutes.EXIT}>
+                            <Button $transparent>Log out</Button>
+                        </Link>
 
                     </div>}
 

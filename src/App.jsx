@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import NotFoundPage from './pages/NotFoundPage';
 import ExitPage from './pages/ExitPage';
 import CardBrowsePage from './pages/CardPage';
+import AddCardPage from './pages/AddCardPage.jsx';
 
 // Styles
 //import './App.css'
@@ -41,16 +42,17 @@ function App() {
 
       <Routes>
 
-        <Route path={AppRoutes.HOME} element={<PrivateRoute isAuth={userData}> <Outlet />  </PrivateRoute>}>
-          <Route index element={<MainPage userData={userData} />} />
-          <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage />} />
+        <Route path={AppRoutes.HOME} element={<PrivateRoute> <Outlet />  </PrivateRoute>}>
+          <Route index element={<MainPage />} />
+          <Route path={`${AppRoutes.CARD}/:id`} element={<CardBrowsePage userData={userData} />} />
           <Route path={AppRoutes.EXIT} element={<ExitPage />} />
           <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
+          <Route path={AppRoutes.ADD_CARD} element={<AddCardPage />} />
         </Route>
 
-        <Route path={AppRoutes.LOGIN} element={<LoginPage setUserData={setUserData} />} />
-        <Route path={AppRoutes.REGISTER} element={<RegisterPage setUserData={setUserData} />} />
-
+        <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+        <Route path={AppRoutes.REGISTER} element={<RegisterPage />} />
+        {/* setUserData={setUserData} */}
       </Routes>
 
     </ThemeProvider>
