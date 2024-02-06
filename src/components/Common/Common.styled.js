@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
+import { themeStyles } from "../../lib/theme";
 
 export const Container = styled.div`
     max-width: 1260px;
@@ -38,18 +39,17 @@ export const Button = styled.button`
 export default Button;
 
 export const LogInRegisterDIV = styled.div`
-    display: flex;
-    //width: 1440px;
-    padding: 10% 0px 10% 0px;
-    justify-content: center;
-    align-items: center;
-    background: #EAEEF6;
+display: flex;
+//width: 1440px;
+padding: 10% 0px 10% 0px;
+justify-content: center;
+align-items: center;
+background: #EAEEF6;
 `
 export const LogInRegisterBox = styled.div`
-
-    border: 0.7px solid #D4DBE5;
-    background: #FFF;
-    box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+border: 0.7px solid #D4DBE5;
+background: #FFF;
+box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
 `
 export const Modal = styled.div`
 display: flex;
@@ -95,4 +95,38 @@ font-style: normal;
 font-weight: 400;
 line-height: 150%; /* 21px */
 letter-spacing: -0.14px;
+`
+export const CategoryTheme = styled.div`
+display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+  background-color: ${({ $themeColor }) =>
+    themeStyles[$themeColor]?.themeBack || "#b4fdd1"};
+  p {
+    color: ${({ $themeColor }) =>
+      themeStyles[$themeColor]?.themeCol || "#06b16e"};
+  }
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 1 !important;
+  }
+  .theme-top {
+    display: block;
+  }
 `

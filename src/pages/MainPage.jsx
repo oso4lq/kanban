@@ -23,6 +23,7 @@ import { addTask, getTasks } from '../api.js';
 function MainPage() {
 
   const { userData } = useUser();
+  const { returnTask } = useTasks();
 
   const [cards, setCards] = useState(null);
 
@@ -31,6 +32,7 @@ function MainPage() {
   useEffect(() => {
     getTasks({ token: userData.token })
       .then((data) => {
+        returnTask(data);
         console.log(data.tasks);
         setCards(data.tasks);
       })

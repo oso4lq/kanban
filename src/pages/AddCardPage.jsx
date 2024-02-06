@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 
 //  Pages
@@ -16,8 +16,9 @@ import { Calendar } from "../components/Calendar/Calendar";
 function AddCardPage() {
 
     const { userData } = useUser();
-    const { returnUser } = useTasks();
-    const { userTasks, setUserTasks } = useContext(TasksContext);
+    // const { returnTask } = useTasks();
+    // const { userTasks, setUserTasks } = useContext(TasksContext);
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -26,7 +27,7 @@ function AddCardPage() {
             [name]: value,
         });
     };
-    
+
     const [selected, setSelected] = useState();
     const [newTask, setNewTask] = useState({
         title: "",
@@ -36,24 +37,23 @@ function AddCardPage() {
 
     //  add task function
     const addCard = async () => {
-        let newCard = {
-            ...newTask, date: selected
-        }
-        console.log(newCard);
-        await addTask({
-            token: userData.token,
-            title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date
-        })
-        getTasks({ token: userData.token })
-            .then((data) => {
-                setUserTasks(data.tasks);
+        try {
+            let newCard = {
+                ...newTask, date: selected
+            };
+            console.log(newCard);
+            await addTask({
+                token: userData.token,
+                title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date
             })
-            .then(() => {
-                returnUser();
-            })
-            .catch(() => {
-                throw new Error('Something went wrong');
+            addTask(newCard).then((data) => {
+                setNewTask(data);
+                navigate(AppRoutes.HOME);
             });
+        } catch (error) {
+            alert(error.message);
+            throw new Error(error.message);
+        }
     };
 
     return <div className="pop-browse" id="popBrowse">
