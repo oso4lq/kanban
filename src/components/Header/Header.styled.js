@@ -19,14 +19,8 @@ export const HeaderBlock = styled.div`
     padding: 0 10px;
 `
 
-//reuse style with dark
-export const HeaderLogo = styled.div`
-`
-
-export const HeaderNav = styled.nav`
-    max-width: 290px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+export const LogoLink = styled.a`
+  img {
+    width: 85px;
+  }
+`;

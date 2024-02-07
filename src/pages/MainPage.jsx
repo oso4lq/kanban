@@ -10,14 +10,16 @@ import Main from '../components/Main/Main';
 import { useEffect, useState } from 'react';
 import { useUser } from '../hooks/useUser.jsx';
 import { useTasks } from '../hooks/useTasks.jsx';
+import { useGlobal } from '../hooks/useGlobal.jsx';
 //import { cardList } from '../data';
 
 // Styles
 //import './App.css'
 // import { GlobalStyle } from '../Global/Global.styled.js';
 // import { GlobalStyleALL } from '../components/GlobalALL/GlobalALL.styled.js';
-import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../components/Themes/ThemesLightDark.styled.js';
-import { addTask, getTasks } from '../api.js';
+// import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../components/Themes/ThemesLightDark.styled.js';
+import { getTasks } from '../api.js';
+import { GlobalStyle } from '../Global/Global.styled.js';
 
 
 function MainPage() {
@@ -25,10 +27,15 @@ function MainPage() {
   const { userData } = useUser();
   const { returnTask } = useTasks();
 
-  const [cards, setCards] = useState(null);
+  const { theme } = useGlobal();
+  useEffect(() => {
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
 
-  // Loader
+  //  Loader
+  const [cards, setCards] = useState(null);
   const [isLoaded, setIsLoaded] = useState(true);
+  const [hasError, setHasError] = useState(false);
   useEffect(() => {
     getTasks({ token: userData.token })
       .then((data) => {
@@ -39,32 +46,41 @@ function MainPage() {
       .then(() => {
         setIsLoaded(false);
       })
+      .catch((error) => {
+        setHasError(true);
+        console.error(error);
+      });
   }, []);
 
   // Toggle theme function
-  const [theme, setTheme] = useState('light');
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-      //console.log('dark theme');
-    } else {
-      setTheme('light');
-      //console.log('light theme');
-    }
-  };
+  // const [theme, setTheme] = useState('light');
+  // const toggleTheme = () => {
+  //   if (theme === 'light') {
+  //     setTheme('dark');
+  //     //console.log('dark theme');
+  //   } else {
+  //     setTheme('light');
+  //     //console.log('light theme');
+  //   }
+  // };
 
-  // Rendering
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyleLightDark />
+    // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    //   <GlobalStyleLightDark />
+    <>
+
+      <GlobalStyle />
 
       <Wrapper>
         <PopNewCard />
-        <Header toggleTheme={toggleTheme} theme={theme} userData={userData} />
-        <Main isLoaded={isLoaded} cardList={cards} />
+        {/* <Header toggleTheme={toggleTheme} theme={theme} userData={userData} /> */}
+        <Header theme={theme} userData={userData} />
+        <Main isLoaded={isLoaded} hasError={hasError} cardList={cards} />
       </Wrapper>
 
-    </ThemeProvider>
+    </>
+
+    // </ThemeProvider>
   )
 }
 

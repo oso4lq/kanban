@@ -6,7 +6,7 @@ import { AppRoutes } from "../../lib/appRoutes";
 
 //  API, Logics
 import { addTask, getTasks } from "../../api";
-import { TasksContext } from "../../contexts/tasks.jsx";
+import { TasksContext } from "../../contexts/tasks-context.jsx";
 import { useUser } from '../../hooks/useUser.jsx';
 import { useTasks } from "../../hooks/useTasks.jsx";
 

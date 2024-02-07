@@ -1,6 +1,6 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // Pages
 import { AppRoutes } from './lib/appRoutes';
@@ -13,17 +13,18 @@ import CardBrowseEditPage from './pages/CardBrowseEditPage.jsx';
 import AddCardPage from './pages/AddCardPage.jsx';
 
 // Styles
-//import './App.css'
-import { GlobalStyle } from './Global/Global.styled.js';
-import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
-import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
+import './App.css'
+// import { GlobalStyle } from './Global/Global.styled.js';
+// import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
+// import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';
+import Layout from './components/Layout/Layout.jsx';
 
 function App() {
 
   // const [userData, setUserData] = useState(null);
 
   // Toggle theme function
-  const [theme, setTheme] = useState('light');
+  // const [theme, setTheme] = useState('light');
   // const toggleTheme = () => {
   //   if (theme === 'light') {
   //     setTheme('dark');
@@ -35,11 +36,11 @@ function App() {
   // };
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyle />
-      <GlobalStyleALL />
-      <GlobalStyleLightDark />
-
+    // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    //   <GlobalStyle />
+    //   <GlobalStyleALL />
+    //   <GlobalStyleLightDark />
+    <Layout>
       <Routes>
 
         <Route path={AppRoutes.HOME} element={<PrivateRoute> <Outlet />  </PrivateRoute>}>
@@ -55,8 +56,9 @@ function App() {
         <Route path={AppRoutes.NOT_FOUND} element={<NotFoundPage />} />
 
       </Routes>
+    </Layout>
 
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }
 
