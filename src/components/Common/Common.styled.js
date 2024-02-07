@@ -96,37 +96,43 @@ font-weight: 400;
 line-height: 150%; /* 21px */
 letter-spacing: -0.14px;
 `
-export const CategoryTheme = styled.div`
-display: inline-block;
+
+
+
+export const CategoriesTheme = styled.div`
+  display: inline-block;
   width: auto;
   height: auto;
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
   opacity: 0.4;
-  background-color: ${({ $themeColor }) =>
-    themeStyles[$themeColor]?.themeBack || "#b4fdd1"};
-  p {
-    color: ${({ $themeColor }) =>
-      themeStyles[$themeColor]?.themeCol || "#06b16e"};
-  }
+ 
   label {
     font-size: 14px;
     font-weight: 600;
     line-height: 14px;
     white-space: nowrap;
   }
+
   input[type="radio"] {
     display: none;
+  }
+
+  input[type="radio"]:checked + label:checked {
+    opacity: 1 !important;
+   
   }
   label {
     display: inline-block;
     cursor: pointer;
   }
+
   &:hover {
     opacity: 1 !important;
   }
+
   .theme-top {
     display: block;
   }
-`
+`;
