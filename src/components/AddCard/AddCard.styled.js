@@ -261,9 +261,10 @@ export const CalendarBlockP = styled.p`
     padding: 0 7px;
     margin-left: 16px;
 `
-
-
-
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
 
 

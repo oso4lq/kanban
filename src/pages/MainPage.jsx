@@ -1,8 +1,5 @@
 // Components
 import Wrapper from '../components/Wrapper/Wrapper.jsx';
-//import PopExit from '../components/PopExit/PopExit';
-// import PopNewCard from '../components/PopNewCard/PopNewCard';
-//import PopBrowse from '../components/PopBrowse/PopBrowse';
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
 
@@ -11,12 +8,8 @@ import { useEffect, useState } from 'react';
 import { useUser } from '../hooks/useUser.jsx';
 import { useTasks } from '../hooks/useTasks.jsx';
 import { useGlobal } from '../hooks/useGlobal.jsx';
-//import { cardList } from '../data';
 
 // Styles
-// import './App.css'
-// import { GlobalStyleALL } from '../components/GlobalALL/GlobalALL.styled.js';
-// import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from '../components/Themes/ThemesLightDark.styled.js';
 import { GlobalStyle } from '../Global/Global.styled.js';
 
 import { getTasks } from '../api.js';
@@ -52,35 +45,14 @@ function MainPage() {
       });
   }, []);
 
-  // Toggle theme function
-  // const [theme, setTheme] = useState('light');
-  // const toggleTheme = () => {
-  //   if (theme === 'light') {
-  //     setTheme('dark');
-  //     //console.log('dark theme');
-  //   } else {
-  //     setTheme('light');
-  //     //console.log('light theme');
-  //   }
-  // };
-
   return (
-    // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-    //   <GlobalStyleLightDark />
     <>
-
       <GlobalStyle />
-
       <Wrapper>
-        {/* <PopNewCard /> */}
-        {/* <Header toggleTheme={toggleTheme} theme={theme} userData={userData} /> */}
         <Header theme={theme} userData={userData} />
         <Main isLoaded={isLoaded} hasError={hasError} cardList={cards} />
       </Wrapper>
-
     </>
-
-    // </ThemeProvider>
   )
 }
 

@@ -161,8 +161,6 @@ function BrowseEdit({ id }) {
             color = "_gray";
     }
 
-
-
     return (
         <>
             <GlobalStyle />
@@ -177,9 +175,6 @@ function BrowseEdit({ id }) {
                                 <div className={`${color} categories__theme theme-top _active-category`}>
                                     <p>{editedTask.topic}</p>
                                 </div>
-                                {/* <CategoriesTheme $themeColor={color} className="_active-category">
-                                <p>{taskData.topic}</p>
-                            </CategoriesTheme> */}
 
                             </PopBrowseTop>
 
@@ -293,23 +288,14 @@ function BrowseEdit({ id }) {
                                     <Button onClick={startEditing}>
                                         Edit task
                                     </Button>
-                                    {/* <button onClick={startEditing} className="btn-browse__edit _btn-bor _hover03">
-                                        Edit task
-                                    </button> */}
                                     <Button onClick={deleteCard}>
                                         Delete task
                                     </Button>
-                                    {/* <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
-                                        Delete task
-                                    </button> */}
                                 </BrowseButtonGroup>
                                 <Link to={AppRoutes.HOME}>
                                     <Button>
                                         Close
                                     </Button>
-                                    {/* <button className="btn-browse__close _btn-bg _hover01">
-                                        Close
-                                    </button> */}
                                 </Link>
                             </PopBrowseButtons>
 
@@ -318,29 +304,17 @@ function BrowseEdit({ id }) {
                                     <Button onClick={editCard}>
                                         Save
                                     </Button>
-                                    {/* <button onClick={editCard} className="btn-edit__edit _btn-bg _hover01">
-                                        Save
-                                    </button> */}
                                     <Button onClick={cancelEditing}>
                                         Cancel
                                     </Button>
-                                    {/* <button onClick={cancelEditing} className="btn-edit__edit _btn-bor _hover03">
-                                        Cancel
-                                    </button> */}
                                     <Button onClick={deleteCard}>
                                         Delete task
                                     </Button>
-                                    {/* <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
-                                        Delete task
-                                    </button> */}
                                 </BrowseButtonGroup>
                                 <Link to={AppRoutes.HOME}>
                                     <Button>
                                         Close
                                     </Button>
-                                    {/* <button className="btn-edit__close _btn-bg _hover01">
-                                        Close
-                                    </button> */}
                                 </Link>
                             </PopBrowseButtons>
 

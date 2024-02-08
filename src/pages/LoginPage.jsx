@@ -28,7 +28,6 @@ function LoginPage() {
                 throw new Error('Please fill in all the inputs.');
             }
             await login(loginData).then((data) => {
-                //console.log(data);
                 console.log(data.user);
                 loginUser(data.user)
             });
@@ -73,8 +72,6 @@ function LoginPage() {
                                     name="password"
                                     label="Password"
                                 />
-
-                                {/* <Button id="btnEnter" onClick={handleLogin}>Enter</Button> */}
 
                                 {hasError ? (
                                     <>

@@ -6,15 +6,12 @@ import { AppRoutes } from "../../lib/appRoutes";
 
 //  API, Logics
 import { addTask } from "../../api";
-// import { TasksContext } from "../../contexts/tasks-context.jsx";
 import { useUser } from '../../hooks/useUser.jsx';
-// import { useTasks } from "../../hooks/useTasks.jsx";
 
 //  Components
 import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
-import { CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
-import { flushSync } from "react-dom";
+import { ButtonContainer, CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 import Button from "../Common/Common.styled.js";
 
 function AddCard() {
@@ -70,7 +67,6 @@ function AddCard() {
                 token: userData.token,
                 title: newCard.title, topic: currentCategory, status: newCard.status, description: newCard.description, date: newCard.date
             })
-                // addTask(newCard)
                 .then((data) => {
                     setNewTask(data);
                     navigate(AppRoutes.HOME);
@@ -178,19 +174,16 @@ function AddCard() {
 
                             </PopNewCardWrap>
 
-                            <div className="pop-browse__btn-browse ">
-
+                            <ButtonContainer>
                                 <Link to={AppRoutes.HOME}>
                                     <Button className="btn-browse__close _btn-bg _hover01">
                                         Cancel
                                     </Button>
                                 </Link>
-
                                 <Button onClick={addCard}>
                                     Create task
                                 </Button>
-
-                            </div>
+                            </ButtonContainer>
 
                         </PopNewCardContent>
                     </PopNewCardBlock>

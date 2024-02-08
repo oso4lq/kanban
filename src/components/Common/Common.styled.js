@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
-import { themeStyles } from "../../lib/theme";
 import { hover01 } from "../../Global/Global.styled";
 
 export const Container = styled.div`

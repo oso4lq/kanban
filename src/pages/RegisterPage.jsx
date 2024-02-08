@@ -28,7 +28,6 @@ function RegisterPage() {
                 throw new Error('Please fill in all the inputs.');
             }
             await register(registerData).then((data) => {
-                //console.log(data);
                 console.log(data.user);
                 loginUser(data.user)
             });
@@ -80,7 +79,6 @@ function RegisterPage() {
                                     label="Password"
                                 />
 
-                                {/* <Button id="btnEnter" onClick={handleRegister}>Enter</Button> */}
                                 {hasError ? (
                                     <>
                                         <ErrorText>{hasError}</ErrorText>
