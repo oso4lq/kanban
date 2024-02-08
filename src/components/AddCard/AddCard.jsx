@@ -13,7 +13,7 @@ import { useUser } from '../../hooks/useUser.jsx';
 //  Components
 import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
-import { CalendarBlock, CalendarBlockP, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
+import { CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 import { flushSync } from "react-dom";
 
 function AddCard() {
@@ -39,6 +39,13 @@ function AddCard() {
         description: "",
     });
 
+
+    const [currentCategory, setCurrentCategory] = useState('');
+    const handleIsChecked = (id) => {
+        setCurrentCategory(id);
+
+    }
+
     //  Toggle category selection
     //  array for 3 categories with true/false state. if one turns true, the others turn false?
     // const [categorySelect, setCategorySelect] = useState({
@@ -57,13 +64,20 @@ function AddCard() {
     // });
 
 
-    const [isChecked, setIsChecked] = useState(false);
-    const handleIsChecked = () => {
-        setIsChecked(!isChecked);
-        console.log(isChecked);
-        // Additional logic if needed
-    };
-
+    const categories = [
+        {
+            id: 'Web Design',
+            color: '_orange',
+        },
+        {
+            id: 'Research',
+            color: '_green',
+        },
+        {
+            id: 'Copywriting',
+            color: '_purple',
+        }
+    ]
 
     //  add task function
     const addCard = async () => {
@@ -75,7 +89,7 @@ function AddCard() {
             console.log(newCard);
             await addTask({
                 token: userData.token,
-                title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date
+                title: newCard.title, topic: currentCategory, status: newCard.status, description: newCard.description, date: newCard.date
             })
                 // addTask(newCard)
                 .then((data) => {
@@ -136,42 +150,19 @@ function AddCard() {
 
                                         <CategoriesThemes>
 
-                                            <CategoriesTheme
-                                                className={`${isChecked ? '_selected-category' : ''} _orange`}
-                                                checked={isChecked} onClick={handleIsChecked} >
-                                                <input
-                                                    type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
-                                                    checked={isChecked}
-                                                    onChange={handleInputChange}
-                                                />
-                                                <label htmlFor="web-design">Web Design</label>
-                                            </CategoriesTheme>
-                                            <CategoriesTheme
-                                                className={`${isChecked ? '_selected-category' : ''} _green`}
-                                                checked={isChecked} onClick={handleIsChecked} >
-                                                <input
-                                                    type="radio" id="Research" name="topic" className="_green" value="Research"
-                                                    checked={newTask.topic === "Research"}
-                                                    onChange={handleInputChange}
-                                                />
-                                                <label htmlFor="Research">Research</label>
-                                            </CategoriesTheme>
-                                            <CategoriesTheme
-                                                className={`${isChecked ? '_selected-category' : ''} _purple`}
-                                                checked={isChecked} onClick={handleIsChecked} >
-                                                <input
-                                                    type="radio" id="Copywriting" name="topic" className="_purple" value="Copywriting"
-                                                    checked={newTask.topic === "Copywriting"}
-                                                    onChange={handleInputChange}
-                                                />
-                                                <label htmlFor="Copywriting">Copywriting</label>
-                                            </CategoriesTheme>
+                                            {categories.map((e) => (
+                                                <CategoriesTheme
+                                                    key={e.id}>
+                                                    <CategoriesButton
+                                                        type="button" id={e.id} className={`${currentCategory === e.id ? '_selected-category' : ''} ${e.color}`}
+                                                        onClick={() => handleIsChecked(e.id)}
+                                                    >{e.id}</CategoriesButton>
+                                                </CategoriesTheme>
+                                            ))}
 
                                         </CategoriesThemes>
 
-
-
-                                        <CategoriesThemes>
+                                        {/* <CategoriesThemes>
                                             <CategoriesTheme className="_orange">
                                                 <input
                                                     type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
@@ -196,25 +187,8 @@ function AddCard() {
                                                 />
                                                 <label htmlFor="Copywriting">Copywriting</label>
                                             </CategoriesTheme>
+                                        </CategoriesThemes> */}
 
-
-
-                                            {/* <div className="status__theme _orange">
-                                            <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
-                                            <label htmlFor="radio1">Web Design</label>
-                                        </div>
-
-                                        <div className="status__theme _green">
-                                            <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
-                                            <label htmlFor="radio2">Research</label>
-                                        </div>
-
-                                        <div className="status__theme _purple">
-                                            <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
-                                            <label htmlFor="radio3">Copywriting</label>
-                                        </div> */}
-                                            {/* make an array.map() for topics? */}
-                                        </CategoriesThemes>
                                     </CategoriesContainer>
                                 </PopNewCardForm>
 
