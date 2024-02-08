@@ -15,6 +15,7 @@ import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
 import { CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 import { flushSync } from "react-dom";
+import Button from "../Common/Common.styled.js";
 
 function AddCard() {
 
@@ -180,14 +181,14 @@ function AddCard() {
                             <div className="pop-browse__btn-browse ">
 
                                 <Link to={AppRoutes.HOME}>
-                                    <button className="btn-browse__close _btn-bg _hover01">
+                                    <Button className="btn-browse__close _btn-bg _hover01">
                                         Cancel
-                                    </button>
+                                    </Button>
                                 </Link>
 
-                                <button onClick={addCard} className="btn-browse__close _btn-bg _hover01">
+                                <Button onClick={addCard}>
                                     Create task
-                                </button>
+                                </Button>
 
                             </div>
 

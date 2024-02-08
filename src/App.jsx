@@ -13,7 +13,7 @@ import CardBrowseEditPage from './pages/CardBrowseEditPage.jsx';
 import AddCardPage from './pages/AddCardPage.jsx';
 
 // Styles
-import './App.css'
+// import './App.css'
 // import { GlobalStyle } from './Global/Global.styled.js';
 // import { GlobalStyleALL } from './components/GlobalALL/GlobalALL.styled.js';
 // import { lightTheme, darkTheme, GlobalStyleLightDark, ThemeProvider } from './components/Themes/ThemesLightDark.styled.js';

@@ -28,7 +28,7 @@ export const Button = styled.button`
     font-size: 14px;
     line-height: 1;
     font-weight: 500;
-    margin: 0px 20px;
+    /* margin: 0px 20px; */
     padding: 0px 10px;
 
 

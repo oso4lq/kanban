@@ -14,6 +14,7 @@ import {
 } from "./BrowseEdit.styled.js";
 // import { CategoriesTheme } from "../Common/Common.styled.js";
 import { GlobalStyle } from "../../Global/Global.styled.js";
+import Button from "../Common/Common.styled.js";
 
 function BrowseEdit({ id }) {
 
@@ -289,36 +290,57 @@ function BrowseEdit({ id }) {
 
                             <PopBrowseButtons className={`${isEditing ? '_hide' : ''}`}>
                                 <BrowseButtonGroup>
-                                    <button onClick={startEditing} className="btn-browse__edit _btn-bor _hover03">
+                                    <Button onClick={startEditing}>
                                         Edit task
-                                    </button>
-                                    <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                    </Button>
+                                    {/* <button onClick={startEditing} className="btn-browse__edit _btn-bor _hover03">
+                                        Edit task
+                                    </button> */}
+                                    <Button onClick={deleteCard}>
                                         Delete task
-                                    </button>
+                                    </Button>
+                                    {/* <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                        Delete task
+                                    </button> */}
                                 </BrowseButtonGroup>
                                 <Link to={AppRoutes.HOME}>
-                                    <button className="btn-browse__close _btn-bg _hover01">
+                                    <Button>
                                         Close
-                                    </button>
+                                    </Button>
+                                    {/* <button className="btn-browse__close _btn-bg _hover01">
+                                        Close
+                                    </button> */}
                                 </Link>
                             </PopBrowseButtons>
 
                             <PopBrowseButtons className={`pop-browse__btn-edit ${isEditing ? '' : '_hide'}`}>
                                 <BrowseButtonGroup>
-                                    <button onClick={editCard} className="btn-edit__edit _btn-bg _hover01">
+                                    <Button onClick={editCard}>
                                         Save
-                                    </button>
-                                    <button onClick={cancelEditing} className="btn-edit__edit _btn-bor _hover03">
+                                    </Button>
+                                    {/* <button onClick={editCard} className="btn-edit__edit _btn-bg _hover01">
+                                        Save
+                                    </button> */}
+                                    <Button onClick={cancelEditing}>
                                         Cancel
-                                    </button>
-                                    <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                    </Button>
+                                    {/* <button onClick={cancelEditing} className="btn-edit__edit _btn-bor _hover03">
+                                        Cancel
+                                    </button> */}
+                                    <Button onClick={deleteCard}>
                                         Delete task
-                                    </button>
+                                    </Button>
+                                    {/* <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                        Delete task
+                                    </button> */}
                                 </BrowseButtonGroup>
                                 <Link to={AppRoutes.HOME}>
-                                    <button className="btn-edit__close _btn-bg _hover01">
+                                    <Button>
                                         Close
-                                    </button>
+                                    </Button>
+                                    {/* <button className="btn-edit__close _btn-bg _hover01">
+                                        Close
+                                    </button> */}
                                 </Link>
                             </PopBrowseButtons>
 
