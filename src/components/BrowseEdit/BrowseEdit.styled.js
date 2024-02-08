@@ -123,8 +123,8 @@ export const TopicsButton = styled.button`
 export const StatusTheme = styled.div`
   display: inline-block;
   border-radius: 24px;
-  /* border: 0.7px solid rgba(148, 166, 190, 0.4); */
-  /* color: #94a6be; */
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94a6be;
   /* padding: 11px 14px 10px; */
   margin-right: 7px;
   margin-bottom: 7px;

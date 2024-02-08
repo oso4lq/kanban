@@ -198,6 +198,7 @@ function BrowseEdit({ id }) {
                                             <TopicsButton
                                                 type="button" id={e.engname}
                                                 className={`${currentStatus === e.runame ? '_selected-category' : ''} ${e.color}`}
+                                                checked={currentStatus === e.runame}
                                                 onClick={() => handleIsChecked(e.runame)}>
                                                 {e.engname}
                                             </TopicsButton>
@@ -205,19 +206,13 @@ function BrowseEdit({ id }) {
                                     ))}
                                 </StatusThemes>
 
-                                <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
+                                {/* <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
 
                                     <StatusTheme className="status__theme ">
                                         <input
                                             type="radio" id="no-status" name="status" value="Без статуса"
                                             checked={editedTask.status === "Без статуса"}
                                             onChange={handleInputChange}
-                                        // onChange={(e) =>
-                                        //     setEditedTask({
-                                        //         ...editedTask,
-                                        //         status: e.target.value,
-                                        //     })
-                                        // }
                                         />
                                         <label htmlFor="status1">No status</label>
                                     </StatusTheme>
@@ -250,7 +245,7 @@ function BrowseEdit({ id }) {
                                         <label htmlFor="status5">Ready</label>
                                     </StatusTheme>
 
-                                </StatusThemes>
+                                </StatusThemes> */}
 
                             </Status>
 
