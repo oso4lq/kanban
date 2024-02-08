@@ -1,6 +1,9 @@
 import { ThemeProvider } from "styled-components";
 import { useGlobal } from "../../hooks/useGlobal";
 
+const mainColorLight = '#FFFFFF';
+const mainColorDark = '#20202C';
+
 const Layout = ({ children }) => {
     const darkTheme = {
         color: "#FFFFFF",
@@ -28,6 +31,23 @@ const Layout = ({ children }) => {
         btn: "#FFFFFF",
         border2: " 1.9px solid #FFFFFF",
 
+        //  def
+        body: '#151419',
+        text: '#FFFFFF',
+        main: '#151419',
+        div: mainColorDark,
+        card: mainColorDark,
+
+        header: mainColorDark,
+        headerLogoDisplayLight: 'none',
+        headerLogoDisplayDark: 'block',
+        headerUserText: '#FFFFFF',
+        headerPopUserSet: '#202229',
+        headerPopUserSetBorder: '0.7px solid var(--stroke-dark, #4E5566)',
+        headerPopUserSetBoxShadow: '0px 10px 39px 0px rgba(148, 166, 190, 0.40)',
+        headerPopUserSetButton: '#FFFFFF',
+        headerPopUserSetCheckbox: '#FFFFFF',
+        headerPopUserSetCheckboxBefore: '#565EEF',
     };
     const lightTheme = {
         color: "#000000",
@@ -55,7 +75,23 @@ const Layout = ({ children }) => {
         btn: "#565EEF",
         border2: " 1.9px solid #565eef",
 
+        //  def
+        body: '#EAEEF6',
+        text: '#000000',
+        main: '#EAEEF6',
+        div: mainColorLight,
+        card: mainColorLight,
 
+        header: mainColorLight,
+        headerLogoDisplayLight: 'block',
+        headerLogoDisplayDark: 'none',
+        headerUserText: '#565EEF',
+        headerPopUserSet: '#FFFFFF',
+        headerPopUserSetBorder: '0.7px solid rgba(148, 166, 190, 0.4)',
+        headerPopUserSetBoxShadow: '0px 10px 39px 0px rgba(26, 56, 101, 0.21)',
+        headerPopUserSetButton: '#565EEF',
+        headerPopUserSetCheckbox: '#EAEEF6',
+        headerPopUserSetCheckboxBefore: '#94A6BE',
     };
     // 3.
     const currentTheme = useGlobal();

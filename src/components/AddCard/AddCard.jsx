@@ -23,6 +23,7 @@ function AddCard() {
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
+        console.log('item editing');
         const { name, value } = e.target;
         setNewTask({
             ...newTask,
@@ -40,6 +41,7 @@ function AddCard() {
     //  add task function
     const addCard = async () => {
         try {
+            console.log('adding new card');
             let newCard = {
                 ...newTask, date: selected
             };
@@ -48,7 +50,8 @@ function AddCard() {
                 token: userData.token,
                 title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date
             })
-            addTask(newCard).then((data) => {
+            // addTask(newCard)
+            .then((data) => {
                 setNewTask(data);
                 navigate(AppRoutes.HOME);
             });

@@ -13,7 +13,7 @@ function HeaderMenu() {
 
     const [isOpened, setIsOpened] = useState(false);
     const { userData } = useUser();
-    console.log(userData);
+    // console.log(userData);
 
     const togglePopUp = () => {
         setIsOpened((prevState) => !prevState);
@@ -23,6 +23,18 @@ function HeaderMenu() {
     useEffect(() => {
         window.localStorage.setItem("theme", theme);
     }, [theme]);
+
+    // Toggle theme function
+    // const [theme, setTheme] = useState('light');
+    // const toggleTheme = () => {
+    //     if (theme === 'light') {
+    //         setTheme('dark');
+    //         //console.log('dark theme');
+    //     } else {
+    //         setTheme('light');
+    //         //console.log('light theme');
+    //     }
+    // };
 
     return (
         <HeaderNav>

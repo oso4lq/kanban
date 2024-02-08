@@ -28,7 +28,7 @@ function PopExit() {
                                     Yes
                                 </PopExitYes>
                                 <PopExitNo id="exitNo">
-                                    <Link to={AppRoutes.MAIN}>No, stay</Link>
+                                    <Link to={AppRoutes.HOME}>No, stay</Link>
                                 </PopExitNo>
 
                                 {/* <Link to={AppRoutes.LOGIN}>

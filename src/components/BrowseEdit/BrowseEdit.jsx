@@ -19,15 +19,17 @@ function BrowseEdit({ id }) {
 
     const { userData } = useUser();
     const { userTasks, returnTask } = useTasks();
-    console.log(userTasks);
 
-    console.log("card id: " + id);
+    // console.log(userTasks);
+
+    // console.log("card id: " + id);
 
     const taskData = userTasks.find((task) => task._id === id);
 
-    console.log(userData);
-    console.log("user token: " + userData.token);
-    console.log("user id: " + userData._id);
+    // console.log(userData);
+    // console.log("user token: " + userData.token);
+    // console.log("user id: " + userData._id);
+    const [selected, setSelected] = useState(taskData.date);
 
     //  useState array  
     const [editedTask, setEditedTask] = useState({
@@ -42,10 +44,11 @@ function BrowseEdit({ id }) {
     const editCard = async () => {
         try {
             console.log('sending edits to card');
+
             await editTask({
                 token: userData.token, id,
                 title: editedTask.title, topic: editedTask.topic,
-                status: editedTask.status, description: editedTask.description, date: editedTask.date,
+                status: editedTask.status, description: editedTask.description, date: selected,
             }).then((data) => {
                 returnTask({ data });
             });
@@ -64,8 +67,8 @@ function BrowseEdit({ id }) {
     };
 
     //  edit card inputs
-    const [selected, setSelected] = useState(taskData.date);
     const handleInputChange = (e) => {
+        console.log('item editing');
         const { name, value } = e.target;
         setEditedTask({
             ...editedTask,
@@ -156,40 +159,47 @@ function BrowseEdit({ id }) {
                                 </StatusThemes>
 
                                 <StatusThemes className={` ${isEditing ? '' : '_hide'}`}>
+
                                     <StatusTheme className="status__theme ">
                                         <input
                                             type="radio" id="no-status" name="status" value="Без статуса"
-                                            onChange={handleInputChange}
                                             checked={editedTask.status === "Без статуса"}
+                                            onChange={handleInputChange}
+                                        // onChange={(e) =>
+                                        //     setEditedTask({
+                                        //         ...editedTask,
+                                        //         status: e.target.value,
+                                        //     })
+                                        // }
                                         />
                                         <label htmlFor="status1">No status</label>
                                     </StatusTheme>
                                     <StatusTheme className="status__theme ">
-                                        <input type="radio" id="to-do" name="status"
-                                            onChange={handleInputChange}
+                                        <input type="radio" id="to-do" name="status" value="Нужно сделать"
                                             checked={editedTask.status === "Нужно сделать"}
-                                            value="Нужно сделать" />
+                                            onChange={handleInputChange}
+                                        />
                                         <label htmlFor="status2">To do</label>
                                     </StatusTheme>
                                     <StatusTheme className="status__theme ">
-                                        <input type="radio" id="in-process" name="status"
-                                            onChange={handleInputChange}
+                                        <input type="radio" id="in-process" name="status" value="В работе"
                                             checked={editedTask.status === "В работе"}
-                                            value="В работе" />
+                                            onChange={handleInputChange}
+                                        />
                                         <label htmlFor="status3">In process</label>
                                     </StatusTheme>
                                     <StatusTheme className="status__theme ">
-                                        <input type="radio" id="testing" name="status"
-                                            onChange={handleInputChange}
+                                        <input type="radio" id="testing" name="status" value="Тестирование"
                                             checked={editedTask.status === "Тестирование"}
-                                            value="Тестирование" />
+                                            onChange={handleInputChange}
+                                        />
                                         <label htmlFor="status4">Testing</label>
                                     </StatusTheme>
                                     <StatusTheme className="status__theme ">
-                                        <input type="radio" id="ready" name="status"
-                                            onChange={handleInputChange}
+                                        <input type="radio" id="ready" name="status" value="Готово"
                                             checked={editedTask.status === "Готово"}
-                                            value="Готово" />
+                                            onChange={handleInputChange}
+                                        />
                                         <label htmlFor="status5">Ready</label>
                                     </StatusTheme>
                                 </StatusThemes>
@@ -225,24 +235,12 @@ function BrowseEdit({ id }) {
                                 </PopBrowseForm>
 
                                 <div className={`${isEditing ? '_hide' : ''}`}>
-                                    <Calendar selected={editedTask.date} readOnly />
+                                    <Calendar selected={selected} readOnly />
                                 </div>
                                 <div className={`${isEditing ? '' : '_hide'}`}>
                                     <Calendar selected={selected} setSelected={setSelected} />
                                 </div>
 
-                                {/* date!  */}
-                                {/* <div className={`calendar__block calendar__nav ${isEditing ? '_hide' : ''}`}>
-                                <p className="calendar__ttl subttl">Dates</p>
-                                <div className="pop-new-card__calendar calendar">
-                                    <Calendar selected={editedTask.date} readOnly />
-                                </div>
-                            </div>
-                            <div className={`calendar__block calendar__nav ${isEditing ? '' : '_hide'}`}>
-                                <div className="pop-new-card__calendar calendar">
-                                    <Calendar selected={selected} setSelected={setSelected} />
-                                </div>
-                            </div> */}
                             </PopBrowseWrap>
 
                             <PopBrowseButtons className={`${isEditing ? '_hide' : ''}`}>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CardContainer, CardItem, CardThemeP, CardTheme, CardGroup, CardContent, CardDate, CardDateP } from "./Card.styled";
 import { AppRoutes } from "../../lib/appRoutes";
+import { format } from "date-fns";
 
 function Card({ title, theme, date, id }) {
 
@@ -71,7 +72,7 @@ function Card({ title, theme, date, id }) {
                             </clipPath>
                         </defs>
                     </svg>
-                    <CardDateP>{date}</CardDateP>
+                    <CardDateP>{format(date, 'dd.MM.yy')}</CardDateP>
                 </CardDate>
             </CardContent>
         </CardContainer>
