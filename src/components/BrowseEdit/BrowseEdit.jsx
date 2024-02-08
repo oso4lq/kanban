@@ -12,7 +12,8 @@ import {
     PopBrowseDiv, PopBrowseForm, PopBrowseTitle, PopBrowseTop, PopBrowseWrap,
     StTheme, Status, StatusParagraph, StatusTheme, StatusThemes
 } from "./BrowseEdit.styled.js";
-import { CategoriesTheme } from "../Common/Common.styled.js";
+// import { CategoriesTheme } from "../Common/Common.styled.js";
+import { GlobalStyle } from "../../Global/Global.styled.js";
 
 function BrowseEdit({ id }) {
 
@@ -126,109 +127,112 @@ function BrowseEdit({ id }) {
     }
 
     return (
-        <PopBrowseDiv id="popBrowse">
-            <PopBrowseContainer>
-                <PopBrowseBlock>
-                    <PopBrowseContent>
+        <>
+            <GlobalStyle />
+            <PopBrowseDiv id="popBrowse">
+                <PopBrowseContainer>
+                    <PopBrowseBlock>
+                        <PopBrowseContent>
 
-                        <PopBrowseTop>
-                            <PopBrowseTitle>{editedTask.title} (id {id})</PopBrowseTitle>
+                            <PopBrowseTop>
+                                <PopBrowseTitle>{editedTask.title} (id {id})</PopBrowseTitle>
 
-                            <div className={`${color} categories__theme theme-top _active-category`}>
-                                <p>{editedTask.topic}</p>
-                            </div>
-                            {/* <CategoriesTheme $themeColor={color} className="_active-category">
+                                <div className={`${color} categories__theme theme-top _active-category`}>
+                                    <p>{editedTask.topic}</p>
+                                </div>
+                                {/* <CategoriesTheme $themeColor={color} className="_active-category">
                                 <p>{taskData.topic}</p>
                             </CategoriesTheme> */}
 
-                        </PopBrowseTop>
+                            </PopBrowseTop>
 
-                        <Status>
-                            <StatusParagraph>Status</StatusParagraph>
+                            <Status>
+                                <StatusParagraph>Status</StatusParagraph>
 
-                            <StatusThemes className={`${isEditing ? '_hide' : ''}`}>
-                                <StTheme className="_gray">
-                                    <p className="_gray">{statusENG}</p>
-                                </StTheme>
-                            </StatusThemes>
+                                <StatusThemes className={`${isEditing ? '_hide' : ''}`}>
+                                    <StTheme className="_gray">
+                                        <p className="_gray">{statusENG}</p>
+                                    </StTheme>
+                                </StatusThemes>
 
-                            <StatusThemes className={` ${isEditing ? '' : '_hide'}`}>
-                                <StatusTheme className="status__theme ">
-                                    <input type="radio" id="no-status" name="status"
-                                        onChange={handleInputChange}
-                                        checked={editedTask.status === "Без статуса"}
-                                        value="Без статуса" />
-                                    <label htmlFor="status1">No status</label>
-                                </StatusTheme>
-                                <StatusTheme className="status__theme ">
-                                    <input type="radio" id="to-do" name="status"
-                                        onChange={handleInputChange}
-                                        checked={editedTask.status === "Нужно сделать"}
-                                        value="Нужно сделать" />
-                                    <label htmlFor="status2">To do</label>
-                                </StatusTheme>
-                                <StatusTheme className="status__theme ">
-                                    <input type="radio" id="in-process" name="status"
-                                        onChange={handleInputChange}
-                                        checked={editedTask.status === "В работе"}
-                                        value="В работе" />
-                                    <label htmlFor="status3">In process</label>
-                                </StatusTheme>
-                                <StatusTheme className="status__theme ">
-                                    <input type="radio" id="testing" name="status"
-                                        onChange={handleInputChange}
-                                        checked={editedTask.status === "Тестирование"}
-                                        value="Тестирование" />
-                                    <label htmlFor="status4">Testing</label>
-                                </StatusTheme>
-                                <StatusTheme className="status__theme ">
-                                    <input type="radio" id="ready" name="status"
-                                        onChange={handleInputChange}
-                                        checked={editedTask.status === "Готово"}
-                                        value="Готово" />
-                                    <label htmlFor="status5">Ready</label>
-                                </StatusTheme>
-                            </StatusThemes>
-                        </Status>
+                                <StatusThemes className={` ${isEditing ? '' : '_hide'}`}>
+                                    <StatusTheme className="status__theme ">
+                                        <input
+                                            type="radio" id="no-status" name="status" value="Без статуса"
+                                            onChange={handleInputChange}
+                                            checked={editedTask.status === "Без статуса"}
+                                        />
+                                        <label htmlFor="status1">No status</label>
+                                    </StatusTheme>
+                                    <StatusTheme className="status__theme ">
+                                        <input type="radio" id="to-do" name="status"
+                                            onChange={handleInputChange}
+                                            checked={editedTask.status === "Нужно сделать"}
+                                            value="Нужно сделать" />
+                                        <label htmlFor="status2">To do</label>
+                                    </StatusTheme>
+                                    <StatusTheme className="status__theme ">
+                                        <input type="radio" id="in-process" name="status"
+                                            onChange={handleInputChange}
+                                            checked={editedTask.status === "В работе"}
+                                            value="В работе" />
+                                        <label htmlFor="status3">In process</label>
+                                    </StatusTheme>
+                                    <StatusTheme className="status__theme ">
+                                        <input type="radio" id="testing" name="status"
+                                            onChange={handleInputChange}
+                                            checked={editedTask.status === "Тестирование"}
+                                            value="Тестирование" />
+                                        <label htmlFor="status4">Testing</label>
+                                    </StatusTheme>
+                                    <StatusTheme className="status__theme ">
+                                        <input type="radio" id="ready" name="status"
+                                            onChange={handleInputChange}
+                                            checked={editedTask.status === "Готово"}
+                                            value="Готово" />
+                                        <label htmlFor="status5">Ready</label>
+                                    </StatusTheme>
+                                </StatusThemes>
+                            </Status>
 
-                        <PopBrowseWrap>
-                            <PopBrowseForm id="formBrowseCard" action="#">
-                                <FormBrowseBlock className={`${isEditing ? '_hide' : ''}`}>
-                                    <label htmlFor="textArea01" className="subttl">
-                                        Task description
-                                    </label>
-                                    <FormBrowseArea
-                                        value={editedTask.description}
-                                        className="form-browse__area"
-                                        name="description"
-                                        id="textArea01"
-                                        readOnly
-                                    />
-                                </FormBrowseBlock>
-                                <FormBrowseBlock className={`${isEditing ? '' : '_hide'}`}>
-                                    <label htmlFor="textArea01" className="subttl">
-                                        Task description
-                                    </label>
-                                    <FormBrowseArea
-                                        value={editedTask.description}
-                                        onChange={handleInputChange}
-                                        className="form-browse__area"
-                                        name="description"
-                                        id="textArea01"
-                                        placeholder="Enter task description..."
-                                    />
-                                </FormBrowseBlock>
-                            </PopBrowseForm>
+                            <PopBrowseWrap>
+                                <PopBrowseForm id="formBrowseCard" action="#">
+                                    <FormBrowseBlock className={`${isEditing ? '_hide' : ''}`}>
+                                        <label htmlFor="textArea01" className="subttl">
+                                            Task description
+                                        </label>
+                                        <FormBrowseArea
+                                            value={editedTask.description}
+                                            className="form-browse__area"
+                                            name="description"
+                                            id="textArea01"
+                                            readOnly
+                                        />
+                                    </FormBrowseBlock>
+                                    <FormBrowseBlock className={`${isEditing ? '' : '_hide'}`}>
+                                        <label htmlFor="textArea01" className="subttl">
+                                            Task description
+                                        </label>
+                                        <FormBrowseArea
+                                            value={editedTask.description}
+                                            onChange={handleInputChange}
+                                            className="form-browse__area"
+                                            name="description"
+                                            id="textArea01"
+                                            placeholder="Enter task description..."
+                                        />
+                                    </FormBrowseBlock>
+                                </PopBrowseForm>
 
-                            <div className={`${isEditing ? '_hide' : ''}`}>
-                                <Calendar selected={editedTask.date} readOnly />
-                            </div>
-                            <div className={`${isEditing ? '' : '_hide'}`}>
-                                <Calendar selected={selected} setSelected={setSelected} />
-                            </div>
+                                <div className={`${isEditing ? '_hide' : ''}`}>
+                                    <Calendar selected={editedTask.date} readOnly />
+                                </div>
+                                <div className={`${isEditing ? '' : '_hide'}`}>
+                                    <Calendar selected={selected} setSelected={setSelected} />
+                                </div>
 
-                            {/* date!  */}
-                            {/* <div className={`calendar__block calendar__nav ${isEditing ? '_hide' : ''}`}>
+                                {/* date!  */}
+                                {/* <div className={`calendar__block calendar__nav ${isEditing ? '_hide' : ''}`}>
                                 <p className="calendar__ttl subttl">Dates</p>
                                 <div className="pop-new-card__calendar calendar">
                                     <Calendar selected={editedTask.date} readOnly />
@@ -239,47 +243,48 @@ function BrowseEdit({ id }) {
                                     <Calendar selected={selected} setSelected={setSelected} />
                                 </div>
                             </div> */}
-                        </PopBrowseWrap>
+                            </PopBrowseWrap>
 
-                        <PopBrowseButtons className={`${isEditing ? '_hide' : ''}`}>
-                            <BrowseButtonGroup>
-                                <button onClick={startEditing} className="btn-browse__edit _btn-bor _hover03">
-                                    Edit task
-                                </button>
-                                <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
-                                    Delete task
-                                </button>
-                            </BrowseButtonGroup>
-                            <Link to={AppRoutes.HOME}>
-                                <button className="btn-browse__close _btn-bg _hover01">
-                                    Close
-                                </button>
-                            </Link>
-                        </PopBrowseButtons>
+                            <PopBrowseButtons className={`${isEditing ? '_hide' : ''}`}>
+                                <BrowseButtonGroup>
+                                    <button onClick={startEditing} className="btn-browse__edit _btn-bor _hover03">
+                                        Edit task
+                                    </button>
+                                    <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                        Delete task
+                                    </button>
+                                </BrowseButtonGroup>
+                                <Link to={AppRoutes.HOME}>
+                                    <button className="btn-browse__close _btn-bg _hover01">
+                                        Close
+                                    </button>
+                                </Link>
+                            </PopBrowseButtons>
 
-                        <PopBrowseButtons className={`pop-browse__btn-edit ${isEditing ? '' : '_hide'}`}>
-                            <BrowseButtonGroup>
-                                <button onClick={editCard} className="btn-edit__edit _btn-bg _hover01">
-                                    Save
-                                </button>
-                                <button onClick={cancelEditing} className="btn-edit__edit _btn-bor _hover03">
-                                    Cancel
-                                </button>
-                                <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
-                                    Delete task
-                                </button>
-                            </BrowseButtonGroup>
-                            <Link to={AppRoutes.HOME}>
-                                <button className="btn-edit__close _btn-bg _hover01">
-                                    Close
-                                </button>
-                            </Link>
-                        </PopBrowseButtons>
+                            <PopBrowseButtons className={`pop-browse__btn-edit ${isEditing ? '' : '_hide'}`}>
+                                <BrowseButtonGroup>
+                                    <button onClick={editCard} className="btn-edit__edit _btn-bg _hover01">
+                                        Save
+                                    </button>
+                                    <button onClick={cancelEditing} className="btn-edit__edit _btn-bor _hover03">
+                                        Cancel
+                                    </button>
+                                    <button onClick={deleteCard} className="btn-browse__delete _btn-bor _hover03">
+                                        Delete task
+                                    </button>
+                                </BrowseButtonGroup>
+                                <Link to={AppRoutes.HOME}>
+                                    <button className="btn-edit__close _btn-bg _hover01">
+                                        Close
+                                    </button>
+                                </Link>
+                            </PopBrowseButtons>
 
-                    </PopBrowseContent>
-                </PopBrowseBlock>
-            </PopBrowseContainer>
-        </PopBrowseDiv>
+                        </PopBrowseContent>
+                    </PopBrowseBlock>
+                </PopBrowseContainer>
+            </PopBrowseDiv>
+        </>
     )
 }
 export default BrowseEdit;

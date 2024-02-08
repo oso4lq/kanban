@@ -11,8 +11,8 @@ export async function login({ login, password }) {
         }),
     }).then((response) => {
         if (response.status === 400) {
-            alert("Incorrect login or password");
-            throw new Error("Incorrect login or password");
+            // alert("Incorrect login or password.");
+            throw new Error("Incorrect login or password.");
         }
         return response.json();
     });
@@ -28,7 +28,7 @@ export async function register({ login, name, password }) {
         }),
     }).then((response) => {
         if (response.status === 400) {
-            alert("This username is already taken");
+            // alert("This username is already taken");
             throw new Error("This username is already taken");
         }
         return response.json();

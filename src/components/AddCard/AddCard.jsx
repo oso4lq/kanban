@@ -1,17 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 //  Pages
 import { AppRoutes } from "../../lib/appRoutes";
 
 //  API, Logics
-import { addTask, getTasks } from "../../api";
-import { TasksContext } from "../../contexts/tasks-context.jsx";
+import { addTask } from "../../api";
+// import { TasksContext } from "../../contexts/tasks-context.jsx";
 import { useUser } from '../../hooks/useUser.jsx';
-import { useTasks } from "../../hooks/useTasks.jsx";
+// import { useTasks } from "../../hooks/useTasks.jsx";
 
 //  Components
 import { Calendar } from "../../components/Calendar/Calendar";
+import { GlobalStyle } from "../../Global/Global.styled.js";
+import { CalendarBlock, CalendarBlockP, CategoriesContainer, CategoriesP, CategoriesTheme, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 
 function AddCard() {
 
@@ -56,142 +58,132 @@ function AddCard() {
         }
     };
 
-    return <div className="pop-browse" id="popBrowse">
-        {/* pop-new-card */}
-        <div className="pop-new-card__container">
-            <div className="pop-new-card__block">
-                <div className="pop-new-card__content">
-                    <div className="pop-browse__top-block">
-                        <h3 className="pop-new-card__ttl">Create task</h3>
-                    </div>
+    return (
+        <>
+            <GlobalStyle />
+            <PopNewCardDiv id="popNewCard">
+                <PopNewCardContainer>
+                    <PopNewCardBlock>
+                        <PopNewCardContent>
+                            <PopNewCardTtl>Create new task</PopNewCardTtl>
 
-                    <div className="pop-new-card__wrap">
+                            <PopNewCardWrap>
 
-                        <form
-                            className="pop-new-card__form form-browse"
-                            id="formBrowseCard"
-                            action="#"
-                        >
-                            <div className="form-new__block">
+                                <PopNewCardForm id="formBrowseCard" action="#">
 
-                                <label htmlFor="textArea01" className="subttl">
-                                    Task name
-                                </label>
-                                <textarea value={newTask.title}
-                                    onChange={handleInputChange}
-                                    className="form-new__input"
-                                    name="title"
-                                    id="textArea01"
-                                    readOnly=""
-                                    placeholder="Enter task name..."
-                                // defaultValue={""}
-                                />
+                                    <FormNewBlock>
+                                        <label htmlFor="textArea01" className="subttl">
+                                            Task name
+                                        </label>
+                                        <FormNewInput
+                                            value={newTask.title}
+                                            onChange={handleInputChange}
+                                            className="form-new__input"
+                                            name="title"
+                                            id="textArea01"
+                                            readOnly=""
+                                            placeholder="Enter task name..."
+                                        />
+                                    </FormNewBlock>
 
-                                <label htmlFor="textArea01" className="subttl">
-                                    Task description
-                                </label>
-                                <textarea value={newTask.description}
-                                    onChange={handleInputChange}
-                                    className="form-new__area"
-                                    name="description"
-                                    id="textArea01"
-                                    readOnly=""
-                                    placeholder="Enter task description..."
-                                // defaultValue={""}
-                                />
+                                    <FormNewBlock>
+                                        <label htmlFor="textArea01" className="subttl">
+                                            Task description
+                                        </label>
+                                        <FormNewArea
+                                            value={newTask.description}
+                                            onChange={handleInputChange}
+                                            className="form-new__area"
+                                            name="description"
+                                            id="textArea01"
+                                            readOnly=""
+                                            placeholder="Enter task description..."
+                                        ></FormNewArea>
+                                    </FormNewBlock>
 
-                            </div>
+                                    <CategoriesContainer className="pop-new-card__categories prod_checbox">
 
-                            {/*
-                            <div className="categories__theme theme-top _orange _active-category">
-                                <p className="_orange">Web Design</p>
-                            </div>
+                                        <CategoriesP className="subttl">Category</CategoriesP>
 
-                             ??? 
-                            <div className="theme-down__categories theme-down">
-                                <p className="categories__p subttl">Category</p>
-                                <div className="categories__theme _orange _active-category">
-                                    <p className="_orange">Web Design</p>
-                                </div>
-                            </div>
-                            */}
+                                        <CategoriesTheme className="_orange">
+                                            <input
+                                                type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
+                                                checked={newTask.topic === "Web Design"}
+                                                onChange={handleInputChange}
+                                            />
+                                            <label htmlFor="web-design">Web Design</label>
+                                        </CategoriesTheme>
+                                        <CategoriesTheme className="_green">
+                                            <input
+                                                type="radio" id="Research" name="topic" className="_green" value="Research"
+                                                checked={newTask.topic === "Research"}
+                                                onChange={handleInputChange}
+                                            />
+                                            <label htmlFor="Research">Research</label>
+                                        </CategoriesTheme>
+                                        <CategoriesTheme className="_purple">
+                                            <input
+                                                type="radio" id="Copywriting" name="topic" className="_purple" value="Copywriting"
+                                                checked={newTask.topic === "Copywriting"}
+                                                onChange={handleInputChange}
+                                            />
+                                            <label htmlFor="Copywriting">Copywriting</label>
+                                        </CategoriesTheme>
 
-                            <div className="pop-browse__status status">
-                                <p className="status__p subttl">Category</p>
-                                <div className="status__themes">
+                                        {/* <div className="status__theme _orange">
+                                            <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
+                                            <label htmlFor="radio1">Web Design</label>
+                                        </div>
 
-                                    <div className="status__theme _orange">
-                                        <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
-                                        <label htmlFor="radio1">Web Design</label>
+                                        <div className="status__theme _green">
+                                            <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
+                                            <label htmlFor="radio2">Research</label>
+                                        </div>
+
+                                        <div className="status__theme _purple">
+                                            <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
+                                            <label htmlFor="radio3">Copywriting</label>
+                                        </div> */}
+                                        {/* make an array.map() for topics? */}
+
+                                    </CategoriesContainer>
+                                </PopNewCardForm>
+
+                                {/* <p className="calendar__ttl subttl">Dates</p>
+                                <Calendar selected={selected} setSelected={setSelected} /> */}
+                                <CalendarBlock>
+                                    <CalendarBlockP>Dates</CalendarBlockP>
+                                    <Calendar selected={selected} setSelected={setSelected} />
+                                </CalendarBlock>
+                                {/* <div className="calendar__block calendar__nav">
+                                    <p className="calendar__ttl subttl">Dates</p>
+                                    <div className="pop-new-card__calendar calendar">
+                                        <Calendar selected={selected} setSelected={setSelected} />
                                     </div>
+                                </div> */}
 
-                                    <div className="status__theme _green">
-                                        <input type="radio" id="radio2" name="topic" onChange={handleInputChange} value="Research" />
-                                        <label htmlFor="radio2">Research</label>
-                                    </div>
+                            </PopNewCardWrap>
 
-                                    <div className="status__theme _purple">
-                                        <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
-                                        <label htmlFor="radio3">Copywriting</label>
-                                    </div>
+                            <div className="pop-browse__btn-browse ">
 
-                                </div>
+                                <Link to={AppRoutes.HOME}>
+                                    <button className="btn-browse__close _btn-bg _hover01">
+                                        Cancel
+                                    </button>
+                                </Link>
+
+                                <button onClick={addCard} className="btn-browse__close _btn-bg _hover01">
+                                    Create task
+                                </button>
+
                             </div>
 
-                            {/* make an array.map() for topics? */}
-
-                        </form>
-
-                        <div className="calendar__block calendar__nav">
-                            <p className="calendar__ttl subttl">Dates</p>
-                            <div className="pop-new-card__calendar calendar">
-                                <Calendar selected={selected} setSelected={setSelected} />
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div className="pop-browse__btn-browse ">
-
-                        <Link to={AppRoutes.HOME}>
-                            <button className="btn-browse__close _btn-bg _hover01">
-                                Cancel
-                            </button>
-                        </Link>
-
-                        <button onClick={addCard} className="btn-browse__close _btn-bg _hover01">
-                            Create task
-                        </button>
-
-                    </div>
-
-                    {/* <div className="pop-browse__btn-edit _hide">
-                        <div className="btn-group">
-                            <button className="btn-edit__edit _btn-bg _hover01">
-                                <a href="#">Save</a>
-                            </button>
-                            <button className="btn-edit__edit _btn-bor _hover03">
-                                <a href="#">Cancel</a>
-                            </button>
-                            <button
-                                className="btn-edit__delete _btn-bor _hover03"
-                                id="btnDelete"
-                            >
-                                <a href="#">Delete task</a>
-                            </button>
-                        </div>
-
-                        <Link to={AppRoutes.HOME}>
-                            <button className="btn-edit__close _btn-bg _hover01">
-                                Close
-                            </button>
-                        </Link>
-
-                    </div> */}
-
-                </div>
-            </div>
-        </div>
-    </div>
+                        </PopNewCardContent>
+                    </PopNewCardBlock>
+                </PopNewCardContainer>
+            </PopNewCardDiv>
+        </>
+    )
 }
+
 export default AddCard;

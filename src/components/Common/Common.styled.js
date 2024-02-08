@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
 import { themeStyles } from "../../lib/theme";
+import { hover01 } from "../../Global/Global.styled";
 
 export const Container = styled.div`
     max-width: 1260px;
@@ -97,8 +98,6 @@ line-height: 150%; /* 21px */
 letter-spacing: -0.14px;
 `
 
-
-
 export const CategoriesTheme = styled.div`
   display: inline-block;
   width: auto;
@@ -136,3 +135,79 @@ export const CategoriesTheme = styled.div`
     display: block;
   }
 `;
+
+export const ModalBtnEnter = styled.button`
+  width: 100%;
+  height: 30px;
+  background-color: #565eef;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+
+  a {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: ${breakpoints.sm}px) {
+    height: 40px;
+  }
+
+  ${hover01}
+`;
+
+export const ModalBtnErr = styled.button`
+  width: 100%;
+  height: 30px;
+  background-color: #94a6be;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+
+  a {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: ${breakpoints.sm}px) {
+    height: 40px;
+  }
+`;
+
+export const ErrorText = styled.div`
+font-family: Arial;
+font-size: 12px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 0.01em;
+text-align: center;
+color: #F84D4D;
+`

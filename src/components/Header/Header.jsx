@@ -12,10 +12,10 @@ function Header() {
 
     useEffect(() => {
         window.localStorage.setItem("theme", theme);
-        if (theme === "light") {
-            setLogo("public/logo.png");
-        } else {
+        if (theme === "dark") {
             setLogo("public/logo_dark.png");
+        } else {
+            setLogo("public/logo.png");
         }
     }, [theme]);
 
@@ -32,11 +32,11 @@ function Header() {
                     <a href="" target="_self">
                         <img src="public/logo.png" alt="logo" />
                     </a>
-                </div> */}
+                </div> 
                     <LogoLink>
                         <img src={logo} alt="logo" />
                     </LogoLink>
-                    {/* <div className="header__logo _dark">
+                     <div className="header__logo _dark">
                     <a href="" target="_self">
                         <img src="public/logo_dark.png" alt="logo" />
                     </a>
