@@ -5,6 +5,54 @@ const mainColorLight = '#FFFFFF';
 const mainColorDark = '#20202C';
 
 const Layout = ({ children }) => {
+
+    const currentTheme = useGlobal();
+
+    const lightTheme = {
+        color: "#000000",
+        backgroundColor: "#EAEEF6",
+        _orange: {
+            background: "#ffe4c2",
+            color: "#ff6d00",
+        },
+        _green: {
+            background: "#b4fdd1",
+            color: "#06B16E",
+        },
+        _purple: {
+            background: "#e9d4ff",
+            color: "#9A48F1",
+        },
+        subttl: "#000",
+        h03back: "#33399b",
+        exitBack: "rgba(0, 0, 0, 0.4)",
+        backColor: "#ffffff",
+        backColor2: "#ffffff",
+        border: "0.7px solid #d4dbe5",
+        label: "#fff",
+        input: "#94a6be",
+        btn: "#565EEF",
+        border2: " 1.9px solid #565eef",
+
+        //  def
+        body: '#EAEEF6',
+        text: '#000000',
+        main: '#EAEEF6',
+        div: mainColorLight,
+        card: mainColorLight,
+
+        header: mainColorLight,
+        headerLogoDisplayLight: 'block',
+        headerLogoDisplayDark: 'none',
+        headerUserText: '#565EEF',
+        headerPopUserSet: '#FFFFFF',
+        headerPopUserSetBorder: '0.7px solid rgba(148, 166, 190, 0.4)',
+        headerPopUserSetBoxShadow: '0px 10px 39px 0px rgba(26, 56, 101, 0.21)',
+        headerPopUserSetButton: '#565EEF',
+        headerPopUserSetCheckbox: '#EAEEF6',
+        headerPopUserSetCheckboxBefore: '#94A6BE',
+    };
+
     const darkTheme = {
         color: "#FFFFFF",
         backgroundColor: "#151419",
@@ -49,53 +97,7 @@ const Layout = ({ children }) => {
         headerPopUserSetCheckbox: '#FFFFFF',
         headerPopUserSetCheckboxBefore: '#565EEF',
     };
-    const lightTheme = {
-        color: "#000000",
-        backgroundColor: "#F1F1F1",
-        _orange: {
-            background: "#ffe4c2",
-            color: "#ff6d00",
-        },
-        _green: {
-            background: "#b4fdd1",
-            color: "#06B16E",
-        },
-        _purple: {
-            background: "#e9d4ff",
-            color: "#9A48F1",
-        },
-        subttl: "#000",
-        h03back: "#33399b",
-        exitBack: "rgba(0, 0, 0, 0.4)",
-        backColor: "#ffffff",
-        backColor2: "#ffffff",
-        border: "0.7px solid #d4dbe5",
-        label: "#fff",
-        input: "#94a6be",
-        btn: "#565EEF",
-        border2: " 1.9px solid #565eef",
 
-        //  def
-        body: '#EAEEF6',
-        text: '#000000',
-        main: '#EAEEF6',
-        div: mainColorLight,
-        card: mainColorLight,
-
-        header: mainColorLight,
-        headerLogoDisplayLight: 'block',
-        headerLogoDisplayDark: 'none',
-        headerUserText: '#565EEF',
-        headerPopUserSet: '#FFFFFF',
-        headerPopUserSetBorder: '0.7px solid rgba(148, 166, 190, 0.4)',
-        headerPopUserSetBoxShadow: '0px 10px 39px 0px rgba(26, 56, 101, 0.21)',
-        headerPopUserSetButton: '#565EEF',
-        headerPopUserSetCheckbox: '#EAEEF6',
-        headerPopUserSetCheckboxBefore: '#94A6BE',
-    };
-    // 3.
-    const currentTheme = useGlobal();
-    // 4.
     let theme;
     switch (currentTheme.theme) {
         case "dark":
@@ -107,10 +109,12 @@ const Layout = ({ children }) => {
         default:
             theme = lightTheme;
     }
+
     return (
         <ThemeProvider theme={theme}>
             <>{children}</>
         </ThemeProvider>
     );
 };
+
 export default Layout;
