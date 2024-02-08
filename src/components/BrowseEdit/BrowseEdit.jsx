@@ -159,7 +159,6 @@ function BrowseEdit({ id }) {
                                 </StatusThemes>
 
                                 <StatusThemes className={` ${isEditing ? '' : '_hide'}`}>
-
                                     <StatusTheme className="status__theme ">
                                         <input
                                             type="radio" id="no-status" name="status" value="Без статуса"

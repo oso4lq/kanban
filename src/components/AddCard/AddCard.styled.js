@@ -109,7 +109,9 @@ export const FormNewInput = styled.input`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: transparent;
+  /* background: transparent; */
+  background: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.color};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -139,7 +141,9 @@ export const FormNewArea = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background: transparent;
+  /* background: transparent; */
+  background: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.color};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -173,22 +177,23 @@ export const FormNewArea = styled.textarea`
 `;
 
 export const CategoriesContainer = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 `;
 export const CategoriesThemes = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 export const CategoriesP = styled.p`
   margin-bottom: 14px;
+  margin-top: 14px;
 `;
 export const CategoriesTheme = styled.div`
   display: inline-block;
   width: auto;
   height: auto;
-  padding: 8px 20px;
+  padding: 8px 18px;
   border-radius: 24px;
   margin-right: 7px;
   opacity: 0.4;
@@ -232,7 +237,6 @@ export const CalendarBlock = styled.div`
 `;
 
 export const CalendarBlockP = styled.p`
-    color: #000;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;

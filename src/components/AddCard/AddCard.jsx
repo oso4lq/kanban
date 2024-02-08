@@ -13,7 +13,7 @@ import { useUser } from '../../hooks/useUser.jsx';
 //  Components
 import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
-import { CalendarBlock, CalendarBlockP, CategoriesContainer, CategoriesP, CategoriesTheme, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
+import { CalendarBlock, CalendarBlockP, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 
 function AddCard() {
 
@@ -50,11 +50,11 @@ function AddCard() {
                 token: userData.token,
                 title: newCard.title, topic: newCard.topic, status: newCard.status, description: newCard.description, date: newCard.date
             })
-            // addTask(newCard)
-            .then((data) => {
-                setNewTask(data);
-                navigate(AppRoutes.HOME);
-            });
+                // addTask(newCard)
+                .then((data) => {
+                    setNewTask(data);
+                    navigate(AppRoutes.HOME);
+                });
         } catch (error) {
             alert(error.message);
             throw new Error(error.message);
@@ -104,36 +104,36 @@ function AddCard() {
                                         ></FormNewArea>
                                     </FormNewBlock>
 
+
                                     <CategoriesContainer className="pop-new-card__categories prod_checbox">
-
                                         <CategoriesP className="subttl">Category</CategoriesP>
+                                        <CategoriesThemes>
+                                            <CategoriesTheme className="_orange">
+                                                <input
+                                                    type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
+                                                    checked={newTask.topic === "Web Design"}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <label htmlFor="web-design">Web Design</label>
+                                            </CategoriesTheme>
+                                            <CategoriesTheme className="_green">
+                                                <input
+                                                    type="radio" id="Research" name="topic" className="_green" value="Research"
+                                                    checked={newTask.topic === "Research"}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <label htmlFor="Research">Research</label>
+                                            </CategoriesTheme>
+                                            <CategoriesTheme className="_purple">
+                                                <input
+                                                    type="radio" id="Copywriting" name="topic" className="_purple" value="Copywriting"
+                                                    checked={newTask.topic === "Copywriting"}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <label htmlFor="Copywriting">Copywriting</label>
+                                            </CategoriesTheme>
 
-                                        <CategoriesTheme className="_orange">
-                                            <input
-                                                type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
-                                                checked={newTask.topic === "Web Design"}
-                                                onChange={handleInputChange}
-                                            />
-                                            <label htmlFor="web-design">Web Design</label>
-                                        </CategoriesTheme>
-                                        <CategoriesTheme className="_green">
-                                            <input
-                                                type="radio" id="Research" name="topic" className="_green" value="Research"
-                                                checked={newTask.topic === "Research"}
-                                                onChange={handleInputChange}
-                                            />
-                                            <label htmlFor="Research">Research</label>
-                                        </CategoriesTheme>
-                                        <CategoriesTheme className="_purple">
-                                            <input
-                                                type="radio" id="Copywriting" name="topic" className="_purple" value="Copywriting"
-                                                checked={newTask.topic === "Copywriting"}
-                                                onChange={handleInputChange}
-                                            />
-                                            <label htmlFor="Copywriting">Copywriting</label>
-                                        </CategoriesTheme>
-
-                                        {/* <div className="status__theme _orange">
+                                            {/* <div className="status__theme _orange">
                                             <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />
                                             <label htmlFor="radio1">Web Design</label>
                                         </div>
@@ -147,15 +147,15 @@ function AddCard() {
                                             <input type="radio" id="radio3" name="topic" onChange={handleInputChange} value="Copywriting" />
                                             <label htmlFor="radio3">Copywriting</label>
                                         </div> */}
-                                        {/* make an array.map() for topics? */}
-
+                                            {/* make an array.map() for topics? */}
+                                        </CategoriesThemes>
                                     </CategoriesContainer>
                                 </PopNewCardForm>
 
                                 {/* <p className="calendar__ttl subttl">Dates</p>
                                 <Calendar selected={selected} setSelected={setSelected} /> */}
                                 <CalendarBlock>
-                                    <CalendarBlockP>Dates</CalendarBlockP>
+                                    <CalendarBlockP>Choose deadline:</CalendarBlockP>
                                     <Calendar selected={selected} setSelected={setSelected} />
                                 </CalendarBlock>
                                 {/* <div className="calendar__block calendar__nav">

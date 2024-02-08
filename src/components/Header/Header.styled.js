@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const HeaderBox = styled.header`
     width: 100%;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: ${(props) => props.theme.backColor};
 `
 
 export const HeaderBlock = styled.div`

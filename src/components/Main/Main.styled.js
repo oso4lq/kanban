@@ -3,7 +3,7 @@ import { breakpoints } from "../../lib/breakpoints";
 
 export const MainBox = styled.main`
     width: 100%;
-    background-color: #EAEEF6;
+    background: ${props => props.theme.backgroundColor};
 `
 export const MainBlock = styled.div`
     width: 100%;

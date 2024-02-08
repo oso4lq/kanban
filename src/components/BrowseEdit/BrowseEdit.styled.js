@@ -92,10 +92,9 @@ export const Status = styled.div`
 
 export const StatusParagraph = styled.p`
   margin-bottom: 14px;
-  color: #000;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 `;
 
 export const StatusThemes = styled.div`
