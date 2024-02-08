@@ -709,6 +709,9 @@ body {
 ._hide {
   display: none;
 }
+._selected-category {
+  opacity: 1 !important;
+}
 ._light {
   display: block;
 }

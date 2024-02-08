@@ -14,6 +14,7 @@ import { useUser } from '../../hooks/useUser.jsx';
 import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
 import { CalendarBlock, CalendarBlockP, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
+import { flushSync } from "react-dom";
 
 function AddCard() {
 
@@ -37,6 +38,32 @@ function AddCard() {
         topic: "",
         description: "",
     });
+
+    //  Toggle category selection
+    //  array for 3 categories with true/false state. if one turns true, the others turn false?
+    // const [categorySelect, setCategorySelect] = useState({
+    //     web_design: false,
+    //     research: false,
+    //     copywriting: false,
+    // });
+    // const toggleSelect = () => {
+    //     setIsSelected((prevState) => !prevState);
+    //     console.log('selected to ' + isSelected);
+    // };
+    // const { name, value } = e.target;
+    // setCategorySelect({
+    //     ...categorySelect,
+    //     [name]: value,
+    // });
+
+
+    const [isChecked, setIsChecked] = useState(false);
+    const handleIsChecked = () => {
+        setIsChecked(!isChecked);
+        console.log(isChecked);
+        // Additional logic if needed
+    };
+
 
     //  add task function
     const addCard = async () => {
@@ -104,9 +131,46 @@ function AddCard() {
                                         ></FormNewArea>
                                     </FormNewBlock>
 
-
                                     <CategoriesContainer className="pop-new-card__categories prod_checbox">
                                         <CategoriesP className="subttl">Category</CategoriesP>
+
+                                        <CategoriesThemes>
+
+                                            <CategoriesTheme
+                                                className={`${isChecked ? '_selected-category' : ''} _orange`}
+                                                checked={isChecked} onClick={handleIsChecked} >
+                                                <input
+                                                    type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
+                                                    checked={isChecked}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <label htmlFor="web-design">Web Design</label>
+                                            </CategoriesTheme>
+                                            <CategoriesTheme
+                                                className={`${isChecked ? '_selected-category' : ''} _green`}
+                                                checked={isChecked} onClick={handleIsChecked} >
+                                                <input
+                                                    type="radio" id="Research" name="topic" className="_green" value="Research"
+                                                    checked={newTask.topic === "Research"}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <label htmlFor="Research">Research</label>
+                                            </CategoriesTheme>
+                                            <CategoriesTheme
+                                                className={`${isChecked ? '_selected-category' : ''} _purple`}
+                                                checked={isChecked} onClick={handleIsChecked} >
+                                                <input
+                                                    type="radio" id="Copywriting" name="topic" className="_purple" value="Copywriting"
+                                                    checked={newTask.topic === "Copywriting"}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <label htmlFor="Copywriting">Copywriting</label>
+                                            </CategoriesTheme>
+
+                                        </CategoriesThemes>
+
+
+
                                         <CategoriesThemes>
                                             <CategoriesTheme className="_orange">
                                                 <input
@@ -132,6 +196,8 @@ function AddCard() {
                                                 />
                                                 <label htmlFor="Copywriting">Copywriting</label>
                                             </CategoriesTheme>
+
+
 
                                             {/* <div className="status__theme _orange">
                                             <input type="radio" id="radio1" name="topic" onChange={handleInputChange} value="Web Design" />

@@ -33,7 +33,6 @@ const statusListRU = [
 ];
 
 export function ColumnList({ cardList }) {
-    console.log(cardList);
     return (
         statusListRU.map((status) => (
             <Column

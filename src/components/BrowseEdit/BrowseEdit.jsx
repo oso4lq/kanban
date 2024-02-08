@@ -21,7 +21,6 @@ function BrowseEdit({ id }) {
     const { userTasks, returnTask } = useTasks();
 
     // console.log(userTasks);
-
     // console.log("card id: " + id);
 
     const taskData = userTasks.find((task) => task._id === id);
@@ -158,7 +157,7 @@ function BrowseEdit({ id }) {
                                     </StTheme>
                                 </StatusThemes>
 
-                                <StatusThemes className={` ${isEditing ? '' : '_hide'}`}>
+                                <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
                                     <StatusTheme className="status__theme ">
                                         <input
                                             type="radio" id="no-status" name="status" value="Без статуса"
