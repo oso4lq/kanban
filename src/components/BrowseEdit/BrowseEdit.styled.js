@@ -103,28 +103,29 @@ export const StatusThemes = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 `;
-export const StTheme = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
 
-  p {
-    font-size: 14px;
-    line-height: 1;
-    letter-spacing: -0.14px;
-    color: #fff;
-  }
+export const TopicsButton = styled.button`
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 8px 18px;
+  border-radius: 24px;
+  /* margin-right: 7px; */
+  opacity: 0.4;
+
+  font-size: 14px;
+  line-height: 14px;
+  white-space: nowrap;
+  display: inline-block;
+  cursor: pointer;
 `;
 
 export const StatusTheme = styled.div`
   display: inline-block;
   border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94a6be;
-  padding: 11px 14px 10px;
+  /* border: 0.7px solid rgba(148, 166, 190, 0.4); */
+  /* color: #94a6be; */
+  /* padding: 11px 14px 10px; */
   margin-right: 7px;
   margin-bottom: 7px;
   transition: background-color 0.3s;
@@ -136,7 +137,6 @@ export const StatusTheme = styled.div`
   input[type="radio"]:checked + label {
     opacity: 1 !important;
     color: #fff ;
-    background-color: #94a6be;
   }
   
   &:hover {
@@ -153,7 +153,21 @@ export const StatusTheme = styled.div`
     letter-spacing: -0.14px;
   }
 `;
+export const StTheme = styled.div`
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  color: #94a6be;
+  padding: 11px 14px 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
 
+  p {
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: -0.14px;
+    color: #fff;
+  }
+`;
 
 
 

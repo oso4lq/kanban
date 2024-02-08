@@ -10,7 +10,7 @@ import {
     BrowseButtonGroup, FormBrowseArea, FormBrowseBlock,
     PopBrowseBlock, PopBrowseButtons, PopBrowseContainer, PopBrowseContent,
     PopBrowseDiv, PopBrowseForm, PopBrowseTitle, PopBrowseTop, PopBrowseWrap,
-    StTheme, Status, StatusParagraph, StatusTheme, StatusThemes
+    StTheme, Status, StatusParagraph, StatusTheme, StatusThemes, TopicsButton
 } from "./BrowseEdit.styled.js";
 // import { CategoriesTheme } from "../Common/Common.styled.js";
 import { GlobalStyle } from "../../Global/Global.styled.js";
@@ -30,6 +30,39 @@ function BrowseEdit({ id }) {
     // console.log("user id: " + userData._id);
     const [selected, setSelected] = useState(taskData.date);
 
+    const [currentStatus, setCurrentStatus] = useState('');
+    const handleIsChecked = (name) => {
+        setCurrentStatus(name);
+        console.log(name);
+    };
+    const topics = [
+        {
+            engname: 'No status',
+            runame: 'Без статуса',
+            color: '_gray',
+        },
+        {
+            engname: 'To do',
+            runame: 'Нужно сделать',
+            color: '_gray',
+        },
+        {
+            engname: 'In process',
+            runame: 'В работе',
+            color: '_gray',
+        },
+        {
+            engname: 'Testing',
+            runame: 'Тестирование',
+            color: '_gray',
+        },
+        {
+            engname: 'Ready',
+            runame: 'Готово',
+            color: '_gray',
+        }
+    ]
+
     //  useState array  
     const [editedTask, setEditedTask] = useState({
         title: taskData.title,
@@ -47,7 +80,7 @@ function BrowseEdit({ id }) {
             await editTask({
                 token: userData.token, id,
                 title: editedTask.title, topic: editedTask.topic,
-                status: editedTask.status, description: editedTask.description, date: selected,
+                status: currentStatus, description: editedTask.description, date: selected,
             }).then((data) => {
                 returnTask({ data });
             });
@@ -89,23 +122,6 @@ function BrowseEdit({ id }) {
         }
     }
 
-
-    //  sets the topic's color
-    let color;
-    switch (taskData.topic) {
-        case "Web Design":
-            color = "_orange";
-            break;
-        case "Copywriting":
-            color = "_purple";
-            break;
-        case "Research":
-            color = "_green";
-            break;
-        default:
-            color = "_gray";
-    }
-
     // sets ENG status
     let statusENG;
     switch (taskData.status) {
@@ -127,6 +143,24 @@ function BrowseEdit({ id }) {
         default:
             break;
     }
+
+    //  sets the topic's color
+    let color;
+    switch (taskData.topic) {
+        case "Web Design":
+            color = "_orange";
+            break;
+        case "Copywriting":
+            color = "_purple";
+            break;
+        case "Research":
+            color = "_green";
+            break;
+        default:
+            color = "_gray";
+    }
+
+
 
     return (
         <>
@@ -158,6 +192,21 @@ function BrowseEdit({ id }) {
                                 </StatusThemes>
 
                                 <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
+                                    {topics.map((e) => (
+                                        <StatusTheme
+                                            key={e.engname}>
+                                            <TopicsButton
+                                                type="button" id={e.engname}
+                                                className={`${currentStatus === e.runame ? '_selected-category' : ''} ${e.color}`}
+                                                onClick={() => handleIsChecked(e.runame)}>
+                                                {e.engname}
+                                            </TopicsButton>
+                                        </StatusTheme>
+                                    ))}
+                                </StatusThemes>
+
+                                <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
+
                                     <StatusTheme className="status__theme ">
                                         <input
                                             type="radio" id="no-status" name="status" value="Без статуса"
@@ -200,7 +249,9 @@ function BrowseEdit({ id }) {
                                         />
                                         <label htmlFor="status5">Ready</label>
                                     </StatusTheme>
+
                                 </StatusThemes>
+
                             </Status>
 
                             <PopBrowseWrap>

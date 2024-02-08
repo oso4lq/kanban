@@ -19,51 +19,20 @@ import { flushSync } from "react-dom";
 function AddCard() {
 
     const { userData } = useUser();
-    // const { returnTask } = useTasks();
-    // const { userTasks, setUserTasks } = useContext(TasksContext);
     const navigate = useNavigate();
 
-    const handleInputChange = (e) => {
-        console.log('item editing');
-        const { name, value } = e.target;
-        setNewTask({
-            ...newTask,
-            [name]: value,
-        });
-    };
-
     const [selected, setSelected] = useState();
+
     const [newTask, setNewTask] = useState({
         title: "",
         topic: "",
         description: "",
     });
 
-
     const [currentCategory, setCurrentCategory] = useState('');
     const handleIsChecked = (id) => {
         setCurrentCategory(id);
-
     }
-
-    //  Toggle category selection
-    //  array for 3 categories with true/false state. if one turns true, the others turn false?
-    // const [categorySelect, setCategorySelect] = useState({
-    //     web_design: false,
-    //     research: false,
-    //     copywriting: false,
-    // });
-    // const toggleSelect = () => {
-    //     setIsSelected((prevState) => !prevState);
-    //     console.log('selected to ' + isSelected);
-    // };
-    // const { name, value } = e.target;
-    // setCategorySelect({
-    //     ...categorySelect,
-    //     [name]: value,
-    // });
-
-
     const categories = [
         {
             id: 'Web Design',
@@ -78,6 +47,15 @@ function AddCard() {
             color: '_purple',
         }
     ]
+
+    const handleInputChange = (e) => {
+        console.log('item editing');
+        const { name, value } = e.target;
+        setNewTask({
+            ...newTask,
+            [name]: value,
+        });
+    };
 
     //  add task function
     const addCard = async () => {
@@ -149,17 +127,17 @@ function AddCard() {
                                         <CategoriesP className="subttl">Category</CategoriesP>
 
                                         <CategoriesThemes>
-
                                             {categories.map((e) => (
                                                 <CategoriesTheme
                                                     key={e.id}>
                                                     <CategoriesButton
-                                                        type="button" id={e.id} className={`${currentCategory === e.id ? '_selected-category' : ''} ${e.color}`}
-                                                        onClick={() => handleIsChecked(e.id)}
-                                                    >{e.id}</CategoriesButton>
+                                                        type="button" id={e.id}
+                                                        className={`${currentCategory === e.id ? '_selected-category' : ''} ${e.color}`}
+                                                        onClick={() => handleIsChecked(e.id)}>
+                                                        {e.id}
+                                                    </CategoriesButton>
                                                 </CategoriesTheme>
                                             ))}
-
                                         </CategoriesThemes>
 
                                         {/* <CategoriesThemes>
@@ -192,18 +170,10 @@ function AddCard() {
                                     </CategoriesContainer>
                                 </PopNewCardForm>
 
-                                {/* <p className="calendar__ttl subttl">Dates</p>
-                                <Calendar selected={selected} setSelected={setSelected} /> */}
                                 <CalendarBlock>
                                     <CalendarBlockP>Choose deadline:</CalendarBlockP>
                                     <Calendar selected={selected} setSelected={setSelected} />
                                 </CalendarBlock>
-                                {/* <div className="calendar__block calendar__nav">
-                                    <p className="calendar__ttl subttl">Dates</p>
-                                    <div className="pop-new-card__calendar calendar">
-                                        <Calendar selected={selected} setSelected={setSelected} />
-                                    </div>
-                                </div> */}
 
                             </PopNewCardWrap>
 
