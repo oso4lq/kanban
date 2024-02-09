@@ -1,4 +1,3 @@
-//const token = 'asb4c4boc86gasb4c4boc86g37w3cc3bo3b83k4g37k3bk3cg3c03ck4k';
 const API_URL_USER = 'https://wedev-api.sky.pro/api/user';
 const API_URL = 'https://wedev-api.sky.pro/api/kanban';
 
@@ -11,7 +10,6 @@ export async function login({ login, password }) {
         }),
     }).then((response) => {
         if (response.status === 400) {
-            // alert("Incorrect login or password.");
             throw new Error("Incorrect login or password.");
         }
         return response.json();
@@ -28,7 +26,6 @@ export async function register({ login, name, password }) {
         }),
     }).then((response) => {
         if (response.status === 400) {
-            // alert("This username is already taken");
             throw new Error("This username is already taken");
         }
         return response.json();

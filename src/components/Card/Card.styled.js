@@ -14,7 +14,6 @@ export const CardItem = styled.div`
 export const CardContainer = styled.div`
     width: 220px;
     height: 130px;
-    /* background-color: #FFFFFF; */
     background-color: ${props => props.theme.backColor};
     border-radius: 10px;
     display: flex;

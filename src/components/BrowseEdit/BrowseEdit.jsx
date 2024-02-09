@@ -1,10 +1,4 @@
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../lib/appRoutes.js";
-
-import { deleteTask, editTask } from "../../api.js";
-import { useUser } from "../../hooks/useUser.jsx";
-import { useState } from "react";
-import { useTasks } from "../../hooks/useTasks.jsx";
 import { Calendar } from "../../components/Calendar/Calendar.jsx";
 import {
     BrowseButtonGroup, CategoryTheme, FormBrowseArea, FormBrowseBlock,
@@ -12,24 +6,27 @@ import {
     PopBrowseDiv, PopBrowseForm, PopBrowseTitle, PopBrowseTop, PopBrowseWrap,
     StTheme, Status, StatusParagraph, StatusThemes, TopicsButton,
 } from "./BrowseEdit.styled.js";
-// import { CategoriesTheme } from "../Common/Common.styled.js";
+
+import { AppRoutes } from "../../lib/appRoutes.js";
+import { topics } from "../../data.js";
+
+import { deleteTask, editTask } from "../../api.js";
+import { useUser } from "../../hooks/useUser.jsx";
+import { useState } from "react";
+import { useTasks } from "../../hooks/useTasks.jsx";
 import { GlobalStyle } from "../../Global/Global.styled.js";
+
 import Button from "../Common/Common.styled.js";
 import Header from "../Header/Header.jsx";
+import Wrapper from "../Wrapper/Wrapper.jsx";
 
 function BrowseEdit({ id }) {
 
     const { userData } = useUser();
     const { userTasks, returnTask } = useTasks();
 
-    // console.log(userTasks);
-    // console.log("card id: " + id);
-
     const taskData = userTasks.find((task) => task._id === id);
 
-    // console.log(userData);
-    // console.log("user token: " + userData.token);
-    // console.log("user id: " + userData._id);
     const [selected, setSelected] = useState(taskData.date);
 
     const [currentStatus, setCurrentStatus] = useState('');
@@ -38,28 +35,7 @@ function BrowseEdit({ id }) {
         console.log(name);
         editedTask.status = name;
     };
-    const topics = [
-        {
-            engname: 'No status',
-            runame: 'Без статуса',
-        },
-        {
-            engname: 'To do',
-            runame: 'Нужно сделать',
-        },
-        {
-            engname: 'In process',
-            runame: 'В работе',
-        },
-        {
-            engname: 'Testing',
-            runame: 'Тестирование',
-        },
-        {
-            engname: 'Ready',
-            runame: 'Готово',
-        }
-    ]
+
     let noButton = true;
 
     //  useState array  
@@ -162,7 +138,9 @@ function BrowseEdit({ id }) {
     return (
         <>
             <GlobalStyle />
-            <Header noButton={noButton} />
+            <Wrapper>
+                <Header noButton={noButton} />
+            </Wrapper>
             <PopBrowseDiv id="popBrowse">
                 <PopBrowseContainer>
                     <PopBrowseBlock>
@@ -170,12 +148,9 @@ function BrowseEdit({ id }) {
 
                             <PopBrowseTop>
                                 <PopBrowseTitle>{editedTask.title}</PopBrowseTitle>
-                                {/* <PopBrowseTitle>{editedTask.title} (id {id})</PopBrowseTitle> */}
-
                                 <CategoryTheme className={`${color} _active-category`}>
                                     <p>{editedTask.topic}</p>
                                 </CategoryTheme>
-
                             </PopBrowseTop>
 
                             <Status>

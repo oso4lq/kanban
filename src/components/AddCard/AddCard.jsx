@@ -3,17 +3,19 @@ import { useState } from "react";
 
 //  Pages
 import { AppRoutes } from "../../lib/appRoutes";
+import Header from "../Header/Header.jsx";
 
 //  API, Logics
 import { addTask } from "../../api";
 import { useUser } from '../../hooks/useUser.jsx';
 
 //  Components
+import { categories } from "../../data.js";
 import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
 import { ButtonContainer, CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 import Button from "../Common/Common.styled.js";
-import Header from "../Header/Header.jsx";
+import Wrapper from "../Wrapper/Wrapper.jsx";
 
 function AddCard() {
 
@@ -32,20 +34,6 @@ function AddCard() {
     const handleIsChecked = (id) => {
         setCurrentCategory(id);
     }
-    const categories = [
-        {
-            id: 'Web Design',
-            color: '_orange',
-        },
-        {
-            id: 'Research',
-            color: '_green',
-        },
-        {
-            id: 'Copywriting',
-            color: '_purple',
-        }
-    ]
 
     let noButton = true;
 
@@ -83,7 +71,9 @@ function AddCard() {
     return (
         <>
             <GlobalStyle />
-            <Header noButton={noButton} />
+            <Wrapper>
+                <Header noButton={noButton} />
+            </Wrapper>
             <PopNewCardDiv id="popNewCard">
                 <PopNewCardContainer>
                     <PopNewCardBlock>

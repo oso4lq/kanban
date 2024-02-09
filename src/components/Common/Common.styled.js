@@ -27,7 +27,6 @@ export const Button = styled.button`
     font-size: 14px;
     line-height: 1;
     font-weight: 500;
-    /* margin: 0px 20px; */
     padding: 0px 10px;
 
 
@@ -41,7 +40,6 @@ export default Button;
 export const LogInRegisterDIV = styled.div`
 height: 100vh;
 display: flex;
-//width: 1440px;
 padding: 10% 0px 10% 0px;
 justify-content: center;
 align-items: center;

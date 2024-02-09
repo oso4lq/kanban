@@ -28,7 +28,6 @@ function RegisterPage() {
                 throw new Error('Please fill in all the inputs.');
             }
             await register(registerData).then((data) => {
-                console.log(data.user);
                 loginUser(data.user)
             });
         } catch (error) {

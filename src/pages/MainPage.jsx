@@ -14,7 +14,6 @@ import { GlobalStyle } from '../Global/Global.styled.js';
 
 import { getTasks } from '../api.js';
 
-
 function MainPage() {
 
   const { userData } = useUser();
@@ -33,7 +32,6 @@ function MainPage() {
     getTasks({ token: userData.token })
       .then((data) => {
         returnTask(data);
-        console.log(data.tasks);
         setCards(data.tasks);
       })
       .then(() => {
@@ -41,7 +39,7 @@ function MainPage() {
       })
       .catch((error) => {
         setHasError(true);
-        console.error(error);
+        console.warn(error);
       });
   }, []);
 

@@ -13,7 +13,6 @@ function HeaderMenu({ noButton }) {
 
     const [isOpened, setIsOpened] = useState(false);
     const { userData } = useUser();
-    // console.log(userData);
 
     const togglePopUp = () => {
         setIsOpened((prevState) => !prevState);
@@ -48,7 +47,6 @@ function HeaderMenu({ noButton }) {
 
                         <PopUserSetTheme>
                             <p>Dark theme</p>
-                            {/* <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} /> */}
                             <input type="checkbox" className="checkbox" name="checkbox"
                                 onChange={() =>
                                     themeSwitchHandler(theme === "dark" ? "light" : "dark")

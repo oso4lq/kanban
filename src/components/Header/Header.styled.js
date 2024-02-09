@@ -1,5 +1,4 @@
 import styled from "styled-components";
-//import { breakpoints } from "../../lib/breakpoints";
 
 export const HeaderBox = styled.header`
     width: 100%;
@@ -20,7 +19,7 @@ export const HeaderBlock = styled.div`
     gap: 20px;
 `
 
-export const LogoLink = styled.a`
+export const LogoLink = styled.div`
   img {
     width: 85px;
   }

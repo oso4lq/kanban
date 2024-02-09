@@ -1,4 +1,3 @@
-// import Button from "../Button/Button.styled";
 import { GlobalStyle } from "../../Global/Global.styled.js";
 import { useUser } from "../../hooks/useUser";
 import { Link } from "react-router-dom";
@@ -24,24 +23,11 @@ function PopExit() {
                                         e.preventDefault();
                                         logoutUser();
                                     }}
-                                >
-                                    Yes
-                                </PopExitYes>
+                                >Yes</PopExitYes>
+
                                 <PopExitNo id="exitNo">
                                     <Link to={AppRoutes.HOME}>No, stay</Link>
                                 </PopExitNo>
-
-                                {/* <Link to={AppRoutes.LOGIN}>
-                                    <Button className="pop-exit__exit-yes" id="exitYes">
-                                        Yes
-                                    </Button>
-                                </Link>
-
-                                <Link to={AppRoutes.HOME}>
-                                    <Button $transparent className="pop-exit__exit-no" id="exitNo">
-                                        No, stay
-                                    </Button>
-                                </Link> */}
 
                             </PopExitFormGroup>
                         </div>
