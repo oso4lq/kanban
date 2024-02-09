@@ -35,6 +35,7 @@ function BrowseEdit({ id }) {
     const handleIsChecked = (name) => {
         setCurrentStatus(name);
         console.log(name);
+        editedTask.status = name;
     };
     const topics = [
         {
@@ -76,7 +77,7 @@ function BrowseEdit({ id }) {
             await editTask({
                 token: userData.token, id,
                 title: editedTask.title, topic: editedTask.topic,
-                status: currentStatus, description: editedTask.description, date: selected,
+                status: editedTask.status, description: editedTask.description, date: selected,
             }).then((data) => {
                 returnTask({ data });
             });
@@ -187,7 +188,10 @@ function BrowseEdit({ id }) {
                                         <TopicsButton
                                             key={e.engname}
                                             type="button" id={e.engname}
-                                            className={`${currentStatus === e.runame ? '_selected-status _gray' : ''}`}
+                                            className={`
+                                                ${currentStatus === e.runame ? '_selected-status _gray' : ''}
+                                                ${editedTask.status === e.runame ? '_selected-status _gray' : ''}
+                                            `}
                                             checked={currentStatus === e.runame}
                                             onClick={() => handleIsChecked(e.runame)}>
                                             {e.engname}
