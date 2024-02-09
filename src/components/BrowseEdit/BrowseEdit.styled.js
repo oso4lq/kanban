@@ -135,21 +135,6 @@ export const TopicsButton = styled.button`
     color: ${(props) => props.theme.label};
   }
 `;
-export const TopicsButton2 = styled.button`
-  display: inline-block;
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  padding: 11px 20px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-  font-size: 14px;
-  transition: background-color 0.3s;
-  color: #94a6be;
-  &:hover {
-    background-color: #94a6be;
-    color: ${(props) => props.theme.label};
-  }
-`;
 
 export const StatusTheme = styled.div`
   display: inline-block;

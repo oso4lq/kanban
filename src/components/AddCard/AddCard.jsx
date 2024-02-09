@@ -11,7 +11,7 @@ import { useUser } from '../../hooks/useUser.jsx';
 //  Components
 import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
-import { ButtonContainer, CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesTheme, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
+import { ButtonContainer, CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 import Button from "../Common/Common.styled.js";
 
 function AddCard() {
@@ -122,48 +122,17 @@ function AddCard() {
 
                                     <CategoriesContainer className="pop-new-card__categories prod_checbox">
                                         <CategoriesP className="subttl">Category</CategoriesP>
-
                                         <CategoriesThemes>
                                             {categories.map((e) => (
-                                                <CategoriesTheme
-                                                    key={e.id}>
-                                                    <CategoriesButton
-                                                        type="button" id={e.id}
-                                                        className={`${currentCategory === e.id ? '_selected-category' : ''} ${e.color}`}
-                                                        onClick={() => handleIsChecked(e.id)}>
-                                                        {e.id}
-                                                    </CategoriesButton>
-                                                </CategoriesTheme>
+                                                <CategoriesButton
+                                                    key={e.id}
+                                                    type="button" id={e.id}
+                                                    className={`${currentCategory === e.id ? '_selected-category' : ''} ${e.color}`}
+                                                    onClick={() => handleIsChecked(e.id)}>
+                                                    {e.id}
+                                                </CategoriesButton>
                                             ))}
                                         </CategoriesThemes>
-
-                                        {/* <CategoriesThemes>
-                                            <CategoriesTheme className="_orange">
-                                                <input
-                                                    type="radio" id="web-design" name="topic" className="_orange" value="Web Design"
-                                                    checked={newTask.topic === "Web Design"}
-                                                    onChange={handleInputChange}
-                                                />
-                                                <label htmlFor="web-design">Web Design</label>
-                                            </CategoriesTheme>
-                                            <CategoriesTheme className="_green">
-                                                <input
-                                                    type="radio" id="Research" name="topic" className="_green" value="Research"
-                                                    checked={newTask.topic === "Research"}
-                                                    onChange={handleInputChange}
-                                                />
-                                                <label htmlFor="Research">Research</label>
-                                            </CategoriesTheme>
-                                            <CategoriesTheme className="_purple">
-                                                <input
-                                                    type="radio" id="Copywriting" name="topic" className="_purple" value="Copywriting"
-                                                    checked={newTask.topic === "Copywriting"}
-                                                    onChange={handleInputChange}
-                                                />
-                                                <label htmlFor="Copywriting">Copywriting</label>
-                                            </CategoriesTheme>
-                                        </CategoriesThemes> */}
-
                                     </CategoriesContainer>
                                 </PopNewCardForm>
 

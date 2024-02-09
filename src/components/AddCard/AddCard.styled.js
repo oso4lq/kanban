@@ -183,7 +183,7 @@ export const CategoriesThemes = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
   gap: 6px;
 `;
 export const CategoriesP = styled.p`
@@ -196,16 +196,19 @@ export const CategoriesButton = styled.button`
   height: auto;
   padding: 8px 18px;
   border-radius: 24px;
-  /* margin-right: 7px; */
   opacity: 0.4;
-
   font-size: 14px;
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
   display: inline-block;
   cursor: pointer;
+  border: none;
+  &:hover {
+    opacity: 1 !important;
+  }
 `;
+
 export const CategoriesTheme = styled.div`
   display: inline-block;
   width: auto;
