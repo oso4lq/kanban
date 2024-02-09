@@ -79,6 +79,9 @@ export const HeaderPopUserSet = styled.div`
   padding: 34px;
   text-align: center;
   z-index: 2;
+  @media screen and (max-width: ${breakpoints.lg}px) {
+    z-index: 7; 
+  }
 
   button {
     width: 72px;

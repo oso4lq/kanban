@@ -6,7 +6,7 @@ export const PopNewCardDiv = styled.div`
   display: block;
   width: 100%;
   min-width: 375px;
-  height: 100%;
+  height: 100vh;
   min-height: 100vh;
   position: absolute;
   top: 0;
