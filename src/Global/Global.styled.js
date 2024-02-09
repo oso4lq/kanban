@@ -115,6 +115,14 @@ body {
   color: #FFFFFF;
 }
 
+._selected-category {
+  opacity: 1 !important;
+}
+._selected-status {
+  opacity: 1 !important;
+  color: ${(props) => props.theme.label}
+}
+
 .subttl {
   color: ${(props) => props.theme.subttl};
   font-size: 14px;

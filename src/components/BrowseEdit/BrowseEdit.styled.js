@@ -84,7 +84,23 @@ export const PopBrowseTitle = styled.h3`
   line-height: 24px;
 `;
 
+export const CategoryTheme = styled.div`
+  display: inline-block;
+  display: block;
+  width: auto;
+  height: 30px;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
 
+p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+}
+`
 
 export const Status = styled.div`
   margin-bottom: 11px;
@@ -101,23 +117,38 @@ export const StatusThemes = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
 `;
 
 export const TopicsButton = styled.button`
   display: inline-block;
-  width: auto;
-  height: auto;
-  padding: 8px 18px;
   border-radius: 24px;
-  /* margin-right: 7px; */
-  opacity: 0.4;
-
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  padding: 11px 20px 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
   font-size: 14px;
-  line-height: 14px;
-  white-space: nowrap;
+  transition: background-color 0.3s;
+  color: #94a6be;
+  &:hover {
+    background-color: #94a6be;
+    color: ${(props) => props.theme.label};
+  }
+`;
+export const TopicsButton2 = styled.button`
   display: inline-block;
-  cursor: pointer;
+  border-radius: 24px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  padding: 11px 20px 10px;
+  margin-right: 7px;
+  margin-bottom: 7px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  color: #94a6be;
+  &:hover {
+    background-color: #94a6be;
+    color: ${(props) => props.theme.label};
+  }
 `;
 
 export const StatusTheme = styled.div`

@@ -7,10 +7,10 @@ import { useState } from "react";
 import { useTasks } from "../../hooks/useTasks.jsx";
 import { Calendar } from "../../components/Calendar/Calendar.jsx";
 import {
-    BrowseButtonGroup, FormBrowseArea, FormBrowseBlock,
+    BrowseButtonGroup, CategoryTheme, FormBrowseArea, FormBrowseBlock,
     PopBrowseBlock, PopBrowseButtons, PopBrowseContainer, PopBrowseContent,
     PopBrowseDiv, PopBrowseForm, PopBrowseTitle, PopBrowseTop, PopBrowseWrap,
-    StTheme, Status, StatusParagraph, StatusTheme, StatusThemes, TopicsButton
+    StTheme, Status, StatusParagraph, StatusThemes, TopicsButton,
 } from "./BrowseEdit.styled.js";
 // import { CategoriesTheme } from "../Common/Common.styled.js";
 import { GlobalStyle } from "../../Global/Global.styled.js";
@@ -40,27 +40,22 @@ function BrowseEdit({ id }) {
         {
             engname: 'No status',
             runame: 'Без статуса',
-            color: '_gray',
         },
         {
             engname: 'To do',
             runame: 'Нужно сделать',
-            color: '_gray',
         },
         {
             engname: 'In process',
             runame: 'В работе',
-            color: '_gray',
         },
         {
             engname: 'Testing',
             runame: 'Тестирование',
-            color: '_gray',
         },
         {
             engname: 'Ready',
             runame: 'Готово',
-            color: '_gray',
         }
     ]
 
@@ -172,9 +167,9 @@ function BrowseEdit({ id }) {
                             <PopBrowseTop>
                                 <PopBrowseTitle>{editedTask.title} (id {id})</PopBrowseTitle>
 
-                                <div className={`${color} categories__theme theme-top _active-category`}>
+                                <CategoryTheme className={`${color} _active-category`}>
                                     <p>{editedTask.topic}</p>
-                                </div>
+                                </CategoryTheme>
 
                             </PopBrowseTop>
 
@@ -189,60 +184,16 @@ function BrowseEdit({ id }) {
 
                                 <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
                                     {topics.map((e) => (
-                                        <StatusTheme
-                                            key={e.engname}>
-                                            <TopicsButton
-                                                type="button" id={e.engname}
-                                                className={`${currentStatus === e.runame ? '_selected-category' : ''} ${e.color}`}
-                                                checked={currentStatus === e.runame}
-                                                onClick={() => handleIsChecked(e.runame)}>
-                                                {e.engname}
-                                            </TopicsButton>
-                                        </StatusTheme>
+                                        <TopicsButton
+                                            key={e.engname}
+                                            type="button" id={e.engname}
+                                            className={`${currentStatus === e.runame ? '_selected-status _gray' : ''}`}
+                                            checked={currentStatus === e.runame}
+                                            onClick={() => handleIsChecked(e.runame)}>
+                                            {e.engname}
+                                        </TopicsButton>
                                     ))}
                                 </StatusThemes>
-
-                                {/* <StatusThemes className={`${isEditing ? '' : '_hide'}`}>
-
-                                    <StatusTheme className="status__theme ">
-                                        <input
-                                            type="radio" id="no-status" name="status" value="Без статуса"
-                                            checked={editedTask.status === "Без статуса"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="status1">No status</label>
-                                    </StatusTheme>
-                                    <StatusTheme className="status__theme ">
-                                        <input type="radio" id="to-do" name="status" value="Нужно сделать"
-                                            checked={editedTask.status === "Нужно сделать"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="status2">To do</label>
-                                    </StatusTheme>
-                                    <StatusTheme className="status__theme ">
-                                        <input type="radio" id="in-process" name="status" value="В работе"
-                                            checked={editedTask.status === "В работе"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="status3">In process</label>
-                                    </StatusTheme>
-                                    <StatusTheme className="status__theme ">
-                                        <input type="radio" id="testing" name="status" value="Тестирование"
-                                            checked={editedTask.status === "Тестирование"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="status4">Testing</label>
-                                    </StatusTheme>
-                                    <StatusTheme className="status__theme ">
-                                        <input type="radio" id="ready" name="status" value="Готово"
-                                            checked={editedTask.status === "Готово"}
-                                            onChange={handleInputChange}
-                                        />
-                                        <label htmlFor="status5">Ready</label>
-                                    </StatusTheme>
-
-                                </StatusThemes> */}
-
                             </Status>
 
                             <PopBrowseWrap>
@@ -321,7 +272,7 @@ function BrowseEdit({ id }) {
                         </PopBrowseContent>
                     </PopBrowseBlock>
                 </PopBrowseContainer>
-            </PopBrowseDiv>
+            </PopBrowseDiv >
         </>
     )
 }
