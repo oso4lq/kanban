@@ -262,30 +262,21 @@ export const FormBrowseArea = styled.textarea`
 
 
 export const PopBrowseButtons = styled.div`
-  /*.pop-browse__btn-browse, .pop-browse__btn-edit*/
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
 
-  button {
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 0 14px;
-
-    @media screen and (max-width: ${breakpoints.md}px) {
-      width: 100%;
-      height: 40px;
-    }
-  }
 `;
 export const BrowseButtonGroup = styled.div`
-  button {
-    margin-right: 8px;
-  }
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 268px;
   @media screen and (max-width: ${breakpoints.md}px) {
-    margin-right: 0px;
+    max-width: 138px;
   }
 `;
 

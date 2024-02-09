@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const Button = styled.button`
     height: 30px;
-    //width: 178px;
+    min-width: 124px;
 
     background-color: ${props => props.$transparent ? 'transparent' : '#565EEF'};
     color: ${props => props.$transparent ? '#565EEF' : '#FFFFFF'};

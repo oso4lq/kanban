@@ -152,7 +152,7 @@ function AddCard() {
                                     Create task
                                 </Button>
                                 <Link to={AppRoutes.HOME}>
-                                    <Button className="btn-browse__close _btn-bg _hover01">
+                                    <Button>
                                         Close
                                     </Button>
                                 </Link>
