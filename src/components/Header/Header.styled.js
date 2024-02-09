@@ -17,6 +17,7 @@ export const HeaderBlock = styled.div`
     top: 0;
     left: 0;
     padding: 0 10px;
+    gap: 20px;
 `
 
 export const LogoLink = styled.a`
