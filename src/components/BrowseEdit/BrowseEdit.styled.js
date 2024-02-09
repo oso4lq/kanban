@@ -11,7 +11,7 @@ export const PopBrowseDiv = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 7;
+  z-index: 6;
 
   &:target {
     display: block;
@@ -256,8 +256,6 @@ export const FormBrowseArea = styled.textarea`
     /* height: 37px; */
   }
 `;
-
-
 
 
 
