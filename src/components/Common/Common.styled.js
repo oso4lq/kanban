@@ -63,6 +63,9 @@ flex-direction: column;
 align-items: center;
 gap: 20px;
 `
+export const LoginRegisterTitle = styled.div`
+  color: #000000;
+`
 export const ModalForm = styled.form`
 display: flex;
 flex-direction: column;

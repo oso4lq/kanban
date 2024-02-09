@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from '../lib/appRoutes';
-import { ErrorText, ModalBtnEnter, ModalBtnErr } from "../components/Common/Common.styled";
+import { ErrorText, LoginRegisterTitle, ModalBtnEnter, ModalBtnErr } from "../components/Common/Common.styled";
 import { LogInRegisterDIV, LogInRegisterBox, Modal, ModalBlock, ModalForm, ModalFormGroup, ModalInput } from "../components/Common/Common.styled";
 import { register } from "../api";
 import { useState } from "react";
@@ -55,9 +55,9 @@ function RegisterPage() {
                 <LogInRegisterBox>
                     <Modal>
                         <ModalBlock>
-                            <div className="modal__ttl">
+                            <LoginRegisterTitle>
                                 <h2>Sign Up</h2>
-                            </div>
+                            </LoginRegisterTitle>
                             <ModalForm id="formLogIn" action="#">
 
                                 <ModalInput className="modal__input" type="text" id="formusername" placeholder="Username"
