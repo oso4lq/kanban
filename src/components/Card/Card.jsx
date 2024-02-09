@@ -29,19 +29,10 @@ function Card({ title, theme, date, id }) {
                             <CardThemeP>{theme}</CardThemeP>
                         </CardTheme>
 
-                        {/* <Link to={AppRoutes.CARD + `/${id}`}>
-                            <div className="card__btn">
-                                <div />
-                                <div />
-                                <div />
-                            </div>
-                        </Link> */}
                     </CardGroup>
                     <CardContent>
 
-                        {/* <Link to={AppRoutes.CARD + `/${id}`}> */}
                         <CardTitle>{title}</CardTitle>
-                        {/* </Link> */}
 
                         <CardDate>
                             <svg
