@@ -26,11 +26,12 @@ function Header({ noButton }) {
             <div className="container">
 
                 <HeaderBlock>
-                    <LogoLink>
-                        <Link to={AppRoutes.HOME}>
+
+                    <Link to={AppRoutes.HOME}>
+                        <LogoLink>
                             <img src={logo} alt="logo" />
-                        </Link>
-                    </LogoLink>
+                        </LogoLink>
+                    </Link>
 
                     <HeaderMenu noButton={noButton} />
 
