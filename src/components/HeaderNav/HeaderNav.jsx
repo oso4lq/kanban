@@ -9,7 +9,7 @@ import { AppRoutes } from "../../lib/appRoutes";
 import { HeaderNav, HeaderPopUserSet, HeaderUser, PopUserSetMail, PopUserSetName, PopUserSetTheme } from "./HeaderNav.styled.js";
 import Button from "../Common/Common.styled.js";
 
-function HeaderMenu() {
+function HeaderMenu({ noButton }) {
 
     const [isOpened, setIsOpened] = useState(false);
     const { userData } = useUser();
@@ -24,59 +24,47 @@ function HeaderMenu() {
         window.localStorage.setItem("theme", theme);
     }, [theme]);
 
-    // Toggle theme function
-    // const [theme, setTheme] = useState('light');
-    // const toggleTheme = () => {
-    //     if (theme === 'light') {
-    //         setTheme('dark');
-    //         //console.log('dark theme');
-    //     } else {
-    //         setTheme('light');
-    //         //console.log('light theme');
-    //     }
-    // };
-
     return (
         <HeaderNav>
 
-            <Link to={AppRoutes.ADD_CARD}>
+            <Link to={AppRoutes.ADD_CARD}
+                className={`${noButton ? '_hide' : ''}`} >
                 <Button id="btnMainNew">Create new task</Button>
             </Link>
 
-            {/* <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
-                {userData.name}
-            </a> */}
             <HeaderUser onClick={togglePopUp}>{userData.name}</HeaderUser>
 
-            {isOpened && (
-                <HeaderPopUserSet className="pop-user-set" id="user-set-target">
+            {
+                isOpened && (
+                    <HeaderPopUserSet className="pop-user-set" id="user-set-target">
 
-                    <PopUserSetName>
-                        {userData.name}
-                    </PopUserSetName>
+                        <PopUserSetName>
+                            {userData.name}
+                        </PopUserSetName>
 
-                    <PopUserSetMail>
-                        {userData.login}
-                    </PopUserSetMail>
+                        <PopUserSetMail>
+                            {userData.login}
+                        </PopUserSetMail>
 
-                    <PopUserSetTheme>
-                        <p>Dark theme</p>
-                        {/* <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} /> */}
-                        <input type="checkbox" className="checkbox" name="checkbox"
-                            onChange={() =>
-                                themeSwitchHandler(theme === "dark" ? "light" : "dark")
-                            }
-                        />
-                    </PopUserSetTheme>
+                        <PopUserSetTheme>
+                            <p>Dark theme</p>
+                            {/* <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} /> */}
+                            <input type="checkbox" className="checkbox" name="checkbox"
+                                onChange={() =>
+                                    themeSwitchHandler(theme === "dark" ? "light" : "dark")
+                                }
+                            />
+                        </PopUserSetTheme>
 
-                    <Link to={AppRoutes.EXIT}>
-                        <Button $transparent>Log out</Button>
-                    </Link>
+                        <Link to={AppRoutes.EXIT}>
+                            <Button $transparent>Log out</Button>
+                        </Link>
 
-                </HeaderPopUserSet>
-            )}
+                    </HeaderPopUserSet>
+                )
+            }
 
-        </HeaderNav>
+        </HeaderNav >
     )
 }
 

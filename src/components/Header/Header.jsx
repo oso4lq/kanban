@@ -4,7 +4,7 @@ import HeaderMenu from "../HeaderNav/HeaderNav";
 import { useGlobal } from "../../hooks/useGlobal";
 import { HeaderBox, HeaderBlock, LogoLink } from "./Header.styled";
 
-function Header() {
+function Header({ noButton }) {
 
     const { theme } = useGlobal();
 
@@ -28,21 +28,8 @@ function Header() {
                     <LogoLink to={AppRoutes.HOME}>
                         <img src={logo} alt="logo" />
                     </LogoLink>
-                    {/* <div className="header__logo _show _light">
-                    <a href="" target="_self">
-                        <img src="public/logo.png" alt="logo" />
-                    </a>
-                </div> 
-                    <LogoLink>
-                        <img src={logo} alt="logo" />
-                    </LogoLink>
-                     <div className="header__logo _dark">
-                    <a href="" target="_self">
-                        <img src="public/logo_dark.png" alt="logo" />
-                    </a>
-                </div> */}
 
-                    <HeaderMenu />
+                    <HeaderMenu noButton={noButton}/>
 
                 </HeaderBlock>
 

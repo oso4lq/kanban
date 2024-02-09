@@ -15,6 +15,7 @@ import {
 // import { CategoriesTheme } from "../Common/Common.styled.js";
 import { GlobalStyle } from "../../Global/Global.styled.js";
 import Button from "../Common/Common.styled.js";
+import Header from "../Header/Header.jsx";
 
 function BrowseEdit({ id }) {
 
@@ -59,6 +60,7 @@ function BrowseEdit({ id }) {
             runame: 'Готово',
         }
     ]
+    let noButton = true;
 
     //  useState array  
     const [editedTask, setEditedTask] = useState({
@@ -160,6 +162,7 @@ function BrowseEdit({ id }) {
     return (
         <>
             <GlobalStyle />
+            <Header noButton={noButton} />
             <PopBrowseDiv id="popBrowse">
                 <PopBrowseContainer>
                     <PopBrowseBlock>

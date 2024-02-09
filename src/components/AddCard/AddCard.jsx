@@ -13,6 +13,7 @@ import { Calendar } from "../../components/Calendar/Calendar";
 import { GlobalStyle } from "../../Global/Global.styled.js";
 import { ButtonContainer, CalendarBlock, CalendarBlockP, CategoriesButton, CategoriesContainer, CategoriesP, CategoriesThemes, FormNewArea, FormNewBlock, FormNewInput, PopNewCardBlock, PopNewCardContainer, PopNewCardContent, PopNewCardDiv, PopNewCardForm, PopNewCardTtl, PopNewCardWrap } from "./AddCard.styled.js";
 import Button from "../Common/Common.styled.js";
+import Header from "../Header/Header.jsx";
 
 function AddCard() {
 
@@ -45,6 +46,8 @@ function AddCard() {
             color: '_purple',
         }
     ]
+
+    let noButton = true;
 
     const handleInputChange = (e) => {
         console.log('item editing');
@@ -80,6 +83,7 @@ function AddCard() {
     return (
         <>
             <GlobalStyle />
+            <Header noButton={noButton} />
             <PopNewCardDiv id="popNewCard">
                 <PopNewCardContainer>
                     <PopNewCardBlock>
@@ -144,14 +148,14 @@ function AddCard() {
                             </PopNewCardWrap>
 
                             <ButtonContainer>
-                                <Link to={AppRoutes.HOME}>
-                                    <Button className="btn-browse__close _btn-bg _hover01">
-                                        Cancel
-                                    </Button>
-                                </Link>
                                 <Button onClick={addCard}>
                                     Create task
                                 </Button>
+                                <Link to={AppRoutes.HOME}>
+                                    <Button className="btn-browse__close _btn-bg _hover01">
+                                        Close
+                                    </Button>
+                                </Link>
                             </ButtonContainer>
 
                         </PopNewCardContent>
