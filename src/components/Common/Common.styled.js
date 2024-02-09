@@ -39,6 +39,7 @@ export const Button = styled.button`
 export default Button;
 
 export const LogInRegisterDIV = styled.div`
+height: 100vh;
 display: flex;
 //width: 1440px;
 padding: 10% 0px 10% 0px;

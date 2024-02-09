@@ -2,12 +2,15 @@ import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 // import fr from "date-fns/locale/ru";
 import 'react-day-picker/dist/style.css';
+import { CalendarP } from "./Calendar.styled";
 
 export function Calendar({ selected, setSelected, children }) {
 
     let footer = <div className="calendar__period">{children}</div>;
     if (selected) {
-        footer = <p>Do until {format(selected, 'PP')}.</p>;
+        footer = <CalendarP>Do until {format(selected, 'PP')}.</CalendarP>;
+        // footer = <p>Do until {format(selected, 'PP')}.</p>;
+
         // footer = <CalendarP>Срок исполнения: {format(selected, 'PP', {locale: ru})}</CalendarP>;
     }
 

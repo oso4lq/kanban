@@ -72,6 +72,7 @@ export const PopBrowseContent = styled.div`
 
 export const PopBrowseTop = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
@@ -118,6 +119,10 @@ export const StatusThemes = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+  //???
+  @media screen and (max-width: ${breakpoints.md}) {
+    justify-content: center;
+  }
 `;
 
 export const TopicsButton = styled.button`
@@ -248,14 +253,8 @@ export const FormBrowseArea = styled.textarea`
 
   @media screen and (max-width: ${breakpoints.md}px) {
     max-width: 100%;
-    height: 37px;
+    /* height: 37px; */
   }
-`;
-
-export const CalendarP = styled.p`
-  color: #94a6be;
-  font-size: 10px;
-  line-height: 1;
 `;
 
 

@@ -8,7 +8,6 @@ export const CardItem = styled.div`
     animation-duration: 500ms;
     animation-timing-function: linear;
     @media (max-width: ${breakpoints.md}px) {
-        background: red;
     }
 `;
 

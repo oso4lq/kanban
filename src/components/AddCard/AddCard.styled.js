@@ -172,7 +172,7 @@ export const FormNewArea = styled.textarea`
 
   @media screen and (max-width: ${breakpoints.md}px) {
     max-width: 100%;
-    height: 34px;
+    /* height: 34px; */
   }
 `;
 

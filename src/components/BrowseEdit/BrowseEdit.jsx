@@ -166,7 +166,8 @@ function BrowseEdit({ id }) {
                         <PopBrowseContent>
 
                             <PopBrowseTop>
-                                <PopBrowseTitle>{editedTask.title} (id {id})</PopBrowseTitle>
+                                <PopBrowseTitle>{editedTask.title}</PopBrowseTitle>
+                                {/* <PopBrowseTitle>{editedTask.title} (id {id})</PopBrowseTitle> */}
 
                                 <CategoryTheme className={`${color} _active-category`}>
                                     <p>{editedTask.topic}</p>
