@@ -3,6 +3,7 @@ import { AppRoutes } from "../../lib/appRoutes";
 import HeaderMenu from "../HeaderNav/HeaderNav";
 import { useGlobal } from "../../hooks/useGlobal";
 import { HeaderBox, HeaderBlock, LogoLink } from "./Header.styled";
+import { Link } from "react-router-dom";
 
 function Header({ noButton }) {
 
@@ -25,11 +26,13 @@ function Header({ noButton }) {
             <div className="container">
 
                 <HeaderBlock>
-                    <LogoLink to={AppRoutes.HOME}>
-                        <img src={logo} alt="logo" />
+                    <LogoLink>
+                        <Link to={AppRoutes.HOME}>
+                            <img src={logo} alt="logo" />
+                        </Link>
                     </LogoLink>
 
-                    <HeaderMenu noButton={noButton}/>
+                    <HeaderMenu noButton={noButton} />
 
                 </HeaderBlock>
 
