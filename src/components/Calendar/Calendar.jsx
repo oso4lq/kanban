@@ -9,7 +9,6 @@ export function Calendar({ selected, setSelected, children }) {
     let footer = <div className="calendar__period">{children}</div>;
     if (selected) {
         footer = <CalendarP>Do until {format(selected, 'PP')}.</CalendarP>;
-        // footer = <CalendarP>Срок исполнения: {format(selected, 'PP', {locale: ru})}</CalendarP>;
     }
 
     const css = `
