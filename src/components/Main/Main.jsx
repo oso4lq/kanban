@@ -1,21 +1,23 @@
-import { Container } from '../Common/Common.styled';
 import { MainBox, MainBlock, MainContent } from './Main.styled';
 import { ColumnList } from '../ColumnList/ColumnList';
 
-function Main({ cardList, isLoaded }) {
-    return <MainBox className='main'>
-        <Container>
-            <MainBlock>
-                <MainContent>
+function Main({ cardList, isLoaded, hasError }) {
+    return (
+        <MainBox className='main'>
+            <div className="container">
+                <MainBlock>
+                    <MainContent>
 
-                    {
-                        isLoaded ? 'Loading' :
-                            <ColumnList cardList={cardList} />
-                    }
+                        {
+                            isLoaded ? 'Please wait. Loading...' :
+                                hasError ? `Error occured: ${hasError}` :
+                                    <ColumnList cardList={cardList} />
+                        }
 
-                </MainContent>
-            </MainBlock>
-        </Container>
-    </MainBox >
+                    </MainContent>
+                </MainBlock>
+            </div>
+        </MainBox >
+    )
 }
 export default Main;

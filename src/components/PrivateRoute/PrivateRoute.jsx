@@ -3,8 +3,7 @@ import { AppRoutes } from '../../lib/appRoutes';
 import { useUser } from '../../hooks/useUser';
 
 function PrivateRoute() {
-  const {userData} = useUser();
-  console.log(userData);
+  const { userData } = useUser();
   return userData ? <Outlet /> : <Navigate to={AppRoutes.LOGIN} />;
 }
 

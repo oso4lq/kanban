@@ -1,64 +1,44 @@
-import { useState } from "react";
-import { Container, Button } from "../Common/Common.styled";
-import { HeaderBox, HeaderBlock, HeaderNav } from "./Header.styled";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { AppRoutes } from "../../lib/appRoutes";
+import HeaderMenu from "../HeaderNav/HeaderNav";
+import { useGlobal } from "../../hooks/useGlobal";
+import { HeaderBox, HeaderBlock, LogoLink } from "./Header.styled";
+import { Link } from "react-router-dom";
 
-function Header({ addCard, toggleTheme, userData }) {
+function Header({ noButton }) {
 
-    const [isOpened, setIsOpened] = useState(false);
-    function togglePopUp() {
-        setIsOpened((prev) => !prev)
-    }
+    const { theme } = useGlobal();
 
-    return <HeaderBox className="header">
-        <Container>
-            <HeaderBlock>
-                <div className="header__logo _show _light">
-                    <a href="" target="_self">
-                        <img src="public/logo.png" alt="logo" />
-                    </a>
-                </div>
-                <div className="header__logo _dark">
-                    <a href="" target="_self">
-                        <img src="public/logo_dark.png" alt="logo" />
-                    </a>
-                </div>
-                <HeaderNav>
+    const [logo, setLogo] = useState("/images/logo.png");
 
-                    {/* <Button id="btnMainNew" onClick={addCard}>
-                        Create new task
-                    </Button> */}
+    useEffect(() => {
+        window.localStorage.setItem("theme", theme);
+        if (theme === "dark") {
+            setLogo("public/logo_dark.png");
+        } else {
+            setLogo("public/logo.png");
+        }
+    }, [theme]);
 
-                    <Link to={AppRoutes.ADD_CARD}>
-                        <Button id="btnMainNew">Create new task</Button>
+
+    return (
+        <HeaderBox className="header">
+            <div className="container">
+
+                <HeaderBlock>
+
+                    <Link to={AppRoutes.HOME}>
+                        <LogoLink>
+                            <img src={logo} alt="logo" />
+                        </LogoLink>
                     </Link>
 
-                    <a href="#user-set-target" className="header__user _hover02" onClick={togglePopUp}>
-                        {userData.name}
-                    </a>
+                    <HeaderMenu noButton={noButton} />
 
-                    {isOpened && <div className="header__pop-user-set pop-user-set">
-                        <p className="pop-user-set__name">
-                            {userData.name}
-                        </p>
-                        <p className="pop-user-set__mail">
-                            {userData.login}
-                        </p>
-                        <div className="pop-user-set__theme">
-                            <p>Dark theme</p>
-                            <input type="checkbox" className="checkbox" name="checkbox" onClick={toggleTheme} />
-                        </div>
+                </HeaderBlock>
 
-                        <Link to={AppRoutes.EXIT}>
-                            <Button $transparent>Log out</Button>
-                        </Link>
-
-                    </div>}
-
-                </HeaderNav>
-            </HeaderBlock>
-        </Container>
-    </HeaderBox>
+            </div>
+        </HeaderBox>
+    )
 }
 export default Header;

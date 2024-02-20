@@ -8,31 +8,30 @@ export const CardItem = styled.div`
     animation-duration: 500ms;
     animation-timing-function: linear;
     @media (max-width: ${breakpoints.md}px) {
-        background: red;
     }
 `;
 
 export const CardContainer = styled.div`
     width: 220px;
     height: 130px;
-    background-color: #FFFFFF;
+    background-color: ${props => props.theme.backColor};
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: stretch;
     padding: 15px 13px 19px;
-    @media (max-width: ${breakpoints.xl}px) {
+
+    @media screen and (max-width: ${breakpoints.xl}px) {
         width: 220px;
         height: 130px;
-        background-color: #FFFFFF;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: stretch;
         padding: 15px 13px 19px;
-    }
+  }
 `;
 
 export const CardThemeP = styled.p`
@@ -81,4 +80,11 @@ export const CardDateP = styled.p`
     line-height: 13px;
     color: #94A6BE;
     letter-spacing: 0.2px;
+`
+export const CardTitle = styled.h3`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: ${props => props.theme.color};
+  margin-bottom: 10px;
 `

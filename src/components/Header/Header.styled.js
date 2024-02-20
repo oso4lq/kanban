@@ -1,10 +1,9 @@
 import styled from "styled-components";
-//import { breakpoints } from "../../lib/breakpoints";
 
 export const HeaderBox = styled.header`
     width: 100%;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: ${(props) => props.theme.backColor};
 `
 
 export const HeaderBlock = styled.div`
@@ -17,16 +16,11 @@ export const HeaderBlock = styled.div`
     top: 0;
     left: 0;
     padding: 0 10px;
+    gap: 20px;
 `
 
-//reuse style with dark
-export const HeaderLogo = styled.div`
-`
-
-export const HeaderNav = styled.nav`
-    max-width: 290px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+export const LogoLink = styled.div`
+  img {
+    width: 85px;
+  }
+`;

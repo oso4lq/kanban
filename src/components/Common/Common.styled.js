@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../lib/breakpoints";
+import { hover01 } from "../../Global/Global.styled";
 
 export const Container = styled.div`
     max-width: 1260px;
@@ -14,7 +15,7 @@ export const Container = styled.div`
 
 export const Button = styled.button`
     height: 30px;
-    //width: 178px;
+    min-width: 124px;
 
     background-color: ${props => props.$transparent ? 'transparent' : '#565EEF'};
     color: ${props => props.$transparent ? '#565EEF' : '#FFFFFF'};
@@ -26,7 +27,6 @@ export const Button = styled.button`
     font-size: 14px;
     line-height: 1;
     font-weight: 500;
-    margin: 0px 20px;
     padding: 0px 10px;
 
 
@@ -38,18 +38,17 @@ export const Button = styled.button`
 export default Button;
 
 export const LogInRegisterDIV = styled.div`
-    display: flex;
-    //width: 1440px;
-    padding: 10% 0px 10% 0px;
-    justify-content: center;
-    align-items: center;
-    background: #EAEEF6;
+height: 100vh;
+display: flex;
+padding: 10% 0px 10% 0px;
+justify-content: center;
+align-items: center;
+background: #EAEEF6;
 `
 export const LogInRegisterBox = styled.div`
-
-    border: 0.7px solid #D4DBE5;
-    background: #FFF;
-    box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+border: 0.7px solid #D4DBE5;
+background: #FFF;
+box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
 `
 export const Modal = styled.div`
 display: flex;
@@ -62,6 +61,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 20px;
+`
+export const LoginRegisterTitle = styled.div`
+  color: #000000;
 `
 export const ModalForm = styled.form`
 display: flex;
@@ -95,4 +97,118 @@ font-style: normal;
 font-weight: 400;
 line-height: 150%; /* 21px */
 letter-spacing: -0.14px;
+`
+
+export const CategoriesTheme = styled.div`
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 8px 20px;
+  border-radius: 24px;
+  margin-right: 7px;
+  opacity: 0.4;
+ 
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"]:checked + label:checked {
+    opacity: 1 !important;
+   
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &:hover {
+    opacity: 1 !important;
+  }
+
+  .theme-top {
+    display: block;
+  }
+`;
+
+export const ModalBtnEnter = styled.button`
+  width: 100%;
+  height: 30px;
+  background-color: #565eef;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+
+  a {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: ${breakpoints.sm}px) {
+    height: 40px;
+  }
+
+  ${hover01}
+`;
+
+export const ModalBtnErr = styled.button`
+  width: 100%;
+  height: 30px;
+  background-color: #94a6be;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  color: #ffffff;
+
+  a {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: ${breakpoints.sm}px) {
+    height: 40px;
+  }
+`;
+
+export const ErrorText = styled.div`
+font-family: Arial;
+font-size: 12px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 0.01em;
+text-align: center;
+color: #F84D4D;
 `

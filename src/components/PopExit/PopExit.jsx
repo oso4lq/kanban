@@ -1,42 +1,40 @@
-import Button from "../Button/Button.styled";
+import { GlobalStyle } from "../../Global/Global.styled.js";
+import { useUser } from "../../hooks/useUser";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../lib/appRoutes";
-//import { PopExitBox, PopExitContainer, PopExitBlock } from "./PopExit.styled";
+import { PopExitBlock, PopExitContainer, PopExitDiv, PopExitFormGroup, PopExitNo, PopExitTtl, PopExitYes } from "./PopExit.styled.js";
 
-/*
-<button className="pop-exit__exit-yes _hover01" id="exitYes">
-    <a href="modal/signin.html">Yes</a>{" "}
-</button>
-<button className="pop-exit__exit-no _hover03" id="exitNo">
-    <a href="main.html">No, stay</a>{" "}
-</button>
-*/
+function PopExit() {
+    const { logoutUser } = useUser()
+    return (
+        <>
+            <GlobalStyle />
+            <PopExitDiv id="popExit">
+                <PopExitContainer>
+                    <PopExitBlock>
+                        <PopExitTtl>
+                            <h2>Log out?</h2>
+                        </PopExitTtl>
+                        <div id="formExit" action="#">
+                            <PopExitFormGroup>
 
-function popExit() {
-    return <div className="pop-exit" id="popExit">
-        <div className="pop-exit__container">
-            <div className="pop-exit__block">
-                <div className="pop-exit__ttl">
-                    <h2>Log out?</h2>
-                </div>
-                <form className="pop-exit__form" id="formExit" action="#">
-                    <div className="pop-exit__form-group">
+                                <PopExitYes id="exitYes"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        logoutUser();
+                                    }}
+                                >Yes</PopExitYes>
 
-                        <Button className="pop-exit__exit-yes" id="exitYes">
-                            <Link to={AppRoutes.LOGIN}>YES</Link>
-                            <a href="modal/signin.html">Yes</a>{" "}
-                        </Button>
+                                <PopExitNo id="exitNo">
+                                    <Link to={AppRoutes.HOME}>No, stay</Link>
+                                </PopExitNo>
 
-                        <Button $transparent className="pop-exit__exit-no" id="exitNo">
-                            <Link to={AppRoutes.HOME}>NO</Link>
-                            <a href="main.html">No, stay</a>{" "}
-                        </Button>
-
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
+                            </PopExitFormGroup>
+                        </div>
+                    </PopExitBlock>
+                </PopExitContainer>
+            </PopExitDiv>
+        </>
+    )
 }
-export default popExit;
+export default PopExit;
